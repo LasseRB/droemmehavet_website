@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drømmehavet</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="canvas.js" defer></script>
+    
+</head>
+<body>
+    <h1> <a href="http://droemmehavet.dk"> Drømmehavet</a></h1>
+    <div id="content">
+       
+        
+       <span id='mainTxt'><h2>Vi bygger en lytteplatform med historier til de små</h2></span> 
+        <!-- <div id='line'></div> -->
+        <form name='emailform'>
+            <label for="email">Skriv dig op på vores mailingliste hvis du vil følge med i vores udvikling. </label>
+            <div id='form-inner'>
+                <div id="loading-container">
+                <div id='loading'>
+                    <svg>
+                        <circle cx="-5" cy="100" r="20" 
+                            fill="transparent" stroke="white" 
+                            stroke-width="5"/>
+                    </svg>  
+                </div>     
+            </div>
+                <div id = 'inputBox'>
+                    <input type="email" id="email" name="email" placeholder="Din email-adresse"> <br>
+                    <button type="submit" >Skriv mig op!</button> 
+                    
+                </div>
+        </div>
+           
+    
+        </form> 
+       
+    </div>
+    <img src="Eventyr.png" alt="">
+    <footer><p>&copy Drømmehavet Aps </p></footer>
+    
+    <canvas id='canvas'></canvas>
+
+</body>
+</html>
