@@ -12,7 +12,7 @@ a{
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
-img{
+#eventyr{
     /* display: block; */
     position: absolute;
     width: 780px;
@@ -20,6 +20,10 @@ img{
     bottom: 10px;
     /* transform: translateY(40%); */
     z-index: 1;
+}
+#bog{
+    position: relative;
+    width: 350px;
 }
 #content{
     position: relative;
@@ -32,6 +36,13 @@ img{
     z-index: 2;
    
 
+}
+.content-inner{
+    display: flex;
+    flex-direction: row;
+}
+.lyt{
+    margin: 30px;
 }
 h1{
     position: absolute;
@@ -221,7 +232,7 @@ footer p{
     button{
         font-size: 10pt
     }
-    img{
+    #eventyr{
         /* display: block; */
         position: absolute;
         width: 150vw;
@@ -233,4 +244,6 @@ footer p{
     #mainTxt{
         width: 250px;
     }
+
+    
 }
