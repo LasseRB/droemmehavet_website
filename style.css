@@ -4,8 +4,13 @@ html {
   padding: 0;
   background-color: rgb(32, 161, 230);
   width: 100vw;
-  /* height: 70vh; */
+  height: 100vh;
   /* overflow: hidden; */
+}
+body{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 a {
   text-decoration: none;
@@ -20,30 +25,20 @@ a {
   /* transform: translateY(40%); */
   z-index: 1;
 }
-#bog {
-  position: relative;
-  width: 350px;
-}
+
 #content {
   position: relative;
   margin: auto;
-  width: max-content;
-  height: max-content;
+  width: 500px;
+  height: 100vh;
   text-align: left;
   transform: translateY(5vh);
-  padding: 30px;
+  padding: 5%;
   z-index: 2;
 }
-.content-inner {
-  transform: translateX(25%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
-audio {
-  width: 50%;
-}
+
+
 
 h1 {
   position: absolute;
@@ -165,23 +160,45 @@ button {
 button:hover {
   background-color: rgba(255, 255, 255);
 }
-footer {
+
+.lydbog-content, index-content{
+  position: relative;
+  width: 400px;
+  margin: auto;
+}
+
+.lydbog-content #bog {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.lydbog-content .lyt {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.lydbog-content .lyt audio {
+  width: 100%;
+}
+
+#footer {
+  /* clear:left; */
+  position: absolute;
   font-family: "Open Sans", sans-serif;
   font-size: smaller;
-  position: absolute;
   display: inline;
   width: 100vw;
   height: 20px;
-  bottom: 20px;
-  color: rgb(58, 78, 95);
+  bottom: 10px;
+  color: white;
   margin: 0;
   padding: 0;
+  z-index: 100;
 }
-footer p {
-  display: none;
-  position: absolute;
-  left: 20px;
-}
+
 #canvas {
   margin: 0;
   padding: 0;
@@ -211,10 +228,16 @@ footer p {
 }
 
 @media only screen and (max-width: 630px) {
-  #content {
-    width: 90vw;
+  @-moz-document url-prefix() {
+    .lydbog-content, index-content{
+      width: 200px;
+      margin: auto 0;
+      padding: 0;
+    }
   }
-  form {
+
+  
+   form {
     width: 90vw;
   }
   h2 {
@@ -226,16 +249,16 @@ footer p {
   }
   button {
     font-size: 10pt;
-  }
+  } 
   #eventyr {
-    /* display: block; */
+
     position: absolute;
-    width: 150vw;
+    width: 100%;
     margin: 0 auto;
-    right: -50%;
+
     transform: translateY(50%);
   }
   #mainTxt {
     width: 250px;
-  }
+  }  
 }
