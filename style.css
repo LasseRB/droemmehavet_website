@@ -22,7 +22,7 @@ a {
 }
 #bog {
   position: relative;
-  width: 350px;
+  width: 45%;
 }
 #content {
   position: relative;
@@ -42,7 +42,7 @@ a {
 }
 
 audio {
-  width: 50%;
+  width: 45%;
 }
 
 h1 {
@@ -226,6 +226,15 @@ footer p {
   }
   button {
     font-size: 10pt;
+  }
+
+  #bog {
+    height: 55%;
+    width: 80%;
+  }
+
+  audio {
+    width: 100%;
   }
   #eventyr {
     /* display: block; */

@@ -1,14 +1,35 @@
+@import ".././Shared_Style_Components/Mixins";
+
 .header {
+  background: transparent;
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
 
   h1 {
+    margin-left: 5%;
     display: flex;
     justify-self: start;
+    color: #ffff;
+    font-family: "Pacifico", cursive;
   }
-  .headerButtons {
+
+  .headerButtonsContainer {
     display: flex;
     justify-content: end;
+    margin-right: 5%;
+    .headerButton {
+      @include headerButtons;
+    }
+    #logInButton {
+      background: transparent;
+      border-radius: 10%;
+      font-size: 2vw;
+      color: $main-font;
+      font-family: $header-font-family;
+      border: 1px solid;
+    }
   }
 }

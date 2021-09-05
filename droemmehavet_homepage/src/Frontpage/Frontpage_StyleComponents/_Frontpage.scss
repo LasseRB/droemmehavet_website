@@ -1,3 +1,5 @@
+@import "../../Shared/Shared_Style_Components/Variables";
+
 .frontpage {
   display: flex;
   flex-direction: column;
@@ -9,14 +11,28 @@
   width: 100%;
   height: 1000px;
 
-  /*.frontpageTopImg {
-    position: absolute;
-    z-index: 0;
-  } */
-  h1 {
-    z-index: 5;
+  .FreeTrailButton {
+    width: 45%;
+    height: 15%;
+    background-color: #fffbe8;
+    border-radius: 10px;
+    border: hidden;
+    color: #ffbb0d;
   }
-  h2 {
-    z-index: 5;
+
+  #contentContainer {
+    margin-left: 70%;
+    margin-top: 20%;
+    width: 30%;
+    h1 {
+      font-family: $header-font-family;
+      color: #ffff;
+      z-index: 5;
+    }
+    h2 {
+      font-family: $header-font-family;
+      color: #ffff;
+      z-index: 5;
+    }
   }
 }

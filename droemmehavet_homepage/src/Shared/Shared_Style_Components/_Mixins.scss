@@ -1,0 +1,16 @@
+@import "Variables";
+
+@mixin headerButtons {
+  background: transparent;
+  border: transparent;
+  //border-radius: 10px;
+  font-family: $header-font-family;
+  font-size: 2vw;
+  color: $main-font;
+  width: auto;
+  height: auto;
+
+  &:hover {
+    border-bottom: 1px solid;
+  }
+}
