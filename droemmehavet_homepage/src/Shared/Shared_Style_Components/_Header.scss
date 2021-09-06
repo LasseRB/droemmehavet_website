@@ -5,7 +5,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   position: absolute;
 
   h1 {
@@ -18,17 +18,18 @@
 
   .headerButtonsContainer {
     display: flex;
+    align-items: center;
     justify-content: end;
     margin-right: 5%;
+    
     .headerButton {
       @include headerButtons;
     }
+
     #logInButton {
-      background: transparent;
+      @include headerButtons;
+      justify-content: center;
       border-radius: 10%;
-      font-size: 2vw;
-      color: $main-font;
-      font-family: $header-font-family;
       border: 1px solid;
     }
   }
