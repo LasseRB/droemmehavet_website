@@ -5,17 +5,24 @@ export default function Frontpage() {
   return (
     <div className="frontpage">
       <div id="contentContainer">
-        <h1>Velkommen til Drømmehavet</h1>
-        <h2>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </h2>
-        <button className="FreeTrailButton">Prøv 3 måneder!</button>
+        <div id="textContainer">
+          <h1>Velkommen til et univers af lydfortællinger for børn</h1>
+          <h2>
+            <span className="tilbud">49kr. </span>
+             om måneden. Tilmeld inden den
+            <span className="tilbud"> 1. november</span> og få resten af året
+            gratis!
+          </h2>
+          <button className="FreeTrailButton">Tilmeld nu!</button>
+        </div>
       </div>
       <div id="secondContentContainer">
-        <div id="tutorielText"> 
-        <h1>At vero </h1>
-        <h2>eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</h2>
+        <div id="tutorielText">
+          <h1>Lyt til historier!</h1>
+          <h2>
+            På ´Eventyrøen´ har Troldmanden fået en ny lærling, Karla. Han har
+            også et tæppe, der kan flyve...
+          </h2>
         </div>
         <figure id="imgContainer">
           <img
