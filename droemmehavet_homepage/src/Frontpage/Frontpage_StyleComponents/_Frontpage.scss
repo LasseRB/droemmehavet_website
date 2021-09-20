@@ -5,14 +5,13 @@
   display: flex;
   flex-direction: column;
   justify-items: center;
-  width: 100%;
 
   #contentContainer {
     width: 100vw;
     height: 105vh;
     background-image: url("../../background.png");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
 
     #textContainer {
       margin-left: 55%;
@@ -60,10 +59,18 @@
       @include headerText(black, 3vw);
     }
     h2 {
-      @include headerText(black, 1.5vw);
+      @include headerText(black, 1.3vw);
       font-family: $paragraph-font-familiy;
       font-style: small;
     }
+  }
+
+  #pil {
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 20%;
+    width: 200px;
+    height: 200px;
   }
 
   #imgContainer {

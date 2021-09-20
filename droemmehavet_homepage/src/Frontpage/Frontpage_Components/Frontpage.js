@@ -1,5 +1,6 @@
 import React from "react";
-import backgroundImg from "../../background.png";
+import Pil from "../Frontpage_StyleComponents/Pil.png";
+import AudioPlayer from "./AudioPlayer";
 
 export default function Frontpage() {
   return (
@@ -9,7 +10,7 @@ export default function Frontpage() {
           <h1>Velkommen til et univers af lydfortællinger for børn</h1>
           <h2>
             <span className="tilbud">49kr. </span>
-             om måneden. Tilmeld inden den
+            om måneden. Tilmeld inden den
             <span className="tilbud"> 1. november</span> og få resten af året
             gratis!
           </h2>
@@ -20,10 +21,13 @@ export default function Frontpage() {
         <div id="tutorielText">
           <h1>Lyt til historier!</h1>
           <h2>
-            På ´Eventyrøen´ har Troldmanden fået en ny lærling, Karla. Han har
-            også et tæppe, der kan flyve...
+            På ´Eventyrøen´ har Troldmanden fået en ny lærling, Karla. <br />{" "}
+            Han har også et tæppe, der kan flyve...
           </h2>
+          <h3>Hør historien her!</h3>
         </div>
+        <img id="pil" scr={Pil} />
+        <AudioPlayer />
         <figure id="imgContainer">
           <img
             id="exampleImg"
