@@ -8,6 +8,10 @@
   justify-content: space-around;
   position: absolute;
 
+  a{
+    text-decoration: none;
+  }
+
   h1 {
     margin-left: 5%;
     display: flex;
@@ -16,6 +20,8 @@
     font-family: "Pacifico", cursive;
   }
 
+  
+
   .headerButtonsContainer {
     display: flex;
     align-items: center;
@@ -23,14 +29,40 @@
     margin-right: 5%;
     
     .headerButton {
-      @include headerButtons;
+      @include headerButtons($main-font);
     }
 
     #logInButton {
-      @include headerButtons;
+      @include headerButtons($main-font);
       justify-content: center;
       border-radius: 10%;
       border: 1px solid;
     }
   }
 }
+
+
+.header.blue {
+  background: white;
+  position: relative;
+  h1 {
+
+    color: $blue-main;
+
+  }
+
+  
+
+  .headerButtonsContainer {
+
+    .headerButton {
+      @include headerButtons($blue-main);
+    }
+
+    #logInButton {
+      @include headerButtons($blue-main);
+  
+    }
+  }
+}
+

@@ -1,17 +1,29 @@
-import { Router, Switch, Link, Route } from "react-router";
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 
 import "./App.scss";
 
-import aboutPage from "./AboutPage/AboutPage_Components/AboutPage";
+import AboutPage from "./AboutPage/AboutPage_Components/AboutPage";
 import FrontPage from "./Frontpage/Frontpage_Components/Frontpage";
-import webshop from "./WebShopPage/WebShopPage_Components/WebShopPage";
+import WebshopPage from "./WebShopPage/WebShopPage_Components/WebShopPage";
+import TilmeldPage from "./TilmeldPage/TilmeldPage_Components/TilmeldPage";
 import Header from "./Shared/Header";
 
 function App() {
+  // [theme, setTheme] = useState(props.theme || 'white')
   return (
     <div className="App">
+      <Router>
       <Header />
-      <FrontPage />
+        <Switch>
+          <Route path="/" exact>
+            <FrontPage />
+          </Route>
+          
+          <Route path="/tilmeld">
+            <TilmeldPage />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

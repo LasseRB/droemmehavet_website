@@ -1,12 +1,12 @@
 @import "Variables";
 
-@mixin headerButtons {
+@mixin headerButtons($color) {
   display: flex;
   background: transparent;
   border: transparent;
   font-family: $header-font-family;
   font-size: 2vw;
-  color: $main-font;
+  color: $color;
   width: auto;
   height: 3vw;
   margin: 0;
@@ -21,3 +21,5 @@
   color: $textColor;
   font-size: $fontSize;
 }
+
+
