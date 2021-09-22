@@ -48,16 +48,20 @@ class Reepay{
                     "signup_method": "link"
                 })
             }).then(response => response.json())
+            .catch(error => console.error(error))
     
         
     }
 
-    renderCheckoutWindow(sessionID){
-        if(sessionID != null)
-           return new window.Reepay.EmbeddedSubscription(sessionID, { html_element: 'rp_container' } );
-        else{
-            return new window.Reepay.EmbeddedSubscription(null, { html_element: 'rp_container' } );
-        }
+    async renderCheckoutWindow(user){
+        console.log(user.email, user.displayName)
+        const rp = new window.Reepay.EmbeddedSubscription(null, { html_element: 'rp_container' } );
+        const handle = this.createNewSubscriptionHandle(user.uid)
+        this.createPendingSubscriber(user.uid, handle, user.displayName, user.email)
+        
+        const session = await this.createSubscriberSession()
+        console.log(session)
+        rp.show(session.id)
     }
 
     

@@ -1,6 +1,5 @@
 import app from '@firebase/app';
 import '@firebase/auth';
-import {doc, setDoc} from '@firebase/firestore';
 import '@firebase/firestore';
 import '@firebase/storage';
 import '@firebase/analytics';
@@ -34,10 +33,19 @@ class Firebase {
 
     // auth API for password and email
     doCreateUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);
+    doUpdateUser = (user) => this.auth.currentUser.updateProfile(user)
+        .then(() =>{
+            return 1
+        })
+        .catch((error) =>{
+            console.error(error)
+            return error
+        })
     doSignInWithEmailAndPassword = (email, password) => this.auth.signInWithEmailAndPassword(email, password);
     doSignOut = () => this.auth.signOut();
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
     doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+    
     getCurrentUser = () => this.auth.currentUser
 
 

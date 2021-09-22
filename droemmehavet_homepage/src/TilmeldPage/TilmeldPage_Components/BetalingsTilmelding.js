@@ -7,10 +7,9 @@ export default function BetalingsTilmelding(props) {
     const firebase = useContext(FirebaseContext)
     const rpRef = useRef()
     useEffect(() => {
-        const handle = reepay.createNewSubscriptionHandle(firebase.getCurrentUser().uid)
-        reepay.createPendingSubscriber(firebase.getCurrentUser().uid, handle, 'lars', 'lars@email.dk')
-        const session = reepay.createSubscriberSession(firebase.getCurrentUser().uid) 
-        reepay.renderCheckoutWindow(session.id)
+            const user = firebase.getCurrentUser()
+            reepay.renderCheckoutWindow(user)
+    
     }, [])
     return (
         <div>

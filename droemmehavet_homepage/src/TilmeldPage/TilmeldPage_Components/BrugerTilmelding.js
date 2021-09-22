@@ -18,15 +18,27 @@ export default function BrugerTilmelding(props) {
         }
         // create user in auth
         firebase.doCreateUserWithEmailAndPassword(formContent.email, formContent.password)
-        .then(res => console.log(res.json))
+        .then(res => console.log('bruger oprettet!'))
         .catch(error => {
             props.handleFejlBesked(error.code)
             console.error(error)
             return
         })
-        //create user in DB
-        // firebase.doCreateFirestoreUser()
-
+        // give auth user a name
+        firebase.doUpdateUser({'displayName':formContent.name})
+        .catch(error => {
+            props.handleFejlBesked(error.code)
+            console.error(error)
+            return
+        })
+       
+        //create user in Firestore DB - needs the right auth rules
+        firebase.doCreateFirestoreUser(firebase.getCurrentUser.uid, {'navn': formContent.name, 'email': formContent.email})
+        .catch(error => {
+            props.handleFejlBesked(error.code)
+            console.error(error)
+            return
+        })
 
         props.setPage(1)
         
@@ -36,7 +48,7 @@ export default function BrugerTilmelding(props) {
         event.preventDefault()
         setFormContent({...formContent, [event.target.name]:event.target.value })
 
-        // console.log(formContent)
+
     }
     return (
         <div>
