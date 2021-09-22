@@ -12,7 +12,11 @@
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "sass": "^1.39.0",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "firebase": "^8.6.5",
+    "react-favicon": "0.0.23",
+    "dotenv": "^10.0.0",
+    "base-64": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
