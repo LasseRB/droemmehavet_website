@@ -19,9 +19,9 @@ function App() {
             <FrontPage />
           </Route>
 
-          {/* <Route path="/omos" exact>
+          <Route path="/omos">
             <AboutPage />
-          </Route> */}
+          </Route>
 
           <Route path="/tilmeld">
             <TilmeldPage />

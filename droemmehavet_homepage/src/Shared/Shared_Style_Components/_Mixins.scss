@@ -22,4 +22,10 @@
   font-size: $fontSize;
 }
 
+@mixin paragraph ($textColor, $fontSize){
+  font-family: $header-font-family;
+  color: $textColor;
+  font-size: $fontSize;
+}
+
 

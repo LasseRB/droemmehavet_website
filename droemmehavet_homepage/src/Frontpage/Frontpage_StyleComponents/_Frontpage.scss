@@ -49,6 +49,7 @@
 
   #secondContentContainer {
     display: flex;
+    height: 100vh;
   }
 
   #tutorielText {
@@ -89,9 +90,9 @@
     border-radius: 15%;
     //margin: 0;
     #exampleImg {
-      //transform: translateX(-10%);
       display: block;
-      width: 150vh;
+      width: 250vh;
+      transform: translate(-50%, -20%);
     }
   }
 }
