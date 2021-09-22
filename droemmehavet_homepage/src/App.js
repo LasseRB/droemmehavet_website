@@ -13,12 +13,16 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Header />
+        <Header />
         <Switch>
           <Route path="/" exact>
             <FrontPage />
           </Route>
-          
+
+          {/* <Route path="/omos" exact>
+            <AboutPage />
+          </Route> */}
+
           <Route path="/tilmeld">
             <TilmeldPage />
           </Route>
