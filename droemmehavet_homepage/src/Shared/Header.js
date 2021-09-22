@@ -5,7 +5,7 @@ export default function Header(props) {
   const [theme, setTheme] = useState(false)
 
   useEffect(() => {
-    if(location.pathname == '/'){
+    if(window.location.pathname == '/'){
       setTheme(false)
     } else{
       setTheme(true)
