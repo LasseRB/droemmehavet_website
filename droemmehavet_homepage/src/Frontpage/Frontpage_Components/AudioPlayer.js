@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import troldmanden from "../../Troldmand-Snippet.mp3";
+import Wizard from "../../Wizard.png";
 import {
   PlayArrow,
   Pause,
@@ -126,6 +127,7 @@ export default function AudioControls() {
 
   return (
     <div className="audioPlayer">
+      <img src={Wizard} id="WizardImg" />
       <audio
         ref={audio}
         src={troldmanden}
