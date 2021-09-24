@@ -1,73 +1,52 @@
-import React, {useState, useContext} from 'react'
-import { FirebaseContext } from '../../Shared/Firebase'
+import React from 'react'
+import { BrowserRouter as Router, Switch, Link, Route, useHistory } from "react-router-dom";
 
 export default function BrugerTilmelding(props) {
-    const firebase = useContext(FirebaseContext);
-    const [formContent, setFormContent] = useState({})
+    let history = useHistory();
     
     const handleUserCreateSubmit = event =>{
         event.preventDefault()
-        if(formContent.email != formContent.email2){
+        if(props.formContent.email != props.formContent.email2){
             props.handleFejlBesked('tilmelding/email-mismatch')
             return
         }
 
-        if(formContent.password != formContent.password2){
+        if(props.formContent.password != props.formContent.password2){
             props.handleFejlBesked('tilmelding/kode-mismatch')
             return
         }
-        // create user in auth
-        firebase.doCreateUserWithEmailAndPassword(formContent.email, formContent.password)
-        .then(res => console.log('bruger oprettet!'))
-        .catch(error => {
-            props.handleFejlBesked(error.code)
-            console.error(error)
-            return
-        })
-        // give auth user a name
-        firebase.doUpdateUser({'displayName':formContent.name})
-        .catch(error => {
-            props.handleFejlBesked(error.code)
-            console.error(error)
-            return
-        })
-       
-        //create user in Firestore DB - needs the right auth rules
-        firebase.doCreateFirestoreUser(firebase.getCurrentUser.uid, {'navn': formContent.name, 'email': formContent.email})
-        .catch(error => {
-            props.handleFejlBesked(error.code)
-            console.error(error)
-            return
-        })
-
-        props.setPage(1)
+        else{
+            history.push('/tilmeld/2')
+        }
         
     }
 
     const handleChange = event =>{
         event.preventDefault()
-        setFormContent({...formContent, [event.target.name]:event.target.value })
-
-
+        props.setFormContent({...props.formContent, [event.target.name]:event.target.value })
     }
+
     return (
         <div>
              <form onSubmit={handleUserCreateSubmit}>
-                <label>Navn</label>
-                <input name="name" type="text" onChange={handleChange} />
-
+                <label>For -og mellemnavn(e)</label>
+                <input name="fornavn" type="text" onChange={handleChange} required/>
+                
+                <label>Efternavn(e)</label>
+                <input name="efternavn" type="text" onChange={handleChange} />
+                
                 <label>Email</label>
-                <input name="email" type="email" onChange={handleChange}/>
+                <input name="email" type="email" onChange={handleChange} required/>
                 <label>Skriv din email igen</label>
-                <input name="email2" type="email" onChange={handleChange}/>
+                <input name="email2" type="email" onChange={handleChange} required/>
 
                 <div id="divider"></div>
                 
                 <label>Kodeord</label>
-                <input name="password" type="password" onChange={handleChange}/>
+                <input name="password" type="password" onChange={handleChange} required/>
 
                 <label>Skriv din kode igen</label>
-                <input name="password2" type="password" onChange={handleChange}/>
+                <input name="password2" type="password" onChange={handleChange} required/>
 
                 <input type="submit" value="Næste skridt 👉" />
             </form>

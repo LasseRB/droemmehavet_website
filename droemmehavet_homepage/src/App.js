@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
-
+import {useState, useEffect, useContext } from 'react'
+import { FirebaseContext } from './Shared/Firebase'
 import "./App.scss";
 
 import AboutPage from "./AboutPage/AboutPage_Components/AboutPage";
@@ -9,7 +10,15 @@ import TilmeldPage from "./TilmeldPage/TilmeldPage_Components/TilmeldPage";
 import Header from "./Shared/Header";
 
 function App() {
-  // [theme, setTheme] = useState(props.theme || 'white')
+  const [currentUser, setCurrentUser] = useState(null)
+  const firebase = useContext(FirebaseContext);
+  useEffect(() => {
+    const unsubscribe = firebase.auth.onAuthStateChanged(user => {
+      setCurrentUser(user)
+    })
+
+    return unsubscribe
+  }, [])
   return (
     <div className="App">
       <Router>
@@ -18,9 +27,8 @@ function App() {
           <Route path="/" exact>
             <FrontPage />
           </Route>
-          
           <Route path="/tilmeld">
-            <TilmeldPage />
+            <TilmeldPage currentUser = { currentUser } />
           </Route>
         </Switch>
       </Router>

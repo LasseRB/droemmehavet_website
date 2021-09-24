@@ -24,7 +24,7 @@ class Reepay{
         
     }
 
-    createPendingSubscriber = async (userID, handle, name, email) => {
+    createPendingSubscriber = async (handle, fornavn, efternavn, email) => {
         return await fetch('https://api.reepay.com/v1/subscription/prepare',
             {
                 method: 'POST',
@@ -38,14 +38,13 @@ class Reepay{
                     "create_customer": {
                         "email": email,
                         "test": true,
-                        "name": name,
-                        // "first_name": firstName,
-                        // "last_name": lastName,
-                        "generate_handle": false,
-                        "handle": userID
+                        "first_name": fornavn,
+                        "last_name": efternavn || "",
+                        "generate_handle": true,
+                        // "handle": userID
                     },
                     "handle": handle,
-                    "signup_method": "link"
+                    "signup_method": "link",
                 })
             }).then(response => response.json())
             .catch(error => console.error(error))
@@ -53,18 +52,26 @@ class Reepay{
         
     }
 
-    async renderCheckoutWindow(user){
-        console.log(user.email, user.displayName)
-        const rp = new window.Reepay.EmbeddedSubscription(null, { html_element: 'rp_container' } );
-        const handle = this.createNewSubscriptionHandle(user.uid)
-        this.createPendingSubscriber(user.uid, handle, user.displayName, user.email)
-        
-        const session = await this.createSubscriberSession()
-        console.log(session)
-        rp.show(session.id)
+    async renderCheckoutWindow(handle, rp){
+        if(handle){
+            const session = await this.createSubscriberSession(handle)
+            rp.show(session.id) 
+        }
     }
 
+    async getCustomer(handle) {
+        return await fetch('https://api.reepay.com/v1/customer/'+handle,
+        {
+            method: 'GET',
+            headers: {
+                'authorization': 'Basic ' + this.getAPIKeyAsBase64(),
+                'content-type': 'application/json',
+                'accept': 'application/json'
+             }
+        }).then(response => response.json())
+        .catch(error => error.json())
     
+    }
 
     createNewSubscriptionHandle = (userID) =>{
         if(userID != null && userID.length > 0)
@@ -74,4 +81,5 @@ class Reepay{
     }
 
 }
+export const reepay = new Reepay()
 export default Reepay

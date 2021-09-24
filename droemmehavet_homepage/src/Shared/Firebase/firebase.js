@@ -33,22 +33,20 @@ class Firebase {
 
     // auth API for password and email
     doCreateUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);
-    doUpdateUser = (user) => this.auth.currentUser.updateProfile(user)
+    doUpdateAuthUser = (user) => this.auth.currentUser.updateProfile(user)
         .then(() =>{
-            return 1
+            return user
         })
         .catch((error) =>{
             console.error(error)
             return error
-        })
+        });
     doSignInWithEmailAndPassword = (email, password) => this.auth.signInWithEmailAndPassword(email, password);
     doSignOut = () => this.auth.signOut();
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
     doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
     
     getCurrentUser = () => this.auth.currentUser
-
-
     // firestore API
     doCreateFirestoreUser = async (id,user) =>{
 
@@ -57,6 +55,7 @@ class Firebase {
             console.error("Error adding document: ", error);
             return -1;
     });
+
 
     }
    

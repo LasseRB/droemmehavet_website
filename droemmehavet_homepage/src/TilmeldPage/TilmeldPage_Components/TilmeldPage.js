@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+
 import BrugerTilmelding from './BrugerTilmelding'
 import BetalingsTilmelding from './BetalingsTilmelding'
 import { FEJLBESKED } from './tilmeldingsfejlbeskeder'
 
-export default function TilmeldPage() {
+export default function TilmeldPage(props) {
     const [fejlbesked, setFejlbesked] = useState('')
-    const [page, setPage] = useState(0)
+    const [formContent, setFormContent] = useState({})
 
     // renderer fejlbeskeder på siden, på dansk
     const handleFejlBesked = (fejlKode) => {
@@ -33,10 +35,25 @@ export default function TilmeldPage() {
     return (
         <div>
             <div className="fejlbesked">{fejlbesked}</div>
-            {page == 0 ? 
-            <BrugerTilmelding handleFejlBesked ={ handleFejlBesked } setPage = {setPage}/> :
-            <BetalingsTilmelding handleFejlBesked ={ handleFejlBesked } />
-        }
+            <Switch>
+            <Route path="/tilmeld/1">
+                <BrugerTilmelding handleFejlBesked = { handleFejlBesked } setFormContent= { setFormContent } formContent= { formContent }/>
+            </Route>
+            <Route path="/tilmeld/2">
+                <BetalingsTilmelding handleFejlBesked = { handleFejlBesked } currentUser = {props.currentUser} setFormContent= { setFormContent } formContent= { formContent }/>
+            </Route>
+            <Route path="/tilmeld/3">
+                {fejlbesked.length == 0 &&
+                <div className='succes-sign-up'>
+                    <h1>Tillykke! du er nu medlem</h1>
+                    <a href="app.droemmehavet.dk">Gå til drømmehavet</a>
+                </div>                    
+                    
+
+                }
+            </Route>
+            </Switch>
+        
         </div>
     )
 }

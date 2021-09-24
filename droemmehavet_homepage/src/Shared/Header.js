@@ -14,7 +14,6 @@ export default function Header(props) {
 
   return (
     <>
-
       <div className={theme ? "header blue" : "header"}>
         <Link to="/" exact onClick={() => setTheme(false)} >
           <h1>Drømmehavet</h1>
@@ -23,7 +22,7 @@ export default function Header(props) {
           <button className="headerButton">webshop</button>
           <button className="headerButton">om os</button>
           <button className="headerButton">kontakt</button>
-          <Link to="/tilmeld" className="headerButton" onClick={() => setTheme(true)}>Tilmeld dig!</Link>
+          <Link to="/tilmeld/1" className="headerButton" onClick={() => setTheme(true)}>Tilmeld dig!</Link>
           <button id="logInButton">log ind</button>
         </div>
       </div>
