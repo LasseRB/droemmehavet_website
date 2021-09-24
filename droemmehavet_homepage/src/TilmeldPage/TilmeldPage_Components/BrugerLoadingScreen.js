@@ -6,29 +6,35 @@ import { BrowserRouter as Router, Switch, Link, Route, useHistory } from "react-
 export default function BrugerLoadingScreen(props) {
     const firebase = useContext(FirebaseContext);
     let history = useHistory();
+    let userID = ""
 
-    const opretBrugerIFirebase= () => {
+    const opretBrugerIFirebase= async () => {
          // create user in auth
-         firebase.doCreateUserWithEmailAndPassword(props.formContent.email, props.formContent.password)
-         .then(res => console.log('bruger oprettet!'))
+         await firebase.doCreateUserWithEmailAndPassword(props.formContent.email, props.formContent.password)
+         .then(res => userID = res.user.uid)
          .catch(error => {
              props.handleFejlBesked(error.code)
              console.error(error)
              return
          })
+        //  try {
+        //     firebase.doSignInWithEmailAndPassword(props.formContent.email, props.formContent.password)
+            
+        //  } catch (error) {
+        //     console.error('signin-error:', error)
+        //  }
+         
          // give auth user a name
-         firebase.doUpdateAuthUser({'displayName':props.formContent.fornavn + " " + props.formContent.efternavn})
+         await firebase.doUpdateAuthUser({'displayName':props.formContent.fornavn + " " + props.formContent.efternavn})
          .catch(error => {
              props.handleFejlBesked(error.code)
              console.error(error)
              return
          })
-        //  console.log(props.currentUser)
-         const user = firebase.getCurrentUser()
-         console.log(user)
+
          //create user in Firestore DB - needs the right auth rules
          firebase.doCreateFirestoreUser(
-             user.uid, {
+            userID, {
                 'fornavn': props.formContent.fornavn, 
                 'efternavn': props.formContent.efternavn, 
                 'email': props.formContent.email, 

@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Header />
+      <Header currentUser = { currentUser }/>
         <Switch>
           <Route path="/" exact>
             <FrontPage />
