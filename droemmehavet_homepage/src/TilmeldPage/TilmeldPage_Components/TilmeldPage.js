@@ -4,10 +4,17 @@ import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import BrugerTilmelding from './BrugerTilmelding'
 import BetalingsTilmelding from './BetalingsTilmelding'
 import { FEJLBESKED } from './tilmeldingsfejlbeskeder'
-
+import
 export default function TilmeldPage(props) {
     const [fejlbesked, setFejlbesked] = useState('')
-    const [formContent, setFormContent] = useState({})
+    const [formContent, setFormContent] = useState({
+        'fornavn': '', 
+        'efternavn':'',
+        'email': '',
+        'email2': '',
+        'password': '',
+        'password2': ''
+        })
 
     // renderer fejlbeskeder på siden, på dansk
     const handleFejlBesked = (fejlKode) => {
@@ -26,6 +33,9 @@ export default function TilmeldPage(props) {
                 break;
             case "tilmelding/email-mismatch":
                 setFejlbesked(FEJLBESKED.EMAILS_NOT_IDENTICAL)
+                break;
+            case "tilmelding/navn-mangler":
+                setFejlbesked(FEJLBESKED.MISSING_NAME)
                 break;
             default:
                 setFejlbesked("Der skete en fejl, prøv igen!")

@@ -4,5 +4,6 @@ export const FEJLBESKED = {
     INVALID_EMAIL: '🔥 Hovsa! 🔥 Din email er ikke valid. Er du sikker på, du tastede den rigtigt?.',
     EMAIL_ALREADY_EXIST: '🔥 Hovsa! 🔥 Den email findes allerede i vores system. Har du glemt koden? ',
     EMAILS_NOT_IDENTICAL: '🔥 Hovsa! 🔥 De to emails matcher ikke.',
+    MISSING_NAME: '🔥 Hovsa! 🔥 Navn mangler',
 
 }
