@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import BrugerTilmelding from './BrugerTilmelding'
 import BetalingsTilmelding from './BetalingsTilmelding'
 import { FEJLBESKED } from './tilmeldingsfejlbeskeder'
-import
+
 export default function TilmeldPage(props) {
     const [fejlbesked, setFejlbesked] = useState('')
     const [formContent, setFormContent] = useState({
