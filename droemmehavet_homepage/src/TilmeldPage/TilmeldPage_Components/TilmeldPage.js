@@ -43,7 +43,7 @@ export default function TilmeldPage(props) {
         }
     }
     return (
-        <div>
+        <div class="ikke-frontpage">
             <div className="fejlbesked">{fejlbesked}</div>
             <Switch>
             <Route path="/tilmeld/1">

@@ -3,7 +3,7 @@ import TeamMembers from "./TeamMembers";
 
 export default function AboutPage() {
   return (
-    <div id="aboutPage">
+    <div id="aboutPage" className="ikke-frontpage">
       <div id="container1">
         <h1>
           Drømmehavet Lorem ipsum dolor sit amet, consectetur adipiscing elit.

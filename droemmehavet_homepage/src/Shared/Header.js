@@ -15,6 +15,19 @@ export default function Header(props) {
       setTheme(true)
 
     }
+
+    document.addEventListener('scroll', e=>{
+        if(window.scrollY > 100 && matchExact('/', loc.pathname)){
+          setTheme(true)
+        }
+        if(window.scrollY < 100 && matchExact('/', loc.pathname)){
+
+          setTheme(false)
+        }
+      
+     
+    })
+   
   }, [loc])
 
   const matchExact = (r, str) => {
@@ -24,19 +37,20 @@ export default function Header(props) {
   return (
     <>
       <div className={theme ? "header blue" : "header"}>
+        
+        <div className="headerButtonsContainer">
         <Link to="/" exact onClick={() => setTheme(false)} >
           <h1>Drømmehavet</h1>
         </Link>
-        <div className="headerButtonsContainer">
-          {/* <button className="headerButton">webshop</button> */}
-          <Link to="/omos" className="headerButton">Om Os</Link>
-          {/* <button className="headerButton">kontakt</button> */}
-          <Link to="/tilmeld/1" className="headerButton" onClick={() => setTheme(true)}>Tilmeld dig!</Link>
-         
-          <a href='http://localhost:3001/' className="headerButton" id="goToApp">Til drømmehavet</a>
-          {/* // <Link to="/log" className="headerButton" id="logInButton" onClick={() => setTheme(true)}>Log ind</Link> */}
-          
-          
+          <div className="headerButtonsContainer-inner">
+              {/* <button className="headerButton">webshop</button> */}
+              <Link to="/omos" className="headerButton">Om os</Link>
+              {/* <button className="headerButton">kontakt</button> */}
+              <Link to="/tilmeld/1" className="headerButton" onClick={() => setTheme(true)}>Tilmeld dig!</Link>
+            
+              <a href='http://localhost:3001/' className="headerButton" id="goToApp">Til drømmehavet</a>
+              {/* // <Link to="/log" className="headerButton" id="logInButton" onClick={() => setTheme(true)}>Log ind</Link> */}
+          </div>
         </div>
       </div>
 
