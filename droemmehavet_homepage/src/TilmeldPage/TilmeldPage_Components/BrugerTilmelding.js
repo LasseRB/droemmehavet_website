@@ -1,63 +1,76 @@
-import React, {useState, useContext} from 'react'
-import { FirebaseContext } from '../../Shared/Firebase'
+import React, {useState} from 'react'
+import { BrowserRouter as Router, Switch, Link, Route, useHistory } from "react-router-dom";
 
 export default function BrugerTilmelding(props) {
-    const firebase = useContext(FirebaseContext);
-    const [formContent, setFormContent] = useState({})
+    let history = useHistory();
     
     const handleUserCreateSubmit = event =>{
         event.preventDefault()
-        if(formContent.email != formContent.email2){
+        
+        history.push('/tilmeld/2')
+        
+    }
+    const valider = () => {
+
+        if(props.formContent.fornavn == ''){
+            props.handleFejlBesked('tilmelding/navn-mangler')
+            return 
+        }
+
+        if(props.formContent.email != props.formContent.email2){
             props.handleFejlBesked('tilmelding/email-mismatch')
-            return
+            return 
         }
-
-        if(formContent.password != formContent.password2){
+        
+        if(props.formContent.password != props.formContent.password2){
             props.handleFejlBesked('tilmelding/kode-mismatch')
-            return
+            return 
         }
-        // create user in auth
-        firebase.doCreateUserWithEmailAndPassword(formContent.email, formContent.password)
-        .then(res => console.log(res.json))
-        .catch(error => {
-            props.handleFejlBesked(error.code)
-            console.error(error)
-            return
-        })
-        //create user in DB
-        // firebase.doCreateFirestoreUser()
-
-
-        props.setPage(1)
+    
         
     }
 
+
+    const enableSubmit =
+        props.formContent.password !== props.formContent.password2 ||
+        props.formContent.password === '' ||
+        props.formContent.email !== props.formContent.email2 ||
+        props.formContent.email === '' ||
+        props.formContent.fornavn === '';
+
     const handleChange = event =>{
         event.preventDefault()
-        setFormContent({...formContent, [event.target.name]:event.target.value })
+        props.setFormContent({...props.formContent, [event.target.name]:event.target.value })
+        valider()
 
-        // console.log(formContent)
     }
-    return (
-        <div>
-             <form onSubmit={handleUserCreateSubmit}>
-                <label>Navn</label>
-                <input name="name" type="text" onChange={handleChange} />
 
-                <label>Email</label>
-                <input name="email" type="email" onChange={handleChange}/>
-                <label>Skriv din email igen</label>
-                <input name="email2" type="email" onChange={handleChange}/>
+    return (
+        <div className="bruger-input-container">
+            <span className='steps-box'>
+               <div className="steps"> . . . </div> 
+            </span>
+             <form onSubmit={handleUserCreateSubmit}>
+                <label className="required">For -og mellemnavn(e)</label>
+                <input name="fornavn" type="text" onChange={handleChange} required autoComplete="on"/>
+                
+                <label>Efternavn(e)</label>
+                <input name="efternavn" type="text" onChange={handleChange} autoComplete="on"/>
+                
+                <label className="required">Email</label>
+                <input name="email" type="email" onChange={handleChange} required autoComplete="on"/>
+                <label className="required">Skriv din email igen</label>
+                <input name="email2" type="email" onChange={handleChange} required autoComplete="on"/>
 
                 <div id="divider"></div>
                 
-                <label>Kodeord</label>
-                <input name="password" type="password" onChange={handleChange}/>
+                <label className="required">Kodeord</label>
+                <input name="password" type="password" onChange={handleChange} required/>
 
-                <label>Skriv din kode igen</label>
-                <input name="password2" type="password" onChange={handleChange}/>
+                <label className="required">Skriv din kode igen</label>
+                <input name="password2" type="password" onChange={handleChange} required/>
 
-                <input type="submit" value="Næste skridt 👉" />
+                <input type="submit" value="Næste skridt 👉" disabled={enableSubmit}/>
             </form>
         </div>
     )

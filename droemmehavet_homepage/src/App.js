@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
-
+import {useState, useEffect, useContext, useRef } from 'react'
+import { BrowserRouter as Router, Switch, Link, Route} from "react-router-dom";
+import { FirebaseContext } from './Shared/Firebase'
 import "./App.scss";
 
 import AboutPage from "./AboutPage/AboutPage_Components/AboutPage";
@@ -9,14 +10,27 @@ import TilmeldPage from "./TilmeldPage/TilmeldPage_Components/TilmeldPage";
 import Header from "./Shared/Header";
 
 function App() {
-  // [theme, setTheme] = useState(props.theme || 'white')
+  const [currentUser, setCurrentUser] = useState(null)
+  const firebase = useContext(FirebaseContext);
+  const tilmeldKnap = useRef()
+
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth.onAuthStateChanged(user => {
+      user ? setCurrentUser(user) 
+      : setCurrentUser(null)
+
+    })
+
+    return unsubscribe
+  }, [])
   return (
     <div className="App">
       <Router>
-        <Header />
+      <Header currentUser = { currentUser } tilmeldKnap= {tilmeldKnap}/>
         <Switch>
           <Route path="/" exact>
-            <FrontPage />
+            <FrontPage tilmeldKnap= {tilmeldKnap}/>
           </Route>
 
           <Route path="/omos">
@@ -24,7 +38,7 @@ function App() {
           </Route>
 
           <Route path="/tilmeld">
-            <TilmeldPage />
+            <TilmeldPage currentUser = { currentUser } />
           </Route>
         </Switch>
       </Router>
