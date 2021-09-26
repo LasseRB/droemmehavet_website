@@ -35,17 +35,28 @@
     }
   }
   #container2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     width: 100%;
     height: 70vh;
-    background-color: #0081a9;
+    
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: #0081a9;
+    }
   }
 
   #container3 {
     width: 100%;
     height: 70vh;
-    background-color: #f3ebde;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: #f3ebde;
+    }
   }
 }

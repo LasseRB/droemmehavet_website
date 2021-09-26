@@ -5,7 +5,7 @@
   background: transparent;
   border: transparent;
   font-family: $header-font-family;
-  font-size: 2vw;
+  font-size: 2.3vw;
   color: $color;
   width: auto;
   height: 3vw;
@@ -22,10 +22,8 @@
   font-size: $fontSize;
 }
 
-@mixin paragraph ($textColor, $fontSize){
+@mixin paragraph($textColor, $fontSize) {
   font-family: $header-font-family;
   color: $textColor;
   font-size: $fontSize;
 }
-
-

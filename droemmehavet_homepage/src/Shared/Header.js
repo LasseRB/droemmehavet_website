@@ -28,9 +28,9 @@ export default function Header(props) {
           <h1>Drømmehavet</h1>
         </Link>
         <div className="headerButtonsContainer">
-          <button className="headerButton">webshop</button>
-          <button className="headerButton">om os</button>
-          <button className="headerButton">kontakt</button>
+          {/* <button className="headerButton">webshop</button> */}
+          <Link to="/omos" className="headerButton">Om Os</Link>
+          {/* <button className="headerButton">kontakt</button> */}
           <Link to="/tilmeld/1" className="headerButton" onClick={() => setTheme(true)}>Tilmeld dig!</Link>
          
           <a href='http://localhost:3001/' className="headerButton" id="goToApp">Til drømmehavet</a>

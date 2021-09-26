@@ -1,5 +1,5 @@
 import React from "react";
-import TeamMember from "./TeamMember";
+import TeamMembers from "./TeamMembers";
 
 export default function AboutPage() {
   return (
@@ -25,12 +25,10 @@ export default function AboutPage() {
         </p>
       </div>
       <div id="container2">
-        <TeamMember />
-        <TeamMember />
-        <TeamMember />
+        <TeamMembers type={"core"} />
       </div>
 
-      <div id="container3"></div>
+      <div id="container3">{<TeamMembers type="member" />}</div>
     </div>
   );
 }
