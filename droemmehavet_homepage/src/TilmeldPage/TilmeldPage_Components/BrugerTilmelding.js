@@ -52,15 +52,15 @@ export default function BrugerTilmelding(props) {
             </span>
              <form onSubmit={handleUserCreateSubmit}>
                 <label className="required">For -og mellemnavn(e)</label>
-                <input name="fornavn" type="text" onChange={handleChange} required/>
+                <input name="fornavn" type="text" onChange={handleChange} required autoComplete="on"/>
                 
                 <label>Efternavn(e)</label>
-                <input name="efternavn" type="text" onChange={handleChange} />
+                <input name="efternavn" type="text" onChange={handleChange} autoComplete="on"/>
                 
                 <label className="required">Email</label>
-                <input name="email" type="email" onChange={handleChange} required/>
+                <input name="email" type="email" onChange={handleChange} required autoComplete="on"/>
                 <label className="required">Skriv din email igen</label>
-                <input name="email2" type="email" onChange={handleChange} required/>
+                <input name="email2" type="email" onChange={handleChange} required autoComplete="on"/>
 
                 <div id="divider"></div>
                 

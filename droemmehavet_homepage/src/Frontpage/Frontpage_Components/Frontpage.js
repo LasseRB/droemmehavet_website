@@ -1,8 +1,10 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Link, Route, useHistory } from "react-router-dom";
+
 import Pil from "../Frontpage_StyleComponents/Pil.png";
 import AudioPlayer from "./AudioPlayer";
 
-export default function Frontpage() {
+export default function Frontpage(props) {
   return (
     <div className="frontpage">
       <div id="contentContainer">
@@ -14,7 +16,7 @@ export default function Frontpage() {
             <span className="tilbud"> 1. november</span> og få resten af året
             gratis!
           </h2>
-          <button className="FreeTrailButton">Tilmeld nu!</button>
+          <Link to='/tilmeld/1' className="FreeTrailButton">Tilmeld nu!</Link>
         </div>
       </div>
       <div id="secondContentContainer">

@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
-import {useState, useEffect, useContext } from 'react'
+import {useState, useEffect, useContext, useRef } from 'react'
+import { BrowserRouter as Router, Switch, Link, Route} from "react-router-dom";
 import { FirebaseContext } from './Shared/Firebase'
 import "./App.scss";
 
@@ -12,9 +12,14 @@ import Header from "./Shared/Header";
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const firebase = useContext(FirebaseContext);
+  const tilmeldKnap = useRef()
+
+
   useEffect(() => {
     const unsubscribe = firebase.auth.onAuthStateChanged(user => {
-      setCurrentUser(user)
+      user ? setCurrentUser(user) 
+      : setCurrentUser(null)
+
     })
 
     return unsubscribe
@@ -22,10 +27,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Header currentUser = { currentUser }/>
+      <Header currentUser = { currentUser } tilmeldKnap= {tilmeldKnap}/>
         <Switch>
           <Route path="/" exact>
-            <FrontPage />
+            <FrontPage tilmeldKnap= {tilmeldKnap}/>
           </Route>
           <Route path="/tilmeld">
             <TilmeldPage currentUser = { currentUser } />
