@@ -18,32 +18,40 @@
       align-self: center;
       width: 73%;
       text-align: center;
-      @include headerText(#0368ff, 3vw);
+      @include headerText($blue-main, 3vw);
       font-family: $logo-font-family;
     }
     #p1 {
       margin-left: 10%;
       align-items: flex-start;
-      @include paragraph(#0368ff, 1.5vw);
+      @include paragraph($blue-main, 1.5vw);
       width: 40%;
     }
     #p2 {
       margin-right: 10%;
       align-self: flex-end;
-      @include paragraph(#0368ff, 1.5vw);
+      @include paragraph($blue-main, 1.5vw);
       width: 40%;
     }
   }
   #container2 {
     width: 100%;
     height: 70vh;
-    
+
     ul {
       list-style: none;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      background-color: #0081a9;
+      background-color: $blue-thrid;
+
+      h1 {
+        @include headerText($orange-main, 1.5vw);
+        text-align: center;
+      }
+      p {
+        @include paragraph($orange-main, 1vw);
+      }
     }
   }
 
