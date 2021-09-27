@@ -1,6 +1,7 @@
 @import "../../Shared/Shared_Style_Components/Variables";
 @import "../../Shared/Shared_Style_Components/Mixins";
 .bruger-input-container{
+    margin-top: 30%;
     width: 500px;
     margin: 0 auto;
     .steps-box{
@@ -40,4 +41,15 @@
             border-radius: 10px;
         }   
     }
+}
+
+.fejlbesked{
+    position: absolute;
+    background-color: $error-second;
+    border: 1px solid $error-main;
+    border-radius: 20px;
+    z-index: 11;
+    top: $header-height;
+    margin: 0 40%;
+    width: max-content;
 }
