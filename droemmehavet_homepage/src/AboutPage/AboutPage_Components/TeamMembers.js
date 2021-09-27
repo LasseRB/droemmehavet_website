@@ -1,42 +1,47 @@
 import React from "react";
-import teamMemberPhoto from "../../Team_Member_Photo_placeholder.jpg";
+import teamMemberPhoto from "../Member_Photos/Team_Member_Photo_placeholder.jpg";
+import Esther from "../Member_Photos/Esther.jpg";
+import LasseRützouBruntse from "../Member_Photos/Lasse_Rützou_Bruntse.jpg";
+import AnneHobergOvergaard from "../Member_Photos/Anne_Hoberg_Overgaard.jpg";
+import CorentinMonnier from "../Member_Photos/Corentin_Monnier.jpg";
+import LauraHøjbergKunov from "../Member_Photos/Laura_Højberg_Kunov.jpg";
 
 export default function TeamMembers(props) {
   const teamMemberArray = [
     {
-      type: "Nikolaj Mollerup",
+      type: "core",
       img: teamMemberPhoto,
-      name: "navn",
+      name: "Nikolaj Mollerup",
       text: "Fringilla lacus. Nulla nec mollis mauris. Nam sit amet rhoncus libero. Nunc sit amet dolor ex. Latristique, fermentum dolor vitae, Curabitur justo eros.",
     },
     {
-      type: "Esther Rützou",
-      img: teamMemberPhoto,
-      name: "navn",
-      text: "er forfatter og fortæller. Alle historier er opstået i Esthers krøllede hjerne, og det er også Esthers stemme, I hører, når lytter til historierne. Esther tager sig i øvrigt af de forskellige administrative opgaver i Drømmehavet. esther@droemmehavet.dk",
+      type: "core",
+      img: Esther,
+      name: "Esther Rützou",
+      text: "Esther Rützou er forfatter og fortæller. Alle historier er opstået i Esthers krøllede hjerne, og det er også Esthers stemme, I hører, når lytter til historierne. Esther tager sig i øvrigt af de forskellige administrative opgaver i Drømmehavet. esther@droemmehavet.dk",
     },
     {
-      type: "Lasse Rützou Bruntse",
-      img: teamMemberPhoto,
-      name: "navn",
+      type: "core",
+      img: LasseRützouBruntse,
+      name: "Lasse Rützou Bruntse",
       text: "core text",
     },
     {
       type: "member",
-      img: teamMemberPhoto,
-      name: "navn",
+      img: AnneHobergOvergaard,
+      name: "Anne Hoberg Overgård",
+      text: "Anne Hoberg er en dansk illustrator, underviser, art mentor og storyteller. Hendes kunst er rodfæstet i stor kærlighed til alt det hyggelige, naturen, personlig udvikling og sjov og fantasi. Hun har en Bachelor of Arts i Character Animation fra Animation Workshop i Danmark, hvor hun blandt andet lærte om historiefortælling, design og udførelse i at lave animationsfilm. Hun har siden arbejdet på mange forskellige projekter, og i dag driver hun sit eget firma Anne Hoberg Illustration, der kombinerer det, hun har lært gennem årene, for at lave kunst, der skaber lykke, skønhed og solskin for alle. Derudover er hun også en erfaren underviser og elsker at være en del af andres læringserfaring og kunstneriske udvikling. Når hun ikke skaber kunst eller underviser, kan du finde hende hjemme i sit hus ved skoven, hvor hun går lange ture, dyrker yoga eller klapper sin kanin.",
+    },
+    {
+      type: "member",
+      img: LauraHøjbergKunov,
+      name: "Laura Højberg Kunov",
       text: "member text",
     },
     {
       type: "member",
-      img: teamMemberPhoto,
-      name: "navn",
-      text: "member text",
-    },
-    {
-      type: "member",
-      img: teamMemberPhoto,
-      name: "navn",
+      img: CorentinMonnier,
+      name: "Corentin Monnier",
       text: "member text",
     },
   ];
@@ -46,8 +51,10 @@ export default function TeamMembers(props) {
     if (props.type == member.type) {
       return (
         <li className="TeamMember">
-          <img src={member.img} />
-          <h1>{member.name} </h1>
+          <h2>{member.name} </h2>
+          <div className="imgContainer">
+            <img src={member.img} />
+          </div>
           <p>{member.text}</p>
         </li>
       );

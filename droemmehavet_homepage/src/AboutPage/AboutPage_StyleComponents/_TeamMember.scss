@@ -1,13 +1,21 @@
 .TeamMember {
   display: flex;
   flex-direction: column;
-  margin: 5%;
   width: 25%;
-  height: 20%;
-  img {
-    margin: 5%;
+  align-items: center;
+
+  .imgContainer {
+    width: 170px;
+    display: flex;
+    height: 170px;
+    border: solid #FFCB44 2px;
     border-radius: 50%;
-    width: 90%;
-    height: auto;
+    overflow: hidden;
+    justify-content: center;
+    img {
+      align-items: center;
+      width: auto;
+      height: auto;
+    }
   }
 }
