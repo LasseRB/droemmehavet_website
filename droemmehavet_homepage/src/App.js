@@ -1,6 +1,6 @@
-import {useState, useEffect, useContext, useRef } from 'react'
-import { BrowserRouter as Router, Switch, Link, Route} from "react-router-dom";
-import { FirebaseContext } from './Shared/Firebase'
+import { useState, useEffect, useContext, useRef } from "react";
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+import { FirebaseContext } from "./Shared/Firebase";
 import "./App.scss";
 
 import AboutPage from "./AboutPage/AboutPage_Components/AboutPage";
@@ -8,29 +8,27 @@ import FrontPage from "./Frontpage/Frontpage_Components/Frontpage";
 import WebshopPage from "./WebShopPage/WebShopPage_Components/WebShopPage";
 import TilmeldPage from "./TilmeldPage/TilmeldPage_Components/TilmeldPage";
 import Header from "./Shared/Header";
+import Footer from "./Shared/Footer";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(null);
   const firebase = useContext(FirebaseContext);
-  const tilmeldKnap = useRef()
-
+  const tilmeldKnap = useRef();
 
   useEffect(() => {
-    const unsubscribe = firebase.auth.onAuthStateChanged(user => {
-      user ? setCurrentUser(user) 
-      : setCurrentUser(null)
+    const unsubscribe = firebase.auth.onAuthStateChanged((user) => {
+      user ? setCurrentUser(user) : setCurrentUser(null);
+    });
 
-    })
-
-    return unsubscribe
-  }, [])
+    return unsubscribe;
+  }, []);
   return (
     <div className="App">
       <Router>
-      <Header currentUser = { currentUser } tilmeldKnap= {tilmeldKnap}/>
+        <Header currentUser={currentUser} tilmeldKnap={tilmeldKnap} />
         <Switch>
           <Route path="/" exact>
-            <FrontPage tilmeldKnap= {tilmeldKnap}/>
+            <FrontPage tilmeldKnap={tilmeldKnap} />
           </Route>
 
           <Route path="/omos">
@@ -38,9 +36,12 @@ function App() {
           </Route>
 
           <Route path="/tilmeld">
-            <TilmeldPage currentUser = { currentUser } />
+            <TilmeldPage currentUser={currentUser} />
           </Route>
+
+          <Route path="/Privatlivspolitik"></Route>
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

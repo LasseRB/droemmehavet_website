@@ -13,11 +13,7 @@
   backdrop-filter: blur(3px);
   background-color: #eee2d0b8;
   z-index: 4;
-  opacity: 1;
-  // &.hidden {
-  //   opacity: 0%;
-  //   display: none;
-  // }
+  //opacity: 1;
 
   #WizardImg {
     padding: 4%;
@@ -168,10 +164,6 @@
         border-radius: 50%;
         cursor: pointer;
       }
-    }
-  }
-  .currentTime {
-    .TotalTime {
     }
   }
 }

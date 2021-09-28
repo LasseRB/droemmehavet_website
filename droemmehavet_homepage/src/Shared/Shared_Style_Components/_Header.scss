@@ -7,15 +7,13 @@
   flex-direction: row;
   height: $header-height;
   min-height: 70px;
-  position:fixed;
+  position: fixed;
   top: 0px;
   z-index: 10;
   transition: all 0.1s linear;
   a {
     text-decoration: none;
   }
-
- 
 
   .headerButtonsContainer {
     display: flex;
@@ -32,7 +30,7 @@
       font-family: "Pacifico", cursive;
       margin: 0 5% 0 10%;
     }
-    .headerButtonsContainer-inner{
+    .headerButtonsContainer-inner {
       display: flex;
       align-items: flex-end;
       flex-direction: row;

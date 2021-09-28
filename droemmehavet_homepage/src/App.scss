@@ -2,6 +2,7 @@
 @import "Frontpage/Frontpage_StyleComponents/audioPlayer";
 @import "TilmeldPage/TilmeldPage_StyleComponents/_TilmeldPage";
 @import "Shared/Shared_Style_Components/Header";
+@import "Shared/Shared_Style_Components/Footer";
 @import "Shared/Shared_Style_Components/Mixins";
 @import "Shared/Shared_Style_Components/Variables";
 @import "AboutPage/AboutPage_StyleComponents/AboutPage";
@@ -10,6 +11,6 @@
 body {
   width: 100%;
 }
-.ikke-frontpage{
- // margin-top: $header-height;
+.ikke-frontpage {
+  // margin-top: $header-height;
 }
