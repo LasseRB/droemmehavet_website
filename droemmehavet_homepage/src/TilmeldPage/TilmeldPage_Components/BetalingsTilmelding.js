@@ -11,7 +11,7 @@ export default function BetalingsTilmelding(props) {
     const [oprettetIReepay, setOprettetIReepay] = useState(false)
     
     const createNewCustomer= async ()=>{
-            const checkoutWindow = new window.Reepay.EmbeddedSubscription(null, { html_element: 'rp_container' } );
+            const checkoutWindow = new window.Reepay.EmbeddedSubscription(null, { html_element: 'reepay_container' } );
             const handle = reepay.createNewSubscriptionHandle(props.formContent.email)
 
             await reepay.createPendingSubscriber(handle, props.formContent.fornavn,props.formContent.efternavn, props.formContent.email) 
@@ -42,7 +42,7 @@ export default function BetalingsTilmelding(props) {
     return (
         <div>
             {!oprettetIReepay ? 
-            <div id="rp_container" ref={rpRef} style={{width: "500px", height:" 730px"}}></div> 
+            <div id="reepay_container" ref={rpRef} ></div> 
             : 
             <BrugerLoadingScreen handleFejlBesked ={ props.handleFejlBesked } formContent = { props.formContent } currentUser = {props.currentUser}/>
 

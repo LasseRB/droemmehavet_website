@@ -15,7 +15,7 @@
   }
   #bottonLeftCloud {
     position: absolute;
-    transform: translate(-16%, 70%) rotate(-5deg);
+    transform: translate(-16%, 55%) rotate(-5deg);
     width: 43%;
     z-index: 0;
     overflow: hidden;
@@ -30,7 +30,7 @@
 
   #stime {
     position: absolute;
-    transform: translate(525%, 460%);
+    transform: translate(530%, 440%);
     width: 15%;
     z-index: 0;
     overflow: hidden;
@@ -43,7 +43,7 @@
     height: auto;
     background-color: #fffbe8;
     padding-bottom: 3%;
-    padding-top: 15%;
+    padding-top: $header-height;
 
     h1 {
       z-index: 1;

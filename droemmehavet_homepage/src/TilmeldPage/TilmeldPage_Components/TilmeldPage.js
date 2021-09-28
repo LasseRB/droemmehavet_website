@@ -43,7 +43,7 @@ export default function TilmeldPage(props) {
         }
     }
     return (
-        <div class="ikke-frontpage">
+        <div className="tilmeldContainer">
             <div className="fejlbesked">{fejlbesked}</div>
             <Switch>
             <Route path="/tilmeld/1">
@@ -58,12 +58,9 @@ export default function TilmeldPage(props) {
                     <h1>Tillykke! du er nu medlem</h1>
                     <a href="app.droemmehavet.dk">Gå til drømmehavet</a>
                 </div>                    
-                    
-
-                }
+                    }
             </Route>
             </Switch>
-        
         </div>
     )
 }

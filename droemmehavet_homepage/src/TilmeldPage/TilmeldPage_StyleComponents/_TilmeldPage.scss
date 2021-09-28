@@ -1,49 +1,58 @@
-@import "../../Shared/Shared_Style_Components/Variables";
-@import "../../Shared/Shared_Style_Components/Mixins";
-.bruger-input-container{
-    margin-top: 30%;
+.tilmeldContainer {
+  padding: $header-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .bruger-input-container {
+    padding-bottom: 5%;
     width: 500px;
-    margin: 0 auto;
-    .steps-box{
+
+    .steps-box {
+      display: flex;
+      margin: auto;
+      width: 300px;
+      height: 30px;
+      .steps {
         display: flex;
-        margin: auto;
-        width: 300px;
-        height: 30px;
-        .steps{
-            display: flex;
-            margin: 0 auto;
-            width: max-content;
-        }
-    }
-    form{
-        padding: 3%;
         margin: 0 auto;
-        width: 300px;
+        width: max-content;
+      }
+    }
+    form {
+      padding: 3%;
+      margin: 0 auto;
+      width: 300px;
+      border: 1px solid $blue-main;
+      border-radius: 10px;
+      label {
+        display: flex;
+        flex: auto;
+        padding-bottom: 0.2%;
+        color: $blue-main;
+        &.required {
+          &::before {
+            content: "*";
+            color: rgb(255, 102, 0);
+          }
+        }
+      }
+      input {
+        margin-bottom: 10px;
+        width: 100%;
+        height: 30px;
         border: 1px solid $blue-main;
         border-radius: 10px;
-        label{
-            display: flex;
-            flex: auto;
-            padding-bottom: .2%;
-            color:$blue-main;
-            &.required{
-                &::before{
-                content: "*";
-                color: rgb(255, 102, 0);
-                }
-            }
-        }
-        input{
-            margin-bottom: 10px;
-            width: 100%;
-            height: 30px;
-            border: 1px solid $blue-main;
-            border-radius: 10px;
-        }   
+      }
     }
-}
+  }
 
-.fejlbesked{
+  #reepay_container {
+    width: 500px;
+    height: 730px;
+  }
+
+  .fejlbesked {
     position: absolute;
     background-color: $error-second;
     border: 1px solid $error-main;
@@ -52,4 +61,5 @@
     top: $header-height;
     margin: 0 40%;
     width: max-content;
+  }
 }
