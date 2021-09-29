@@ -11,7 +11,7 @@ export default function BrugerTilmelding(props) {
   const handleUserCreateSubmit = (event) => {
     event.preventDefault();
 
-    props.setTilmeldStadie("2");
+    props.setTilmeldStadie(2);
   };
   const valider = (e) => {
     if (props.formContent.fornavn == "") {

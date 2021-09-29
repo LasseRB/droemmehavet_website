@@ -6,7 +6,7 @@ import { FEJLBESKED } from "./tilmeldingsfejlbeskeder";
 
 export default function TilmeldPage(props) {
   const [fejlbesked, setFejlbesked] = useState("");
-  const [tilmeldStadie, setTilmeldStadie] = useState(1);
+  const [tilmeldStadie, setTilmeldStadie] = useState(3);
   const [formContent, setFormContent] = useState({
     fornavn: "",
     efternavn: "",
@@ -74,8 +74,17 @@ export default function TilmeldPage(props) {
 
       {tilmeldStadie == 3 && (
         <div className="succes-sign-up">
-          <h1>Tillykke! du er nu medlem</h1>
-          <a href="app.droemmehavet.dk">Gå til drømmehavet</a>
+          <h1>Tillykke!</h1>
+          <p id="firstBox">
+            Du er nu oprettet som bruger hos drømmehavet, og kan lytte til
+            ubegrænset drømmehavet eventyr.
+          </p>
+          <p id="secondBox">Skynd dig ud og oplev drømmehavets fortællinger!</p>
+          <a href="app.droemmehavet.dk">
+            <p>
+              Gå til <b>drømmehavet</b>
+            </p>
+          </a>
         </div>
       )}
     </div>
