@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Link, Route, useHistory } from "react-router-dom";
-
+import superhelteBG from '../../superhelteBG.png'
 export default function AbonnementsPage() {
     return (
         <div className="abonnement-container">
@@ -18,7 +18,8 @@ export default function AbonnementsPage() {
                 </ul>
 
                 <Link to='/tilmeld/1' className="FreeTrailButton">Tilmeld nu!</Link>
-            </div>    
+            </div>
+            <img src={superhelteBG}></img>    
         </div>
     )
 }
