@@ -13,7 +13,8 @@ export default function TilmeldPage(props) {
         'email': '',
         'email2': '',
         'password': '',
-        'password2': ''
+        'password2': '',
+        'acceptAfVilkaar': false
         })
 
     // renderer fejlbeskeder på siden, på dansk

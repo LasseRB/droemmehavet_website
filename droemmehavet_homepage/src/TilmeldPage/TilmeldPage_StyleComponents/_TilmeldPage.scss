@@ -36,7 +36,24 @@
             color: rgb(255, 102, 0);
           }
         }
+        
+       
       }
+   
+        
+      .abonnementvilkaar{
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 10px;
+       label{
+        display: inline-block;
+        }
+        input{
+          display: inline;
+          width: 40px;
+        }
+      }
+
       input {
         margin-bottom: 10px;
         width: 100%;

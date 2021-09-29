@@ -37,7 +37,8 @@ export default function BrugerTilmelding(props) {
     props.formContent.password === "" ||
     props.formContent.email !== props.formContent.email2 ||
     props.formContent.email === "" ||
-    props.formContent.fornavn === "";
+    props.formContent.fornavn === "" || 
+    props.formContent.acceptAfVilkaar == false;
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -46,6 +47,7 @@ export default function BrugerTilmelding(props) {
       [event.target.name]: event.target.value,
     });
     valider();
+    console.log(props.formContent)
   };
 
   return (
@@ -105,6 +107,10 @@ export default function BrugerTilmelding(props) {
           onChange={handleChange}
           required
         />
+        <span className="abonnementvilkaar">
+        <label className="required">Jeg accepterer Drømmehavets <a href="http://droemmehavet.dk/handelsbetingelser" target="_blank">  handelsbetingelser</a> og <a href="http://droemmehavet.dk/privatlivspolitik" target="_blank"> privatlivspolitik</a></label>
+        <input name = "abonnementvilkaar" type="checkbox" required onChange={handleChange}/>
+        </span>
 
         <input type="submit" value="Næste skridt 👉" disabled={enableSubmit} />
       </form>
