@@ -23,8 +23,8 @@ export default function PrivatslivsPolitik() {
         Din email-adresse og dit brugernavn, Dine betalingsinformationer,
         herunder korttype og udløbsdato.
       </p>
-      <b>Det gør vi for </b>
       <p>
+        <b>Det gør vi for </b>
         at kunne give dig adgang til vores site og sikre, at du har dit eget
         individuelle password. Vi får også adgang til at kunne se, hvilke
         historier du lytter til.
@@ -47,12 +47,11 @@ export default function PrivatslivsPolitik() {
         der tager sig af vores betalingssystem, og som derfor nødvendigvis skal
         have adgang til nogle informationer.
       </p>
-      <b>Vi sletter dine data</b>
       <p>
-        , når de ikke længere skal bruges og vi ikke længere har et legitimt
-        formål med at beholde dem. Det betyder, at vi sletter alle dine
-        personoplysninger senest 24 måneder efter, at du har opsagt abonnement
-        eller/og nyhedsbrev.
+        <b>Vi sletter dine data</b>, når de ikke længere skal bruges og vi ikke
+        længere har et legitimt formål med at beholde dem. Det betyder, at vi
+        sletter alle dine personoplysninger senest 24 måneder efter, at du har
+        opsagt abonnement eller/og nyhedsbrev.
       </p>
       <h2>Du har rettigheder:</h2>
       <p>- til at se de oplysninger, vi har på dig</p>
@@ -74,7 +73,9 @@ export default function PrivatslivsPolitik() {
       </p>
       <h2>
         Læs nærmere om dine rettigheder på{" "}
-        <a href="https://www.datatilsynet.dk/">www.datatilsynet.dk</a>{" "}
+        <a href="https://www.datatilsynet.dk/" target="_blank">
+          www.datatilsynet.dk
+        </a>{" "}
       </h2>
     </div>
   );
