@@ -28,3 +28,14 @@
   color: $textColor;
   font-size: $fontSize;
 }
+
+@mixin politik-tekstbox{
+  padding: $header-height 20% 20% 20%;
+  margin: 0 auto;
+  max-width: 500px;
+  // border-left: 1px dashed lightGrey;
+  // border-right: 1px dashed lightGrey;
+  // -webkit-box-shadow: 15px 10px 58px 0px rgba(0,0,0,0.13);
+  // -moz-box-shadow: 15px 10px 58px 0px rgba(0,0,0,0.13);
+  // box-shadow: 15px 10px 58px 0px rgba(0,0,0,0.13);
+}

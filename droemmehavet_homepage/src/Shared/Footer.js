@@ -30,6 +30,9 @@ export default function Footer() {
         <p>
           <Link to="/Privatlivspolitik">Privatlivspolitik</Link>
         </p>
+        <p>
+          <Link to="/handelsbetingelser">Handelsbetingelser</Link>
+        </p>
       </div>
       <div className="SOMEContainer">
         <a
