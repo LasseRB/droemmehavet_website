@@ -8,37 +8,45 @@ import {
 } from "react-router-dom";
 
 export default function BrugerTilmelding(props) {
-  let history = useHistory();
-
   const handleUserCreateSubmit = (event) => {
     event.preventDefault();
 
-    history.push("/tilmeld/2");
+    props.setTilmeldStadie("2");
   };
-  const valider = () => {
+  const valider = (e) => {
     if (props.formContent.fornavn == "") {
-      props.handleFejlBesked("tilmelding/navn-mangler");
-      return;
+      return false;
     }
 
-    if (props.formContent.email != props.formContent.email2) {
-      props.handleFejlBesked("tilmelding/email-mismatch");
+    //if("password" == e.target.name ){
+      if("password" == e.target.name && props.formContent.email != props.formContent.email2 && props.formContent.email2 !== ""
+    ) {
+      props.handleFejlBesked("tilmelding/email-mismatch")
       return;
     }
-
-    if (props.formContent.password != props.formContent.password2) {
+    if ("password" == e.target.name && props.formContent.email == props.formContent.email2 && props.formContent.email2 !== ""){
+      props.handleFejlBesked("fixet error")
+      return;
+    }
+  
+    if ("password2" == e.target.name && props.formContent.password != props.formContent.password2) {
       props.handleFejlBesked("tilmelding/kode-mismatch");
       return;
     }
+    if ("password2" == e.target.name && props.formContent.password == props.formContent.password2 && props.formContent.password2 !== "") {
+      props.handleFejlBesked("fixet error");
+      return;
+    }
+    return true;
   };
 
   const enableSubmit =
     props.formContent.password !== props.formContent.password2 ||
-    props.formContent.password === "" ||
+    (props.formContent.password === "" && props.formContent.password === "") ||
+    (props.formContent.email === "" && props.formContent.email2 === "") ||
     props.formContent.email !== props.formContent.email2 ||
-    props.formContent.email === "" ||
-    props.formContent.fornavn === "" || 
-    props.formContent.acceptAfVilkaar == false;
+    props.formContent.fornavn === "";
+  // || props.formContent.acceptAfVilkaar == true;
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -46,8 +54,8 @@ export default function BrugerTilmelding(props) {
       ...props.formContent,
       [event.target.name]: event.target.value,
     });
-    valider();
-    console.log(props.formContent)
+    valider(event);
+    console.log(props.formContent);
   };
 
   return (
@@ -108,8 +116,24 @@ export default function BrugerTilmelding(props) {
           required
         />
         <span className="abonnementvilkaar">
-        <label className="required">Jeg accepterer Drømmehavets <a href="http://droemmehavet.dk/handelsbetingelser" target="_blank">  handelsbetingelser</a> og <a href="http://droemmehavet.dk/privatlivspolitik" target="_blank"> privatlivspolitik</a></label>
-        <input name = "abonnementvilkaar" type="checkbox" required onChange={handleChange}/>
+          <label className="required">
+            Jeg accepterer Drømmehavets{" "}
+            <a href="http://droemmehavet.dk/handelsbetingelser" target="_blank">
+              {" "}
+              handelsbetingelser
+            </a>{" "}
+            og{" "}
+            <a href="http://droemmehavet.dk/privatlivspolitik" target="_blank">
+              {" "}
+              privatlivspolitik
+            </a>
+          </label>
+          <input
+            name="abonnementvilkaar"
+            type="checkbox"
+            required
+            onChange={handleChange}
+          />
         </span>
 
         <input type="submit" value="Næste skridt 👉" disabled={enableSubmit} />
