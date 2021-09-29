@@ -31,8 +31,8 @@ export default function PrivatslivsPolitik() {
       </p>
       <h2>Vi indsamler følgende data, hvis du tilmelder dig nyhedsbrev:</h2>
       <p>Din email-adresse</p>
-      <b>Det gør vi for</b>
       <p>
+        <b>Det gør vi for</b>
         at kunne sende dig nyhedsbreve. Du kan når som helst opsige
         nyhedsbrevet, og når du gør det, slettes din email-adresse.
       </p>
@@ -71,12 +71,12 @@ export default function PrivatslivsPolitik() {
         - i særlige tilfælde har du ret til at gøre indsigelse mod vores ellers
         lovlige behandling af dine personoplysninger.
       </p>
-      <h2>
-        Læs nærmere om dine rettigheder på{" "}
+      <h3>
+        Læs nærmere om dine rettigheder på
         <a href="https://www.datatilsynet.dk/" target="_blank">
           www.datatilsynet.dk
-        </a>{" "}
-      </h2>
+        </a>
+      </h3>
     </div>
   );
 }
