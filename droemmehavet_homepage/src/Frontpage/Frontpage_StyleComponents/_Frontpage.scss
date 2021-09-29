@@ -86,12 +86,14 @@
     margin-top: 7%;
     overflow: hidden;
     width: 60%;
+    height: 70%;
     transform: translateX(55%);
     border-radius: 15%;
     //margin: 0;
     #exampleImg {
       display: block;
-      width: 250vh;
+      width: 250vw;
+      height: 200vh;
       transform: translate(-50%, -20%);
     }
   }

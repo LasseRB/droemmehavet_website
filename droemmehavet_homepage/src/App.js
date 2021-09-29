@@ -7,9 +7,10 @@ import AboutPage from "./AboutPage/AboutPage_Components/AboutPage";
 import FrontPage from "./Frontpage/Frontpage_Components/Frontpage";
 import WebshopPage from "./WebShopPage/WebShopPage_Components/WebShopPage";
 import TilmeldPage from "./TilmeldPage/TilmeldPage_Components/TilmeldPage";
-import Handelsbetingelser from "./HandelsBetingelserPage/HandelsBetingelser_Components/HandelsBetingelser"
+import Handelsbetingelser from "./HandelsBetingelserPage/HandelsBetingelser_Components/HandelsBetingelser";
 import Header from "./Shared/Header";
 import Footer from "./Shared/Footer";
+import PrivatslivsPolitik from "./PrivatslivsPolitik/PrivatslivsPolitik_Components/PrivatslivsPolitik";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -40,7 +41,9 @@ function App() {
             <TilmeldPage currentUser={currentUser} />
           </Route>
 
-          <Route path="/Privatlivspolitik"></Route>
+          <Route path="/Privatlivspolitik">
+            <PrivatslivsPolitik />
+          </Route>
           <Route path="/handelsbetingelser">
             <Handelsbetingelser />
           </Route>
