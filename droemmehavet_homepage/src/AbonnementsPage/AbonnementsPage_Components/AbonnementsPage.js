@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Switch, Link, Route, useHistory } from "react-
 import superhelteBG from '../../superhelteBG.png'
 export default function AbonnementsPage() {
     return (
-        <div className="abonnement-container">
+ 
+    // <img id="superhelteBG" src={superhelteBG}></img>    
+    <div className="abonnement-container" style={{backgroundImage: `url(${superhelteBG})`}}>
             <h1>Vores abonnement</h1>
             <h2>Et hav af gode lyttehistorier venter dig</h2>
             <div className="abonnement-container-inner">
@@ -17,9 +19,9 @@ export default function AbonnementsPage() {
 
                 </ul>
 
-                <Link to='/tilmeld/1' className="FreeTrailButton">Tilmeld nu!</Link>
+                <Link to='/tilmeld/1' className="FreeTrialButton">Tilmeld nu!</Link>
             </div>
-            <img src={superhelteBG}></img>    
+           
         </div>
     )
 }
