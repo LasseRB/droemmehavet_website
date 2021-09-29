@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Link, Route, useHistory } from "react-router-dom";
-
+import AbonnementsPage from '../../AbonnementsPage/AbonnementsPage_Components/AbonnementsPage'
 import Pil from "../Frontpage_StyleComponents/Pil.png";
 import AudioPlayer from "./AudioPlayer";
 
@@ -36,6 +36,9 @@ export default function Frontpage(props) {
             src="https://firebasestorage.googleapis.com/v0/b/droemmehavet-1aa53.appspot.com/o/islands%2Feventyr%C3%B8en%2FBG-lowres.jpg?alt=media&"
           />
         </figure>
+      </div>
+      <div id="thirdContentContainer">
+        <AbonnementsPage />
       </div>
     </div>
   );

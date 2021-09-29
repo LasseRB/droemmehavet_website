@@ -1,0 +1,55 @@
+.abonnement-container{
+    display: flex;
+    height: 80vh;
+    width: 100vw;
+    background-color:white;
+    flex-direction: column;
+    h1{
+        margin: 10% auto 10px auto;
+        color: $orange-main;
+    }
+    h2{
+        margin:  0 auto;
+        color: $orange-main;
+        font-weight: 100;
+        padding-bottom: 20px;
+    }
+
+    .abonnement-container-inner{
+        margin: auto;
+        display: flex;
+        height: max-content;
+
+        border: 1px solid $orange-main;
+        border-radius: 40px;
+        width: 300px;
+        padding: 10px;
+        flex-direction: column;
+
+        h1{
+            margin: 10% auto 10% auto;
+            font-size: 22pt;
+            font-weight: 500;
+
+        }
+
+        #line{
+            margin: 10% auto 5% auto; 
+            height: 1px;
+            width: 80%;
+            border-bottom: 1px solid $orange-main;
+        }
+        ul li{
+            position: relative;
+            list-style:none;
+            line-height: 30pt;
+            line-break:auto;
+            color: $orange-main;
+            &::after{
+                content: "✔";
+                position: absolute;
+                right: 10px;
+            }
+        }
+    }
+}
