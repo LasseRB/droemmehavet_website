@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import troldmanden from "../../Troldmand-Snippet.mp3";
+import Wizard from "../../Wizard.png";
 import {
   PlayArrow,
   Pause,
@@ -126,6 +127,7 @@ export default function AudioControls() {
 
   return (
     <div className="audioPlayer">
+      <img src={Wizard} id="WizardImg" />
       <audio
         ref={audio}
         src={troldmanden}
@@ -159,7 +161,7 @@ export default function AudioControls() {
             <Forward10 className="Icon" />
           </button>
 
-          <div className="volume-hover-container">
+          {/* <div className="volume-hover-container">
             <button className="volume">{volumeIcon}</button>
 
             <div className="volume-hover">
@@ -176,7 +178,7 @@ export default function AudioControls() {
                 }}
               />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="timeBar">
           <span className="currentTime">{formatMinSec(currentDuration)}</span>

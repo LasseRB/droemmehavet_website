@@ -1,9 +1,12 @@
 @import "Frontpage/Frontpage_StyleComponents/Frontpage";
 @import "Frontpage/Frontpage_StyleComponents/audioPlayer";
+@import "TilmeldPage/TilmeldPage_StyleComponents/_TilmeldPage";
 @import "Shared/Shared_Style_Components/Header";
+@import "Shared/Shared_Style_Components/Footer";
 @import "Shared/Shared_Style_Components/Mixins";
 @import "Shared/Shared_Style_Components/Variables";
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Pathway+Gothic+One&display=swap&family=PT+Sans+Narrow&display=swap'");
+@import "AboutPage/AboutPage_StyleComponents/AboutPage";
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Pathway+Gothic+One&display=swap&family=PT+Sans+Narrow:wght@400;700&display=swap''");
 
 body {
   width: 100%;

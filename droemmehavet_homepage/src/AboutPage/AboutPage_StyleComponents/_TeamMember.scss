@@ -1,0 +1,21 @@
+.TeamMember {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  align-items: center;
+
+  .imgContainer {
+    width: 170px;
+    display: flex;
+    height: 170px;
+    border: solid #FFCB44 2px;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+    img {
+      align-items: center;
+      width: auto;
+      height: auto;
+    }
+  }
+}

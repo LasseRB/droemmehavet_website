@@ -1,15 +1,16 @@
 @import "Variables";
 
-@mixin headerButtons {
+@mixin headerButtons($color) {
   display: flex;
   background: transparent;
   border: transparent;
   font-family: $header-font-family;
   font-size: 2vw;
-  color: $main-font;
-  width: auto;
+  color: $color;
+  width: auto; // <-- denne property giver potentielt problemer for knapper, da den kan resize sig selv. Erstat evt. med pixels :)
   height: 3vw;
-  margin: 0;
+  transition: all 0.2s;
+  border: solid 1px transparent;
 
   &:hover {
     border-bottom: 1px solid;
@@ -17,6 +18,12 @@
 }
 
 @mixin headerText($textColor, $fontSize) {
+  font-family: $header-font-family;
+  color: $textColor;
+  font-size: $fontSize;
+}
+
+@mixin paragraph($textColor, $fontSize) {
   font-family: $header-font-family;
   color: $textColor;
   font-size: $fontSize;

@@ -49,10 +49,14 @@
 
   #secondContentContainer {
     display: flex;
+    height: 100vh;
   }
+
   #tutorielText {
+    display: flex;
+    flex-direction: column;
     margin-top: 15%;
-    padding-left: 7%;
+    padding-left: 3%;
     position: absolute;
     width: 25%;
     h1 {
@@ -63,9 +67,14 @@
       font-family: $paragraph-font-familiy;
       font-style: small;
     }
+    h3 {
+      @include headerText(black, 1.8vw);
+      align-self: center;
+    }
   }
 
   #pil {
+    display: none;
     position: absolute;
     margin-top: 20%;
     margin-left: 20%;
@@ -81,9 +90,9 @@
     border-radius: 15%;
     //margin: 0;
     #exampleImg {
-      //transform: translateX(-10%);
       display: block;
-      width: 150vh;
+      width: 250vh;
+      transform: translate(-50%, -20%);
     }
   }
 }
