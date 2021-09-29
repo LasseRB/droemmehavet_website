@@ -80,7 +80,7 @@ export default function TilmeldPage(props) {
             ubegrænset drømmehavet eventyr.
           </p>
           <p id="secondBox">Skynd dig ud og oplev drømmehavets fortællinger!</p>
-          <a href="app.droemmehavet.dk">
+          <a href="https://app.droemmehavet.dk/">
             <p>
               Gå til <b>drømmehavet</b>
             </p>
