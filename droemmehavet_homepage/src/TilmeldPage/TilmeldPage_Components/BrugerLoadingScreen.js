@@ -12,7 +12,10 @@ import {
 export default function BrugerLoadingScreen(props) {
   const firebase = useContext(FirebaseContext);
   let userID = "";
-
+  
+  function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
   const opretBrugerIFirebase = async () => {
     // create user in auth
     await firebase
@@ -54,6 +57,7 @@ export default function BrugerLoadingScreen(props) {
         "reepay-customer-handle": props.formContent.customer_handle || "n/a",
         "reepay-subscription-handle":
           props.formContent.subscription_handle || "n/a",
+        photoID: randomIntFromInterval(0,3)
       })
       .catch((error) => {
         props.handleFejlBesked(error.code);
