@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <div id="aboutPage" className="ikke-frontpage">
       <img id="topRightCloud" src={cloud_TopRight} />
-      <img id="bottonRightCloud" src={cloud_bottomRight} />
+
       <img id="bottonLeftCloud" src={cloud_bottomLeft} />
       <img id="stime" src={stime} />
       <div id="container1">
@@ -19,14 +19,14 @@ export default function AboutPage() {
           Lyttehistorier! For nogle gange skal øjnene have fri. Nogle gange skal
           hjernen have lov til selv at danne billeder, mens man lytter.
         </h1>
-        <p id="p1">
+        <p>
           Alle historier foregår i det samme univers – Drømmehavet. Her ligger
           de magiske øer: Superhelteøen, Eventyrøen, Monsterøen. Lige om lidt
           kommer der også en Dinosaurø og en hemmelig adgang til Havfolkets
           Rige. På den måde ved forældrene, hvilken slags historier, børnene kan
           komme til at lytte til.
         </p>
-        <p id="p2">
+        <p>
           Og børnene kan selv navigere rundt og finde de historier, det gerne
           vil høre. Vælg en ø – og vælg den figur, du vil høre historie om. Og
           så – læn dig tilbage og lyt! Lyt til historierne, mens I tegner. Eller
@@ -42,6 +42,7 @@ export default function AboutPage() {
       <div id="container3">
         <h1>Illustratorer</h1>
         {<TeamMembers type="member" />}
+        <img id="bottonRightCloud" src={cloud_bottomRight} />
       </div>
     </div>
   );

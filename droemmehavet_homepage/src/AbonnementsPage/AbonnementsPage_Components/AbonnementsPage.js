@@ -19,7 +19,7 @@ export default function AbonnementsPage() {
 
                 </ul>
 
-                <Link to='/tilmeld/1' className="FreeTrialButton">Tilmeld nu!</Link>
+                <Link to='https://app.droemmehavet.dk/' className="FreeTrialButton">Tilmeld nu!</Link>
             </div>
            
         </div>

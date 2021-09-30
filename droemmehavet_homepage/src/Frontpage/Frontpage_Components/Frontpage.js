@@ -16,7 +16,7 @@ export default function Frontpage(props) {
             <span className="tilbud"> 1. november</span> og få resten af året
             gratis!
           </h2>
-          <Link to='/tilmeld/1' className="FreeTrailButton">Tilmeld nu!</Link>
+          <Link to='https://app.droemmehavet.dk/' className="FreeTrailButton">Tilmeld nu!</Link>
         </div>
       </div>
       <div id="secondContentContainer">

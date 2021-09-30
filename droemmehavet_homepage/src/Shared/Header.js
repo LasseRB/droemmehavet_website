@@ -46,9 +46,9 @@ export default function Header(props) {
               {/* <button className="headerButton">webshop</button> */}
               <Link to="/omos" className="headerButton">Om os</Link>
               {/* <button className="headerButton">kontakt</button> */}
-              <Link to="/tilmeld/1" className="headerButton" onClick={() => setTheme(true)}>Tilmeld dig!</Link>
+              <Link to="/tilmeld" className="headerButton" onClick={() => setTheme(true)}>Tilmeld dig!</Link>
             
-              <a href='http://localhost:3001/' className="headerButton" id="goToApp">Til drømmehavet</a>
+              <a href='https://app.droemmehavet.dk/' className="headerButton" id="goToApp">Til drømmehavet</a>
               {/* // <Link to="/log" className="headerButton" id="logInButton" onClick={() => setTheme(true)}>Log ind</Link> */}
           </div>
         </div>
