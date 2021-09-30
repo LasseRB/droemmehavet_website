@@ -78,7 +78,7 @@ export default function BrugerTilmelding(props) {
   return (
     <div className="bruger-input-container">
       <span className="steps-box">
-        <div className="steps"> . . . </div>
+        {/* <div className="steps"> . . . </div> */}
       </span>
       <form onSubmit={handleUserCreateSubmit}>
         <label className="required">For -og mellemnavn(e)</label>
