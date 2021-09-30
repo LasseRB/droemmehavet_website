@@ -17,10 +17,6 @@ export default function TilmeldPage(props) {
     acceptAfVilkaar: true,
   });
 
-  const setTilmed = () => {
-    console.log(tilmeldStadie);
-  };
-
   // renderer fejlbeskeder på siden, på dansk
   const handleFejlBesked = (fejlKode) => {
     switch (fejlKode) {

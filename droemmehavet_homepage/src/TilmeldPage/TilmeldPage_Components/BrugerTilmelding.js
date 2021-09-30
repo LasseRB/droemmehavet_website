@@ -1,51 +1,68 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Link,
-  Route,
-  useHistory,
-} from "react-router-dom";
 
 export default function BrugerTilmelding(props) {
+  const [enableSubmit, setEnableSubmit] = useState(false);
   const handleUserCreateSubmit = (event) => {
     event.preventDefault();
 
     props.setTilmeldStadie(2);
   };
   const valider = (e) => {
-    if (props.formContent.fornavn == "") {
-      return false;
+    setEnableSubmit(
+      props.formContent.password !== props.formContent.password2 ||
+        (props.formContent.password === "" &&
+          props.formContent.password === "") ||
+        (props.formContent.email === "" && props.formContent.email2 === "") ||
+        props.formContent.email !== props.formContent.email2 ||
+        props.formContent.fornavn === ""
+    );
+
+    console.log(e.target.id);
+    if (e.target.id == "NextStep" && props.formContent.fornavn == "") {
+      props.handleFejlBesked("tilmelding/navn-mangler");
+    }
+    if (
+      props.formContent.fornavn != "" &&
+      e.target.name == props.formContent.fornavn
+    ) {
+      props.handleFejlBesked("fixet error");
     }
 
-    //if("password" == e.target.name ){
-      if("password" == e.target.name && props.formContent.email != props.formContent.email2 && props.formContent.email2 !== ""
+    if (
+      "password" == e.target.name &&
+      props.formContent.email != props.formContent.email2 &&
+      props.formContent.email2 !== ""
     ) {
-      props.handleFejlBesked("tilmelding/email-mismatch")
-      return;
+      props.handleFejlBesked("tilmelding/email-mismatch");
     }
-    if ("password" == e.target.name && props.formContent.email == props.formContent.email2 && props.formContent.email2 !== ""){
-      props.handleFejlBesked("fixet error")
-      return;
-    }
-  
-    if ("password2" == e.target.name && props.formContent.password != props.formContent.password2) {
-      props.handleFejlBesked("tilmelding/kode-mismatch");
-      return;
-    }
-    if ("password2" == e.target.name && props.formContent.password == props.formContent.password2 && props.formContent.password2 !== "") {
+
+    if (
+      ("password" == e.target.name ||
+        "email1" == e.target.name ||
+        "email2" == e.target.name) &&
+      props.formContent.email == props.formContent.email2 &&
+      props.formContent.email2 !== ""
+    ) {
       props.handleFejlBesked("fixet error");
-      return;
     }
-    return true;
+
+    if (
+      "abonnementvilkaar" == e.target.name &&
+      props.formContent.password != props.formContent.password2
+    ) {
+      props.handleFejlBesked("tilmelding/kode-mismatch");
+    }
+    if (
+      ("password2" == e.target.name ||
+        "password1" == e.target.name ||
+        "abonnementvilkaar" == e.target.name) &&
+      props.formContent.password == props.formContent.password2 &&
+      props.formContent.password2 !== ""
+    ) {
+      props.handleFejlBesked("fixet error");
+    }
   };
 
-  const enableSubmit =
-    props.formContent.password !== props.formContent.password2 ||
-    (props.formContent.password === "" && props.formContent.password === "") ||
-    (props.formContent.email === "" && props.formContent.email2 === "") ||
-    props.formContent.email !== props.formContent.email2 ||
-    props.formContent.fornavn === "";
   // || props.formContent.acceptAfVilkaar == true;
 
   const handleChange = (event) => {
@@ -136,7 +153,22 @@ export default function BrugerTilmelding(props) {
           />
         </span>
 
-        <input type="submit" value="Næste skridt 👉" disabled={enableSubmit} />
+        <div
+          id="NextStep"
+          onClick={handleChange}
+          name="NaesteSkridt"
+          style={
+            enableSubmit
+              ? { ...this, display: "inline-block" }
+              : { ...this, display: "none" }
+          }
+        ></div>
+        <input
+          id="submitBtn"
+          type="submit"
+          value="Næste skridt 👉"
+          disabled={enableSubmit}
+        />
       </form>
     </div>
   );
