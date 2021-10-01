@@ -11,12 +11,12 @@ export default function BetalingsTilmelding(props) {
     const [oprettetIReepay, setOprettetIReepay] = useState(false)
     
     const createNewCustomer= async ()=>{
+        const checkoutWindow = new window.Reepay.EmbeddedSubscription(null, { html_element: 'rp_container' } );
         const handle = reepay.createNewSubscriptionHandle(props.formContent.email)
-        const session = await reepay.createSubscriberSession(handle)
-        const checkoutWindow = new window.Reepay.EmbeddedSubscription(session.id, { html_element: 'rp_container',showReceipt: false } );
-        await reepay.createPendingSubscriber(handle, props.formContent.fornavn,props.formContent.efternavn, props.formContent.email) 
 
-            
+        await reepay.createPendingSubscriber(handle, props.formContent.fornavn,props.formContent.efternavn, props.formContent.email) 
+        await reepay.renderCheckoutWindow(handle, checkoutWindow)
+        
             checkoutWindow.addEventHandler(window.Reepay.Event.Accept, function(data) {
                 props.setFormContent({...props.formContent, 'customer_handle': data.customer,'subscription_handle': data.subscription})
                 setOprettetIReepay(true)

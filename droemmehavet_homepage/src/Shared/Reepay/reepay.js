@@ -6,7 +6,7 @@ class Reepay{
     }
 
     createSubscriberSession = async (handle) => {
-        return await fetch('https://checkout-api.reepay.com/v1/session/subscription',
+        return await fetch('https://checkout-api.reepay.com/v1/session/subscription/',
             {
                 method: 'POST',
                 // mode: 'same-origin',
@@ -25,7 +25,7 @@ class Reepay{
     }
 
     createPendingSubscriber = async (handle, fornavn, efternavn, email) => {
-        return await fetch('https://api.reepay.com/v1/subscription/prepare',
+        return await fetch('https://api.reepay.com/v1/subscription/prepare/',
             {
                 method: 'POST',
                 headers: {
@@ -77,7 +77,7 @@ class Reepay{
         if(userID != null && userID.length > 0)
             return 'subscription-'+userID
         else
-            return -1
+            return 'subscription-'+ Math.random() * 10
     }
 
 }

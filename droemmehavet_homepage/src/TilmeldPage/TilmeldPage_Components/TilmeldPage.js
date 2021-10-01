@@ -6,7 +6,7 @@ import { FEJLBESKED } from "./tilmeldingsfejlbeskeder";
 
 export default function TilmeldPage(props) {
   const [fejlbesked, setFejlbesked] = useState("");
-  const [tilmeldStadie, setTilmeldStadie] = useState(3);
+  const [tilmeldStadie, setTilmeldStadie] = useState(1);
   const [formContent, setFormContent] = useState({
     fornavn: "",
     efternavn: "",
