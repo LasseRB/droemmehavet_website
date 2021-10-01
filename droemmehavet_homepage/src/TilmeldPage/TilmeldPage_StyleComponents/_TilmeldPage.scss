@@ -36,19 +36,25 @@
             color: rgb(255, 102, 0);
           }
         }
-        
-       
       }
-   
-        
-      .abonnementvilkaar{
+      #NextStep {
+        position: absolute;
+        width: 300px;
+        height: 30px;
+        background-color: rgba(215, 6, 6, 0.5);
+      }
+      #submitBtn {
+        z-index: 5;
+      }
+
+      .abonnementvilkaar {
         display: flex;
         flex-direction: row;
         padding-bottom: 10px;
-       label{
-        display: inline-block;
+        label {
+          display: inline-block;
         }
-        input{
+        input {
           display: inline;
           width: 40px;
         }
@@ -64,7 +70,7 @@
     }
   }
 
-  #reepay_container {
+  #rp_container {
     width: 500px;
     height: 730px;
   }
@@ -78,5 +84,35 @@
     top: $header-height;
     margin: 0 40%;
     width: max-content;
+  }
+}
+
+.succes-sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 5%;
+  width: 500px;
+  h1 {
+    @include headerText($blue-main, 4vw);
+    font-weight: bolder;
+  }
+  p {
+    @include paragraph($blue-main, 2vw);
+  }
+  a {
+    text-decoration: none;
+    p {
+      @include headerText(white, 2.5vw);
+      width: 100%;
+      margin: 0;
+      padding: 3% 10% 5% 10%;
+      background-color: #ffcb44;
+      border-radius: 20px;
+      b {
+        font-family: $logo-font-family;
+      }
+    }
   }
 }

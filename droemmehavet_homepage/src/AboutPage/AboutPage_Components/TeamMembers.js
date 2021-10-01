@@ -12,37 +12,45 @@ export default function TeamMembers(props) {
       type: "core",
       img: teamMemberPhoto,
       name: "Nikolaj Mollerup",
-      text: "Fringilla lacus. Nulla nec mollis mauris. Nam sit amet rhoncus libero. Nunc sit amet dolor ex. Latristique, fermentum dolor vitae, Curabitur justo eros.",
+      title: "Medstifter, Softwareudvikler og Lyddesigner",
+      text: " ",
     },
     {
       type: "core",
       img: Esther,
       name: "Esther Rützou",
-      text: "Esther Rützou er forfatter og fortæller. Alle historier er opstået i Esthers krøllede hjerne, og det er også Esthers stemme, I hører, når lytter til historierne. Esther tager sig i øvrigt af de forskellige administrative opgaver i Drømmehavet. esther@droemmehavet.dk",
+      title: "Medstifter, Forfatter og Fortæller",
+      text: " ",
+      // Esther Rützou er forfatter og fortæller. Alle historier er opstået i Esthers krøllede hjerne, og det er også Esthers stemme, I hører, når lytter til historierne. Esther tager sig i øvrigt af de forskellige administrative opgaver i Drømmehavet. esther@droemmehavet.dk",
     },
     {
       type: "core",
       img: LasseRützouBruntse,
       name: "Lasse Rützou Bruntse",
-      text: "core text",
+      title: "Medstifter, Softwareudvikler og Animator",
+      text: " ",
     },
     {
       type: "member",
       img: AnneHobergOvergaard,
       name: "Anne Hoberg Overgård",
-      text: "Anne Hoberg er en dansk illustrator, underviser, art mentor og storyteller. Hendes kunst er rodfæstet i stor kærlighed til alt det hyggelige, naturen, personlig udvikling og sjov og fantasi. Hun har en Bachelor of Arts i Character Animation fra Animation Workshop i Danmark, hvor hun blandt andet lærte om historiefortælling, design og udførelse i at lave animationsfilm. Hun har siden arbejdet på mange forskellige projekter, og i dag driver hun sit eget firma Anne Hoberg Illustration, der kombinerer det, hun har lært gennem årene, for at lave kunst, der skaber lykke, skønhed og solskin for alle. Derudover er hun også en erfaren underviser og elsker at være en del af andres læringserfaring og kunstneriske udvikling. Når hun ikke skaber kunst eller underviser, kan du finde hende hjemme i sit hus ved skoven, hvor hun går lange ture, dyrker yoga eller klapper sin kanin.",
+      title: "Illustrator, Underviser, Art mentor og Storyteller ",
+      text: " ",
+      //"Anne Hoberg er en dansk illustrator, underviser, art mentor og storyteller. Hendes kunst er rodfæstet i stor kærlighed til alt det hyggelige, naturen, personlig udvikling og sjov og fantasi. Hun har en Bachelor of Arts i Character Animation fra Animation Workshop i Danmark, hvor hun blandt andet lærte om historiefortælling, design og udførelse i at lave animationsfilm. Hun har siden arbejdet på mange forskellige projekter, og i dag driver hun sit eget firma Anne Hoberg Illustration, der kombinerer det, hun har lært gennem årene, for at lave kunst, der skaber lykke, skønhed og solskin for alle. Derudover er hun også en erfaren underviser og elsker at være en del af andres læringserfaring og kunstneriske udvikling. Når hun ikke skaber kunst eller underviser, kan du finde hende hjemme i sit hus ved skoven, hvor hun går lange ture, dyrker yoga eller klapper sin kanin.",
     },
     {
       type: "member",
       img: LauraHøjbergKunov,
       name: "Laura Højberg Kunov",
-      text: "member text",
+      title: "Illustrator og Animator",
+      text: " ",
     },
     {
       type: "member",
       img: CorentinMonnier,
       name: "Corentin Monnier",
-      text: "member text",
+      title: "Illustrator og Animator",
+      text: " ",
     },
   ];
 
@@ -55,6 +63,7 @@ export default function TeamMembers(props) {
           <div className="imgContainer">
             <img src={member.img} />
           </div>
+          <h3>{member.title}</h3>
           <p>{member.text}</p>
         </li>
       );

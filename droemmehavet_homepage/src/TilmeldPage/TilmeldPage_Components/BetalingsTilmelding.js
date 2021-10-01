@@ -11,11 +11,11 @@ export default function BetalingsTilmelding(props) {
     const [oprettetIReepay, setOprettetIReepay] = useState(false)
     
     const createNewCustomer= async ()=>{
-            const checkoutWindow = new window.Reepay.EmbeddedSubscription(null, { html_element: 'reepay_container' } );
-            const handle = reepay.createNewSubscriptionHandle(props.formContent.email)
+        const handle = reepay.createNewSubscriptionHandle(props.formContent.email)
+        const session = await reepay.createSubscriberSession(handle)
+        const checkoutWindow = new window.Reepay.EmbeddedSubscription(session.id, { html_element: 'rp_container',showReceipt: false } );
+        await reepay.createPendingSubscriber(handle, props.formContent.fornavn,props.formContent.efternavn, props.formContent.email) 
 
-            await reepay.createPendingSubscriber(handle, props.formContent.fornavn,props.formContent.efternavn, props.formContent.email) 
-            await reepay.renderCheckoutWindow(handle, checkoutWindow)
             
             checkoutWindow.addEventHandler(window.Reepay.Event.Accept, function(data) {
                 props.setFormContent({...props.formContent, 'customer_handle': data.customer,'subscription_handle': data.subscription})
@@ -26,7 +26,6 @@ export default function BetalingsTilmelding(props) {
                 console.log('betaling fejlede')
                 console.error(data)
                 props.handleFejlbesked(data.code)
-                history.push('/tilmeld/1')
             });
 
             checkoutWindow.addEventHandler(window.Reepay.Event.Close, function(data) {
@@ -39,13 +38,12 @@ export default function BetalingsTilmelding(props) {
         createNewCustomer()
       
     }, [])
+  
     return (
         <div>
             {!oprettetIReepay ? 
-            <div id="reepay_container" ref={rpRef} ></div> 
-            : 
-            <BrugerLoadingScreen handleFejlBesked ={ props.handleFejlBesked } formContent = { props.formContent } currentUser = {props.currentUser}/>
-
+            <div id="rp_container" ref={rpRef} ></div> 
+            :  <BrugerLoadingScreen handleFejlBesked ={ props.handleFejlBesked } formContent = { props.formContent } currentUser = {props.currentUser} setTilmeldStadie = {props.setTilmeldStadie}/>
             }
         </div>
     )

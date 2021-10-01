@@ -16,7 +16,7 @@ export default function Frontpage(props) {
             <span className="tilbud"> 1. november</span> og få resten af året
             gratis!
           </h2>
-          <Link to='/tilmeld/1' className="FreeTrailButton">Tilmeld nu!</Link>
+          <Link to='https://app.droemmehavet.dk/' className="FreeTrailButton">Tilmeld nu!</Link>
         </div>
       </div>
       <div id="secondContentContainer">
@@ -26,7 +26,7 @@ export default function Frontpage(props) {
             På ´Eventyrøen´ har Troldmanden fået en ny lærling, Karla. <br />{" "}
             Han har også et tæppe, der kan flyve...
           </h2>
-          <h3>Hør historien her!</h3>
+          <h3>Hør en bid af historien her!</h3>
         </div>
         <img id="pil" scr={Pil} />
         <AudioPlayer />

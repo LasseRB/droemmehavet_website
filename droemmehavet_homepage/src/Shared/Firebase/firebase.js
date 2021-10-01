@@ -18,9 +18,6 @@ const devConfig = {
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID
 
 }
-
-
-
 class Firebase {
     constructor() {
         app.initializeApp(devConfig);
@@ -52,8 +49,6 @@ class Firebase {
             console.error("Error adding document: ", error);
             return -1;
     });
-
-
     }
    
    }

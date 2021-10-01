@@ -26,9 +26,14 @@
         background-color: #fffbe8;
         border-radius: 10px;
         border: hidden;
-        font-size: 1.7vw;
+        font-size: 2vw;
+        text-decoration: none;
         color: $orange-main;
         font-family: $header-font-family;
+        &:hover {
+          background-color:$orange-main;
+          color: white;
+        }
       }
 
       h1 {
@@ -63,7 +68,7 @@
       @include headerText(black, 3vw);
     }
     h2 {
-      @include headerText(black, 1.3vw);
+      @include headerText(black, 1.5vw);
       font-family: $paragraph-font-familiy;
       font-style: small;
     }

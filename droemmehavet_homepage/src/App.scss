@@ -11,6 +11,12 @@
 @import "PrivatslivsPolitik/PrivatslivsPolitik_StyleComponents/PrivatslivsPolitik";
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Pathway+Gothic+One&display=swap&family=PT+Sans+Narrow:wght@400;700&display=swap");
 
+html {
+  overflow-x: hidden;
+  //width: 100%;
+}
 body {
-  width: 100%;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
 }
