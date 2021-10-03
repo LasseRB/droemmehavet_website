@@ -1,0 +1,118 @@
+.tilmeldContainer {
+  padding: $header-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .bruger-input-container {
+    padding-bottom: 5%;
+    width: 500px;
+
+    .steps-box {
+      display: flex;
+      margin: auto;
+      width: 300px;
+      height: 30px;
+      .steps {
+        display: flex;
+        margin: 0 auto;
+        width: max-content;
+      }
+    }
+    form {
+      padding: 3%;
+      margin: 0 auto;
+      width: 300px;
+      border: 1px solid $blue-main;
+      border-radius: 10px;
+      label {
+        display: flex;
+        flex: auto;
+        padding-bottom: 0.2%;
+        color: $blue-main;
+        &.required {
+          &::before {
+            content: "*";
+            color: rgb(255, 102, 0);
+          }
+        }
+      }
+      #NextStep {
+        position: absolute;
+        width: 300px;
+        height: 30px;
+        background-color: rgba(215, 6, 6, 0.5);
+      }
+      #submitBtn {
+        z-index: 5;
+      }
+
+      .abonnementvilkaar {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 10px;
+        label {
+          display: inline-block;
+        }
+        input {
+          display: inline;
+          width: 40px;
+        }
+      }
+
+      input {
+        margin-bottom: 10px;
+        width: 100%;
+        height: 30px;
+        border: 1px solid $blue-main;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  #rp_container {
+    width: 500px;
+    height: 730px;
+  }
+
+  .fejlbesked {
+    position: absolute;
+    background-color: $error-second;
+    border: 1px solid $error-main;
+    border-radius: 20px;
+    z-index: 11;
+    top: $header-height;
+    margin: 0 40%;
+    width: max-content;
+  }
+}
+
+.succes-sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 5%;
+  width: 500px;
+  h1 {
+    @include headerText($blue-main, 4vw);
+    font-weight: bolder;
+  }
+  p {
+    @include paragraph($blue-main, 2vw);
+  }
+  a {
+    text-decoration: none;
+    p {
+      @include headerText(white, 2.5vw);
+      width: 100%;
+      margin: 0;
+      padding: 3% 10% 5% 10%;
+      background-color: #ffcb44;
+      border-radius: 20px;
+      b {
+        font-family: $logo-font-family;
+      }
+    }
+  }
+}
