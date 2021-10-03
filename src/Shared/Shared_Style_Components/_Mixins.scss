@@ -1,0 +1,44 @@
+@import "Variables";
+
+@mixin headerButtons($color) {
+  display: flex;
+  background: transparent;
+  border: transparent;
+  font-family: $header-font-family;
+  font-size: 2vw;
+  color: $color;
+  width: auto; // <-- denne property giver potentielt problemer for knapper, da den kan resize sig selv. Erstat evt. med pixels :)
+  height: 3vw;
+  transition: all 0.2s;
+  border: solid 1px transparent;
+
+  &:hover {
+    border-bottom: 1px solid;
+  }
+  @media screen and (max-width: 500px){
+    font-size: 15px
+  }
+}
+
+@mixin headerText($textColor, $fontSize) {
+  font-family: $header-font-family;
+  color: $textColor;
+  font-size: $fontSize;
+}
+
+@mixin paragraph($textColor, $fontSize) {
+  font-family: $header-font-family;
+  color: $textColor;
+  font-size: $fontSize;
+}
+
+@mixin politik-tekstbox{
+  padding: $header-height 5% 5% 5%;
+  margin: 0 auto;
+  max-width: 500px;
+  // border-left: 1px dashed lightGrey;
+  // border-right: 1px dashed lightGrey;
+  // -webkit-box-shadow: 15px 10px 58px 0px rgba(0,0,0,0.13);
+  // -moz-box-shadow: 15px 10px 58px 0px rgba(0,0,0,0.13);
+  // box-shadow: 15px 10px 58px 0px rgba(0,0,0,0.13);
+}

@@ -1,0 +1,82 @@
+@import ".././Shared_Style_Components/Mixins";
+
+.header {
+  background: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: $header-height;
+  min-height: 70px;
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+  transition: all 0.3s linear;
+  a {
+    text-decoration: none;
+  }
+
+  .logo {
+    padding-left: 10%;
+  }
+
+  .headerButtonsContainer {
+    display: flex;
+    // margin: 0 auto;
+    align-items: center;
+    justify-self: flex-end;
+    width: 100%;
+    flex-wrap: nowrap;
+
+    h1 {
+      display: flex;
+      justify-self: end;
+      color: #ffff;
+      font-family: "Pacifico", cursive;
+      margin: 0 5% 0 10%;
+    }
+    .headerButtonsContainer-inner {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: row;
+      width: 50%;
+      justify-content: space-between;
+      margin: 0 5% 0 20%;
+      .headerButton {
+        @include headerButtons($main-font);
+        // margin: 5%;
+      }
+
+      #logInButton {
+        @include headerButtons($main-font);
+        justify-content: center;
+        border-radius: 10%;
+        border: 1px solid;
+      }
+    }
+  }
+}
+
+.header.blue {
+  background: white;
+  border-bottom: 1px solid $blue-main;
+  h1 {
+    color: $blue-main;
+  }
+
+  .headerButtonsContainer {
+    .headerButton {
+      @include headerButtons($blue-main);
+    }
+
+    #logInButton {
+      @include headerButtons($blue-main);
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .header {
+    .logo {
+        font-size: 20px;
+      }
+  }
+}

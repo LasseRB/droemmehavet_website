@@ -1,0 +1,79 @@
+.abonnement-container {
+  position: relative;
+  display: flex;
+  height: 80vh;
+  width: 100vw;
+  flex-direction: column;
+  //overflow: hidden;
+  padding-bottom: 5%;
+  min-height: 600px;
+  h1 {
+    margin: 5% auto 10px auto;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
+  }
+  h2 {
+    margin: auto auto 3% auto;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
+    color: white;
+    font-weight: 400;
+    padding-bottom: 20px;
+  }
+
+  .abonnement-container-inner {
+    margin: auto auto 30% auto;
+    display: flex;
+    height: max-content;
+    background-color: white;
+    // border: 1px solid $orange-main;
+    border-radius: 40px;
+    width: 300px;
+    padding: 20px;
+    flex-direction: column;
+    -webkit-box-shadow: 15px 10px 58px 0px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 15px 10px 58px 0px rgba(0, 0, 0, 0.13);
+    box-shadow: 15px 10px 58px 0px rgba(0, 0, 0, 0.13);
+
+    h1 {
+      margin: 10% auto 10% auto;
+      font-size: 22pt;
+      font-weight: 500;
+      color: $orange-main;
+      text-shadow: none;
+    }
+    h2 {
+      color: $orange-main;
+      text-shadow: none;
+    }
+    #line {
+      margin: 10% auto 5% auto;
+      height: 1px;
+      width: 80%;
+      border-bottom: 1px solid $orange-main;
+    }
+    ul li {
+      position: relative;
+      list-style: none;
+      line-height: 30pt;
+      line-break: auto;
+      color: $orange-main;
+      &::after {
+        content: "✔";
+        position: absolute;
+        right: 10px;
+      }
+    }
+    .FreeTrialButton {
+      background-color: $orange-main;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      text-align: center;
+
+      &:hover {
+        background-color: #ffa60dfc;
+      }
+    }
+  }
+}
