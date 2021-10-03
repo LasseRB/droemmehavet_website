@@ -22,6 +22,7 @@ class Reepay{
                     "subscription": handle,
                 })
             }).then(res => res.json())
+            .catch(error => console.error(error))
     
         
     }
