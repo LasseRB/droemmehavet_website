@@ -55,66 +55,66 @@
           cursor: pointer;
         }
       }
-      .volume-hover-container {
-        transform: translate(+50%);
-        position: relative;
-        width: 35px;
-        height: 35px;
-        .volume-hover {
-          transform: translate(+50%);
-          position: relative;
-          width: 35px;
-          height: 35px;
-        }
-        &:hover > .volume-hover {
-          width: 150px;
-        }
-        &:hover > .volume-hover > input {
-          position: absolute;
-          display: block;
-          animation: scaleVolume 0.2s forwards;
-          width: 100px;
-        }
-        .volume-hover {
-          justify-content: left;
-          width: 0px;
-          height: 30px;
+      // .volume-hover-container {
+      //   transform: translate(+50%);
+      //   position: relative;
+      //   width: 35px;
+      //   height: 35px;
+      //   .volume-hover {
+      //     transform: translate(+50%);
+      //     position: relative;
+      //     width: 35px;
+      //     height: 35px;
+      //   }
+      //   &:hover > .volume-hover {
+      //     width: 150px;
+      //   }
+      //   &:hover > .volume-hover > input {
+      //     position: absolute;
+      //     display: block;
+      //     animation: scaleVolume 0.2s forwards;
+      //     width: 100px;
+      //   }
+      //   .volume-hover {
+      //     justify-content: left;
+      //     width: 0px;
+      //     height: 30px;
 
-          text-align: middle;
-          input {
-            transition: all 0.5s ease-in-out 0.1s;
-            animation: scaleVolume 0.2s backwards;
-            display: none;
-            appearance: none;
-            -webkit-appearance: none;
-            border-radius: 50px;
-            margin-top: 25%;
-            width: 0px;
-            height: 10px;
-            left: 0px;
+      //     text-align: middle;
+      //     input {
+      //       transition: all 0.5s ease-in-out 0.1s;
+      //       animation: scaleVolume 0.2s backwards;
+      //       display: none;
+      //       appearance: none;
+      //       -webkit-appearance: none;
+      //       border-radius: 50px;
+      //       margin-top: 25%;
+      //       width: 0px;
+      //       height: 10px;
+      //       left: 0px;
 
-            &::-webkit-slider-thumb {
-              -webkit-appearance: none;
-              appearance: none;
-              width: 15px;
-              height: 15px;
-              background: #ffff;
-              border-radius: 50%;
-              cursor: pointer;
-            }
+      //       &::-webkit-slider-thumb {
+      //         -webkit-appearance: none;
+      //         appearance: none;
+      //         width: 15px;
+      //         height: 15px;
+      //         background: #ffff;
+      //         border-radius: 50%;
+      //         cursor: pointer;
+      //       }
 
-            &::-moz-range-thumb {
-              -moz-appearance: none;
-              appearance: none;
-              width: 15px;
-              height: 15px;
-              background: #ffff;
-              border-radius: 50%;
-              cursor: pointer;
-            }
-          }
-        }
-      }
+      //       &::-moz-range-thumb {
+      //         -moz-appearance: none;
+      //         appearance: none;
+      //         width: 15px;
+      //         height: 15px;
+      //         background: #ffff;
+      //         border-radius: 50%;
+      //         cursor: pointer;
+      //       }
+      //     }
+      //   }
+      // }
       @keyframes scaleVolume {
         0% {
           transform: translateX(0px);
@@ -148,8 +148,8 @@
       &::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 20px;
-        height: 20px;
+        width: 10px;
+        height: 10px;
         background: #ffff;
         border-radius: 50%;
         cursor: pointer;
@@ -158,12 +158,20 @@
       &::-moz-range-thumb {
         -moz-appearance: none;
         appearance: none;
-        width: 20px;
-        height: 20px;
+        width: 10px;
+        height: 10px;
         background: #ffff;
         border-radius: 50%;
         cursor: pointer;
       }
     }
   }
+}
+@media screen and (max-width: 500px){
+.audioPlayer{
+  width: 200px;
+  margin-top: 50%;
+  margin-left: 30%;
+//width: 120px;
+}
 }

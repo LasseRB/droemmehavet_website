@@ -1,4 +1,6 @@
 @mixin SoMe-hover {
+  color: $blue-main;
+  transition: all 0.2s;
   &:hover {
     color: $orange-main;
   }
@@ -48,16 +50,26 @@
     #facebook_social {
       margin: 5%;
       margin-left: 40%;
-      color: $blue-main;
-      transition: all 0.2s;
+
       @include SoMe-hover;
     }
     #instagram_social {
       margin: 5%;
       margin-left: 40%;
-      color: $blue-main;
-      transition: all 0.2s;
       @include SoMe-hover;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .footerContainer {
+    h1 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.7rem;
+    }
+    a {
+      font-size: 0.7rem;
     }
   }
 }

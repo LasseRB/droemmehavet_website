@@ -136,7 +136,7 @@
       margin-top: 2%;
       padding: 0;
       z-index: 1;
-      @include headerText($blue-main, 2.5);
+      @include headerText($blue-main, 2.5vw);
       font-family: $logo-font-family;
       text-align: center;
     }
@@ -171,6 +171,60 @@
         font-family: $paragraph-font-familiy;
         width: 135%;
         margin: 7%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  #aboutPage {
+    padding-top: 10%;
+    #bottonLeftCloud {
+      transform: translate(-16%, 160%)
+    }
+    #bottonRightCloud {
+      bottom: -5px;
+      right: -60px;
+
+    }
+    #stime {
+      transform: translate(530%, 740%);
+    }
+    #container1 {
+      h1{
+        width: 80%;
+        font-size: .8rem;
+      }
+      p {
+        font-size: .7rem;
+        width: 65%;
+      }
+    }
+    #container2 {
+      h1 {
+        font-size: 1rem;
+      }
+      ul {
+        h2 {
+          font-size: .7rem;
+        }
+        h3{
+          width: 150%;
+          font-size: .6rem;
+        }
+      }
+    }
+    #container3 {
+      h1 {
+        font-size: 1rem;
+      }
+      ul {
+        h2 {
+          font-size: .7rem;
+        }
+        h3{
+          width: 150%;
+          font-size: .6rem;
+        }
       }
     }
   }

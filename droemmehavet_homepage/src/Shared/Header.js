@@ -40,7 +40,7 @@ export default function Header(props) {
         
         <div className="headerButtonsContainer">
         <Link to="/" exact onClick={() => setTheme(false)} >
-          <h1 id="logo">Drømmehavet</h1>
+          <h1 className="logo">Drømmehavet</h1>
         </Link>
           <div className="headerButtonsContainer-inner">
               {/* <button className="headerButton">webshop</button> */}

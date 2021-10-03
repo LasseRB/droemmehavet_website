@@ -15,6 +15,9 @@
   &:hover {
     border-bottom: 1px solid;
   }
+  @media screen and (max-width: 500px){
+    font-size: 15px
+  }
 }
 
 @mixin headerText($textColor, $fontSize) {

@@ -14,11 +14,10 @@
   a {
     text-decoration: none;
   }
-  
-    #logo{
-      padding-left: 10%;
-    }
-  
+
+  .logo {
+    padding-left: 10%;
+  }
 
   .headerButtonsContainer {
     display: flex;
@@ -72,5 +71,12 @@
     #logInButton {
       @include headerButtons($blue-main);
     }
+  }
+}
+@media screen and (max-width: 500px) {
+  .header {
+    .logo {
+        font-size: 20px;
+      }
   }
 }
