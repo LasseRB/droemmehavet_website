@@ -17,7 +17,7 @@ export default function BrugerTilmelding(props) {
         props.formContent.fornavn === ""
     );
 
-    console.log(e.target.id);
+    // console.log(e.target.id);
     if (e.target.id == "NextStep" && props.formContent.fornavn == "") {
       props.handleFejlBesked("tilmelding/navn-mangler");
     }
@@ -72,7 +72,7 @@ export default function BrugerTilmelding(props) {
       [event.target.name]: event.target.value,
     });
     valider(event);
-    console.log(props.formContent);
+    // console.log(props.formContent);
   };
 
   return (

@@ -90,7 +90,7 @@ export default function AudioControls() {
   //Makes the user able to step back 30 sec
   const stepBack = () => {
     const time = audio.current.currentTime - 10;
-    console.log(time);
+    // console.log(time);
     setCurrentDuration(time);
     audio.current.currentTime = time;
     if (time < 0.0) {

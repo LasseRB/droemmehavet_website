@@ -55,7 +55,7 @@ export default function TeamMembers(props) {
   ];
 
   const createTeamMember = teamMemberArray.map((member) => {
-    console.log(props.type == member.type, props.type, member.type);
+    // console.log(props.type == member.type, props.type, member.type);
     if (props.type == member.type) {
       return (
         <li className="TeamMember">
