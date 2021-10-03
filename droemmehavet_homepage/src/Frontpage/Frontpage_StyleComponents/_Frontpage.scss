@@ -55,7 +55,7 @@
   #secondContentContainer {
     display: flex;
     height: 100vh;
-  }
+  
 
   #tutorielText {
     display: flex;
@@ -102,4 +102,26 @@
       transform: translate(-50%, -20%);
     }
   }
+}
+
+@media screen and (max-width: 500px){
+  #contentContainer{
+    background-position: 32%;
+  #textContainer {
+    width: 60%;
+    margin-top: 30%;
+    margin-left: 25%;
+    h1{
+      font-size: 30px;
+    }
+    h2{
+      font-size: 15px;
+    }
+    .FreeTrailButton {
+font-size: 20px;
+    }
+  }
+  }
+  
+}
 }
