@@ -4,9 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Firebase, { FirebaseContext } from './Shared/Firebase';
+import Favicon from "react-favicon"
+import Icon from "./favicon2.png"
 
 ReactDOM.render(
   <FirebaseContext.Provider value={new Firebase()}>
+    <Favicon url={Icon}/>
     <App />
   </FirebaseContext.Provider>,
   document.getElementById('root')

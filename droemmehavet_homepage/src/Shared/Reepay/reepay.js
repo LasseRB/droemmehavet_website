@@ -1,8 +1,10 @@
 import base64 from 'base-64'
+// import *  as functions from 'firebase-functions'
 class Reepay{
     
     getAPIKeyAsBase64 = () => {
         return base64.encode(process.env.REACT_APP_REEPAY_APIKEY)
+        // return base64.encode(functions.config().reepay.apikey)
     }
 
     createSubscriberSession = async (handle) => {
@@ -34,10 +36,11 @@ class Reepay{
                     'accept': 'application/json'
                  },
                 body: JSON.stringify({
+                    // "plan": functions.config().reepay.plan,
                     "plan": process.env.REACT_APP_REEPAY_STANDARD_PLAN,
                     "create_customer": {
                         "email": email,
-                        "test": true,
+                        "test": false,
                         "first_name": fornavn,
                         "last_name": efternavn || "",
                         "generate_handle": true,
