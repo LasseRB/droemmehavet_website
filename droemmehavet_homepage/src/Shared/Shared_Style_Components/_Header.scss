@@ -73,6 +73,13 @@
     }
   }
 }
+@media screen and (max-width:1100px){
+  .header {
+    .logo {
+        font-size: 35px;
+      }
+  }
+}
 @media screen and (max-width: 500px) {
   .header {
     .logo {
