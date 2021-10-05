@@ -103,7 +103,7 @@
     }
   }
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1100px) and (min-width: 500px) {
     #contentContainer {
       background-position: 32%;
       #textContainer {
@@ -120,51 +120,42 @@
           font-size: 35px;
         }
       }
-      #secondContentContainer {
-        flex-direction: column;
-        align-items: center;
-        #tutorielText {
-          width: 70%;
-          //margin-left: 15%;
-          h1 {
-            margin-top: 80%;
-            font-size: 30px;
-            margin: 0%;
-            padding: 0%;
-          }
-          h2 {
-            font-size: 15px;
-            // width: 60%;
-          }
-          h3 {
-            font-size: 15px;
-            margin-left: 55%;
-            transform: translate(30%, -50%);
-            //transform: translate(-160%, 200%);
-          }
+    }
+    #secondContentContainer {
+      height: 70vh;
+
+      #tutorielText {
+        width: 90%;
+        margin-top: 5%;
+        margin-left: 5%;
+        h1 {
+          //margin-top: 80%;
+          font-size: 5.5vw;
+          margin: 0%;
+          padding: 0%;
         }
-        #imgContainer {
-          width: 650px;
-          height: 650px;
-          transform: translateX(55%);
-          border-radius: 15%;
-          //margin: 0;
-          #exampleImg {
-            width: 850px;
-            height: 800px;
-            // transform: translate(-50%, -20%);
-          }
+        h2 {
+          font-size: 2.5vw;
+          width: 80%;
+          padding-top: 3%;
         }
-        // #imgContainer {
-        //   transform: translateX(0%);
-        //   transform: translateY(65%);
-        //   width: 350px;
-        //   height: 350px;
-        //   #exampleImg {
-        //     width: 850px;
-        //     height: 800px;
-        //   }
-        // }
+        h3 {
+          font-size: 2vw;
+
+          transform: translate(-220%, 600%);
+        }
+      }
+      #imgContainer {
+        width: 65vw;
+        height: 45vh;
+        transform: translate(40%, 40%);
+        border-radius: 15%;
+        //margin: 0;
+        #exampleImg {
+          width: 1600px;
+          height: 1200px;
+           transform: translate(-50%, -20%);
+        }
       }
     }
   }
