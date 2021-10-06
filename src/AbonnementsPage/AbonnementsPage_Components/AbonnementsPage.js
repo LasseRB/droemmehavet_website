@@ -14,12 +14,12 @@ export default function AbonnementsPage() {
                 <span id="line"></span>
                 <ul>
                     <li>Ubegrænset medlemskab</li>
-                    <li>3 måneder gratis </li>
+                    <li>resten af 2021 gratis</li>
                     <li>Opsig til hver en tid</li>
 
                 </ul>
 
-                <Link to='https://app.droemmehavet.dk/' className="FreeTrialButton">Tilmeld nu!</Link>
+                <Link to='/tilmeld' className="FreeTrialButton">Tilmeld nu!</Link>
             </div>
            
         </div>

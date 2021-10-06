@@ -12,9 +12,8 @@ export default function Frontpage(props) {
           <h1>Velkommen til et univers af lydfortællinger for børn</h1>
           <h2>
             <span className="tilbud">49kr. </span>
-            om måneden. Tilmeld inden den
-            <span className="tilbud"> 1. november</span> og få resten af året
-            gratis!
+            om måneden. 
+            <span className="tilbud"> Gratis medlemsskab</span> indtil nytår!
           </h2>
           <a href='https://droemmehavet.dk/tilmeld' className="FreeTrailButton">Tilmeld nu!</a>
         </div>
