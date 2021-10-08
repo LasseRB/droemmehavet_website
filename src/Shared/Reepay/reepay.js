@@ -12,7 +12,7 @@ class Reepay{
     }
 
     createPendingSubscriber = async (handle, fornavn, efternavn, email) => {
-        return await fetch('https://droem-hn4sec6b7a-lz.a.run.app/reepay/pendingsub?handle='+handle+'&fornavn='+fornavn+'&efternavn='+efternavn+'&email',
+        return await fetch('https://droem-hn4sec6b7a-lz.a.run.app/reepay/pendingsub?handle='+handle+'&fornavn='+fornavn+'&efternavn='+efternavn+'&email='+email,
             {
                 method: 'GET',
                 
