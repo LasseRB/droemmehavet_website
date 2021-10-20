@@ -110,7 +110,6 @@
         width: 150%;
         text-align: center;
       }
-
       p {
         z-index: 1;
         @include paragraph($orange-main, 1.2vw);
@@ -164,6 +163,15 @@
         @include headerText($blue-main, 1.2vw);
         font-family: $paragraph-font-familiy;
         text-align: center;
+        padding: 0;
+        margin: 0;
+
+
+         &.illustrationer {
+          font-family: $italic-font;
+          font-size: .9vw;
+          font-style: italic;
+        }
       }
       p {
         z-index: 1;
