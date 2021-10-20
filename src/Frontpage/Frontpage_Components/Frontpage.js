@@ -19,12 +19,13 @@ export default function Frontpage(props) {
         </div>
       </div>
       <div id="secondContentContainer">
+      <h2 id="NyeFortaellinger"> Nye fortællinger hver måned!</h2>
         <div id="tutorielText">
           <h1>Lyt til historier!</h1>
-          <h2>
+          <p>
             På ´Eventyrøen´ har Troldmanden fået en ny lærling, Karla. <br />{" "}
             Han har også et tæppe, der kan flyve...
-          </h2>
+          </p>
           <h3>Hør en bid af historien her!</h3>
         </div>
         <img id="pil" scr={Pil} />
