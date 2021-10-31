@@ -17,6 +17,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const firebase = useContext(FirebaseContext);
   const tilmeldKnap = useRef();
+  const [headerTheme, setheaderTheme] = useState(true);
 
   useEffect(() => {
     const unsubscribe = firebase.auth.onAuthStateChanged((user) => {
@@ -28,7 +29,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header currentUser={currentUser} tilmeldKnap={tilmeldKnap} />
+        <Header
+          currentUser={currentUser}
+          tilmeldKnap={tilmeldKnap}
+          headerTheme={headerTheme}
+          setheaderTheme={setheaderTheme}
+        />
         <Switch>
           <Route path="/" exact>
             <FrontPage tilmeldKnap={tilmeldKnap} />
@@ -52,7 +58,7 @@ function App() {
             <Handelsbetingelser />
           </Route>
         </Switch>
-        <Footer />
+        <Footer setheaderTheme={setheaderTheme} />
       </Router>
     </div>
   );

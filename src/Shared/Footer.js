@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
-export default function Footer() {
+export default function Footer(props) {
   return (
     <div className="footerContainer">
       <div className="adresseContainer">
@@ -25,13 +25,25 @@ export default function Footer() {
       <div className="politikContainer">
         <h1>Mere info</h1>
         <p>
-          <Link to="/omos">Om os</Link>
+          <Link to="/omos" onClick={() => props.setheaderTheme(false)}>
+            Om os
+          </Link>
         </p>
         <p>
-          <Link to="/Privatlivspolitik">Privatlivspolitik</Link>
+          <Link
+            to="/Privatlivspolitik"
+            onClick={() => props.setheaderTheme(false)}
+          >
+            Privatlivspolitik
+          </Link>
         </p>
         <p>
-          <Link to="/handelsbetingelser">Handelsbetingelser</Link>
+          <Link
+            to="/handelsbetingelser"
+            onClick={() => props.setheaderTheme(false)}
+          >
+            Handelsbetingelser
+          </Link>
         </p>
       </div>
       <div className="SOMEContainer">
