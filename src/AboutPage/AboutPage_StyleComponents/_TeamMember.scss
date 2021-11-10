@@ -6,9 +6,9 @@
 
   .imgContainer {
     display: flex;
-    width: 170px;
-    height: 170px;
-    border: solid #ffcb44 2px;
+    width: 20vw;
+    height: 20vw;
+    border: solid $orange-main 2px;
     border-radius: 50%;
     overflow: hidden;
     justify-content: center;
@@ -16,14 +16,6 @@
       align-items: center;
       width: auto;
       height: auto;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    .imgContainer {
-      padding: 2%;
-      width: 80px;
-      height: 80px;
     }
   }
 }

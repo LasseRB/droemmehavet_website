@@ -115,18 +115,18 @@
       //     }
       //   }
       // }
-      @keyframes scaleVolume {
-        0% {
-          transform: translateX(0px);
-          width: 0px;
-          opacity: 0;
-        }
-        100% {
-          transform: translateX(30px);
-          width: 90px;
-          opacity: 100;
-        }
-      }
+      // @keyframes scaleVolume {
+      //   0% {
+      //     transform: translateX(0px);
+      //     width: 0px;
+      //     opacity: 0;
+      //   }
+      //   100% {
+      //     transform: translateX(30px);
+      //     width: 90px;
+      //     opacity: 100;
+      //   }
+      // }
     }
   }
 
@@ -167,6 +167,15 @@
     }
   }
 }
+@media screen and (max-width: 1100px) and (min-width: 500px){
+  .audioPlayer{
+    width: 250px;
+    margin-top: 27%;
+    margin-left: 27%;
+  //width: 120px;
+  }
+}
+
 @media screen and (max-width: 500px){
 .audioPlayer{
   width: 200px;
