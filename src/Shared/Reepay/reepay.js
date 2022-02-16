@@ -17,17 +17,14 @@ class Reepay{
             {
                 method: 'GET',
                 mode: 'cors',
-                
             }).then(response => response.json())
             .catch(error => console.error(error))
-    
-        
     }
 
     async renderCheckoutWindow(handle, rp){
         if(handle){
             const session = await this.createSubscriberSession(handle)
-            rp.show(session.id) 
+            rp.show(session.id)
         }
     }
 

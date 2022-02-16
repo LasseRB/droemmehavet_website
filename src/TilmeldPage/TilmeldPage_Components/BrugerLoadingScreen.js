@@ -40,7 +40,7 @@ export default function BrugerLoadingScreen(props) {
     await firebase
       .doUpdateAuthUser({
         displayName:
-          props.formContent.fornavn + " " + props.formContent.efternavn,
+          props.formContent.navn
       })
       .catch((error) => {
         props.handleFejlBesked(error.code);
@@ -50,10 +50,9 @@ export default function BrugerLoadingScreen(props) {
 
     //create user in Firestore DB - needs the right auth rules
     firebase
-      .doCreateFirestoreUser(userID, {
-        fornavn: props.formContent.fornavn,
-        efternavn: props.formContent.efternavn,
-        email: props.formContent.email,
+      .doUpdateFirestoreUser({
+        uid: userID,
+        navn: props.formContent.navn,
         "reepay-customer-handle": props.formContent.customer_handle || "n/a",
         "reepay-subscription-handle":
           props.formContent.subscription_handle || "n/a",
