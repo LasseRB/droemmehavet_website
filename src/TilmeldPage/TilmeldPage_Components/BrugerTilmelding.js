@@ -16,16 +16,18 @@ export default function BrugerTilmelding(props) {
         const checkoutWindow = new window.Reepay.ModalSubscription();
         const handle = reepay.createNewSubscriptionHandle(props.formContent.email)
 
-        await reepay.createPendingSubscriber(handle, props.formContent.fornavn, props.formContent.efternavn, props.formContent.email)
+        await reepay.createPendingSubscriber(handle, props.formContent.fornavn, props.formContent.efternavn, props.formContent.email, props.formContent.kuponkode)
+
         await reepay.renderCheckoutWindow(handle, checkoutWindow)
 
         checkoutWindow.addEventHandler(window.Reepay.Event.Accept, function (data) {
+            console.log('suuuccceeeeeess')
             props.setFormContent({
                 ...props.formContent,
                 'customer_handle': data.customer,
                 'subscription_handle': data.subscription
             })
-            props.setTilmeldStadie({current: 3});
+            props.setTilmeldStadie({current: 2});
         });
 
         checkoutWindow.addEventHandler(window.Reepay.Event.Error, function (data) {
@@ -46,25 +48,23 @@ export default function BrugerTilmelding(props) {
             (props.formContent.password !== props.formContent.password2 ||
                 (props.formContent.password === "" &&
                     props.formContent.password === "") ||
-                (props.formContent.email === "" && props.formContent.email2 === "") ||
-                props.formContent.email !== props.formContent.email2 ||
-                props.formContent.fornavn === "")
+                (props.formContent.email === ""))
         );
 
         // console.log(e.target.id);
-        if (e.target.id == "NextStep" && props.formContent.fornavn == "") {
+        if (e.target.id === "NextStep" && props.formContent.fornavn === "") {
             props.handleFejlBesked("tilmelding/navn-mangler");
         }
         if (
-            props.formContent.fornavn != "" &&
-            e.target.name == props.formContent.fornavn
+            props.formContent.fornavn !== "" &&
+            e.target.name === props.formContent.fornavn
         ) {
             props.handleFejlBesked("fixet error");
         }
 
         if (
-            "password" == e.target.name &&
-            props.formContent.email != props.formContent.email2 &&
+            "password" === e.target.name &&
+            props.formContent.email !== props.formContent.email2 &&
             props.formContent.email2 !== ""
         ) {
             props.handleFejlBesked("tilmelding/email-mismatch");
@@ -106,12 +106,12 @@ export default function BrugerTilmelding(props) {
             [event.target.name]: event.target.value,
         });
         valider(event);
-        // console.log(props.formContent);
+        console.log(props.formContent);
     };
 
     const handleCoupon = async (event) => {
         event.preventDefault();
-        if(event.target.value.trim() == ""){
+        if (event.target.value.trim() == "") {
             setHarKupon(null)
             return
         }
@@ -119,14 +119,14 @@ export default function BrugerTilmelding(props) {
         await firebase.checkCoupon(event.target.value)
             .then(res => {
                 console.log(res)
-                if(res){
+                if (res) {
                     if (res.data.error) {
                         setHarKupon('danger')
                     } else if (res.data.name) {
                         setHarKupon('succes')
+                        handleChange(event)
                     } else {
                         setHarKupon(null)
-
                     }
                 }
 
@@ -193,7 +193,8 @@ export default function BrugerTilmelding(props) {
                 <div className="divider"></div>
                 <span className="inputBox">
                     <label htmlFor="kuponkode">Kuponkode</label>
-                    <input id="kuponkode" className={ harKupon } type="text" name="kuponkode" placeholder="Skriv eventuel kuponkode her"
+                    <input id="kuponkode" className={harKupon} type="text" name="kuponkode"
+                           placeholder="Skriv eventuel kuponkode her"
                            onInput={handleCoupon}/>
                     <Ikon validation={harKupon}/>
                     {/*<input id="kuponKnap" type="button" value="tilføj kode"/>*/}
@@ -203,8 +204,8 @@ export default function BrugerTilmelding(props) {
                     id="submitBtn"
                     type="submit"
                     value="Næste skridt 👉"
-                    // disabled={enableSubmit}
-                    disabled={false}
+                    disabled={enableSubmit}
+                    // disabled={false}
                 />
             </form>
         </>
@@ -215,9 +216,9 @@ function Ikon({validation}) {
 
     function ikon(state) {
         if (state === 'succes') {
-            return <img className="validator_ikon" src={ SuccesIkon } />
+            return <img className="validator_ikon" src={SuccesIkon}/>
         } else if (state === 'danger') {
-            return <img className="validator_ikon" src={ FejlIkon } />
+            return <img className="validator_ikon" src={FejlIkon}/>
         } else {
             return null
         }

@@ -41,6 +41,11 @@ export default function Header(props) {
                             <h1>Drømmehavet</h1>
                         </a>
                     </div>
+                    <div className="logind">
+                        <a href="https://app.droemmehavet.dk">
+                            <h1>Log ind</h1>
+                        </a>
+                    </div>
                 </div>
             </div>
         </>

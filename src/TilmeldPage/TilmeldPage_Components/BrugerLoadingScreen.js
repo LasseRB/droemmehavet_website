@@ -49,8 +49,7 @@ export default function BrugerLoadingScreen(props) {
       });
 
     //create user in Firestore DB - needs the right auth rules
-    firebase
-      .doUpdateFirestoreUser({
+    firebase.doUpdateFirestoreUser({
         uid: userID,
         navn: props.formContent.navn,
         "reepay-customer-handle": props.formContent.customer_handle || "n/a",

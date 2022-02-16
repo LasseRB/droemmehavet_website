@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {Redirect} from "react-router-dom";
 
 import BrugerTilmelding from "./BrugerTilmelding";
@@ -6,7 +6,8 @@ import BetalingsTilmelding from "./BetalingsTilmelding";
 import {FEJLBESKED} from "./tilmeldingsfejlbeskeder";
 import Fiskestime from '../../images/stime.png'
 import {reepay} from "../../Shared/Reepay/reepay";
-
+import BrugerLoadingScreen from "./BrugerLoadingScreen";
+import { FirebaseContext } from "../../Shared/Firebase";
 export default function TilmeldPage(props) {
     const [fejlbesked, setFejlbesked] = useState("");
     const [tilmeldStadie, setTilmeldStadie] = useState({current: 1});
@@ -18,7 +19,9 @@ export default function TilmeldPage(props) {
         password: "",
         password2: "",
         acceptAfVilkaar: true,
+        kuponkode: ""
     });
+    const firebase = useContext(FirebaseContext);
 
     // renderer fejlbeskeder på siden, på dansk
     const handleFejlBesked = (fejlKode) => {
@@ -48,7 +51,6 @@ export default function TilmeldPage(props) {
                 setFejlbesked("Der skete en fejl, prøv igen!");
         }
     };
-
 
     return (
         <>
@@ -93,7 +95,10 @@ export default function TilmeldPage(props) {
                         />
                     )}
 
-                    {/*{tilmeldStadie.current == 2 && null*/}
+                    {tilmeldStadie.current == 2 &&
+                    <BrugerLoadingScreen handleFejlBesked={handleFejlBesked} formContent={formContent}
+                                         setTilmeldStadie={setTilmeldStadie}/>
+                    }
 
                     {/*// <div onClick={() => window.history.back()}> <div id="tilbageTekst">Gå tilbage</div> <div id="tilbagePil"></div></div>}*/}
                     {/*// (*/}
@@ -110,11 +115,8 @@ export default function TilmeldPage(props) {
                 {tilmeldStadie.current == 3 && (
                     <Redirect to="/velkommen"/>
                 )}
-
-
                 <img src={Fiskestime} className="bgImages" id="fiskestime"/>
             </div>
-
         </>
 
     );
