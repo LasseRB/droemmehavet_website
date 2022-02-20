@@ -14,7 +14,7 @@ export default function AbonnementsPage() {
                 <span id="line"></span>
                 <ul>
                     <li>Ubegrænset medlemskab</li>
-                    <li>resten af 2021 gratis</li>
+                    <li>Nye historier hver måned</li>
                     <li>Opsig til hver en tid</li>
 
                 </ul>

@@ -12,12 +12,12 @@
     background-image: url("../../background.png");
     background-repeat: no-repeat;
     background-size: cover;
-
+    justify-content: flex-end;
     #textContainer {
+      display: flex;
       margin-left: 55%;
       margin-top: 15%;
       width: 40%;
-      display: flex;
       flex-direction: column;
 
       .FreeTrailButton {
@@ -44,7 +44,7 @@
         @include headerText(#ffff, 1.5vw);
         letter-spacing: 0.05em;
         z-index: 5;
-
+        text-align: center;
         .tilbud {
           color: $orange-main;
         }

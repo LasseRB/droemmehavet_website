@@ -11,9 +11,8 @@ export default function Frontpage(props) {
         <div id="textContainer">
           <h1>Velkommen til et univers af lydfortællinger for børn</h1>
           <h2>
-            <span className="tilbud">49kr. </span>
-            om måneden. 
-            <span className="tilbud"> Gratis medlemsskab</span> indtil nytår!
+            <span className="tilbud">49kr. </span> om måneden. <br/>
+              <span> Ny historie hver uge.</span>
           </h2>
           <a href='https://droemmehavet.dk/tilmeld' className="FreeTrailButton">Tilmeld nu!</a>
         </div>
