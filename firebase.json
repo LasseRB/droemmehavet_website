@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "build",
+    "site": "droemmehavet-1aa53",
     "ignore": [
       "firebase.json",
       "**/.*",
