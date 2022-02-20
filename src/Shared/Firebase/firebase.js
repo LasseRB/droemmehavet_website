@@ -41,19 +41,28 @@ class Firebase {
     doSignOut = () => this.auth.signOut();
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
     doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
-
+    doFetchSignForEmail = email => this.auth.fetchSignInMethodsForEmail(email);
     getCurrentUser = () => this.auth.currentUser
     // firestore API
+
+    doUpdateFirestoreUser = async (id,user) =>{
+
+        await this.db.collection('users/')
+            .doc(id).set(user,{ merge: true }).catch((error) => {
+                console.error("Error adding document: ", error);
+                return -1;
+            });
+    }
 
     checkCoupon = async (data) => {
         const check = this.functions.httpsCallable("checkCoupon");
         return await check(data)
             .then(res => {
-                console.log(res)
+                console.log(data, res)
                 return res
             })
             .catch(error => {
-                    console.error(error)
+                    console.error(data, error)
                     return error
             })
     }

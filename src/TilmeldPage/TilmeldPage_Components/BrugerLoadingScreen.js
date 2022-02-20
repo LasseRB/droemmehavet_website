@@ -49,9 +49,9 @@ export default function BrugerLoadingScreen(props) {
       });
 
     //create user in Firestore DB - needs the right auth rules
-    firebase.doUpdateFirestoreUser({
-        uid: userID,
+    firebase.doUpdateFirestoreUser(userID, {
         navn: props.formContent.navn,
+        email: props.formContent.email,
         "reepay-customer-handle": props.formContent.customer_handle || "n/a",
         "reepay-subscription-handle":
           props.formContent.subscription_handle || "n/a",
@@ -63,7 +63,7 @@ export default function BrugerLoadingScreen(props) {
         console.error(error);
         return;
       });
-    props.setTilmeldStadie(3);
+    props.setTilmeldStadie({current: 3});
   };
 
   useEffect(() => {

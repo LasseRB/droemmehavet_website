@@ -2,25 +2,25 @@ import React, {useContext, useState} from "react";
 import {Redirect} from "react-router-dom";
 
 import BrugerTilmelding from "./BrugerTilmelding";
-import BetalingsTilmelding from "./BetalingsTilmelding";
-import {FEJLBESKED} from "./tilmeldingsfejlbeskeder";
+
+import {FEJLBESKED, FORM} from "../../Shared/Constans";
 import Fiskestime from '../../images/stime.png'
-import {reepay} from "../../Shared/Reepay/reepay";
 import BrugerLoadingScreen from "./BrugerLoadingScreen";
 import { FirebaseContext } from "../../Shared/Firebase";
 export default function TilmeldPage(props) {
     const [fejlbesked, setFejlbesked] = useState("");
     const [tilmeldStadie, setTilmeldStadie] = useState({current: 1});
+
     const [formContent, setFormContent] = useState({
-        fornavn: "",
-        efternavn: "",
-        email: "",
-        email2: "",
-        password: "",
-        password2: "",
+        navn: {[FORM.STATE]: "", [FORM.VAERDI]: ""},
+        email: {[FORM.STATE]: "", [FORM.VAERDI]: ""},
+        password: {[FORM.STATE]: "", [FORM.VAERDI]: ""},
+        password2: {[FORM.STATE]: "", [FORM.VAERDI]: ""},
         acceptAfVilkaar: true,
-        kuponkode: ""
+        kuponkode: {[FORM.STATE]: "", [FORM.VAERDI]: ""}
     });
+
+
     const firebase = useContext(FirebaseContext);
 
     // renderer fejlbeskeder på siden, på dansk
@@ -112,9 +112,9 @@ export default function TilmeldPage(props) {
                     {/*// )}*/}
                 </div>
                 eller <input type="button" value="log ind"/>
-                {tilmeldStadie.current == 3 && (
+                {tilmeldStadie.current == 3 ?
                     <Redirect to="/velkommen"/>
-                )}
+                : null}
                 <img src={Fiskestime} className="bgImages" id="fiskestime"/>
             </div>
         </>
