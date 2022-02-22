@@ -6,7 +6,8 @@ import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 export default function Footer() {
   return (
     <div className="footerContainer">
-      <div className="adresseContainer">
+
+    {/*//   <div className="adresseContainer">
         <h1>Adresse</h1>
         <p>Drømmehavet ApS</p>
         <p>Jordløsevej 3a</p>
@@ -49,7 +50,7 @@ export default function Footer() {
         >
           <FontAwesomeIcon icon={faInstagram} size="3x" />
         </a>
-      </div>
+      </div>*/}
     </div>
   );
 }

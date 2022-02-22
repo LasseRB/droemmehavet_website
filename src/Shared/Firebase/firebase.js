@@ -3,7 +3,8 @@ import '@firebase/auth';
 import '@firebase/firestore';
 import '@firebase/storage';
 import '@firebase/analytics';
-import 'regenerator-runtime/runtime';
+import "@firebase/functions";
+// import 'regenerator-runtime/runtime';
 
 // import {islands} from './developmentDB/data.js'
 // tutorial: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
@@ -18,6 +19,7 @@ const devConfig = {
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID
 
 }
+
 class Firebase {
     constructor() {
         app.initializeApp(devConfig);
@@ -25,13 +27,13 @@ class Firebase {
         this.db = app.firestore();
         this.storage = app.storage();
         this.analytics = app.analytics();
-       
+        this.functions = app.functions();
     }
 
     // auth API for password and email
     doCreateUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);
     doUpdateAuthUser = (user) => this.auth.currentUser.updateProfile(user)
-        .catch((error) =>{
+        .catch((error) => {
             console.error(error)
             return error
         });
@@ -39,20 +41,33 @@ class Firebase {
     doSignOut = () => this.auth.signOut();
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
     doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
-    
+    doFetchSignForEmail = email => this.auth.fetchSignInMethodsForEmail(email);
     getCurrentUser = () => this.auth.currentUser
     // firestore API
-    doCreateFirestoreUser = async (id,user) =>{
+
+    doUpdateFirestoreUser = async (id,user) =>{
 
         await this.db.collection('users/')
             .doc(id).set(user,{ merge: true }).catch((error) => {
-            console.error("Error adding document: ", error);
-            return -1;
-    });
+                console.error("Error adding document: ", error);
+                return -1;
+            });
     }
-   
-   }
 
+    checkCoupon = async (data) => {
+        const check = this.functions.httpsCallable("checkCoupon");
+        return await check(data)
+            .then(res => {
+                console.log(data, res)
+                return res
+            })
+            .catch(error => {
+                    console.error(data, error)
+                    return error
+            })
+    }
+
+}
 
 
 export default Firebase;

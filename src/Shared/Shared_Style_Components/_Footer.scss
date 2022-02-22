@@ -7,88 +7,112 @@
 }
 
 .footerContainer {
-  z-index: 50;
+  position:sticky;
+  bottom: 10px;
+  z-index: -1;
   display: flex;
   flex-direction: row;
   background: transparent;
   width: 100%;
-  border-top: 1px solid $blue-main;
+  //border-top: 1px solid $blue-main;
 
-  h1 {
-    @include headerText($blue-main, 2vw);
-    margin: 0.5%;
-    margin-top: 4%;
-    padding: 0.5%;
-  }
-  p {
-    @include paragraph($blue-main, 1.2vw);
-    margin: 0.5%;
-    padding: 0.5%;
-  }
-  a {
-    @include paragraph($blue-main, 1.2vw);
-    @include SoMe-hover;
-    text-decoration: none;
-  }
 
-  .adresseContainer {
-    width: 25%;
-    padding-left: 5%;
-  }
-  .kontaktContainer {
-    width: 25%;
-    padding-left: 5%;
-  }
-  .politikContainer {
-    width: 25%;
-    padding-left: 5%;
-  }
-  .SOMEContainer {
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    #facebook_social {
-      margin: 5%;
-      margin-left: 40%;
 
-      @include SoMe-hover;
-    }
-    #instagram_social {
-      margin: 5%;
-      margin-left: 40%;
-      @include SoMe-hover;
-    }
-  }
-}
-@media screen and (max-width: 1100px) and (min-width: 500px){
-  .footerContainer {
-    height: auto;
-    h1 {
-      font-size: 3.5vw;
-    }
-    p {
-      font-size: 2.5vw;
-    }
+  .logo {
+
+    bottom: 30px;
+    margin: 0 auto;
+    font-family: "Pacifico", cursive;
+
     a {
-      font-size: 2.5vw;
-    }
-    .SOMEContainer {
-      a {
-        font-size: 2vw;
-      }
+      text-decoration: none;
+      color: $blue-main;
     }
   }
 }
-@media screen and (max-width: 500px) {
-  .footerContainer {
-    h1 {
-      font-size: 1rem;
-    }
-    p {
-      font-size: 0.7rem;
-    }
-    a {
-      font-size: 0.7rem;
-    }
-  }
-}
+//  p {
+//    @include paragraph($blue-main, 1.2vw);
+//    margin: 0.5%;
+//    padding: 0.5%;
+//  }
+//
+//  a {
+//    @include paragraph($blue-main, 1.2vw);
+//    @include SoMe-hover;
+//    text-decoration: none;
+//  }
+//
+//  .adresseContainer {
+//    width: 25%;
+//    padding-left: 5%;
+//  }
+//
+//  .kontaktContainer {
+//    width: 25%;
+//    padding-left: 5%;
+//  }
+//
+//  .politikContainer {
+//    width: 25%;
+//    padding-left: 5%;
+//  }
+//
+//  .SOMEContainer {
+//    width: 25%;
+//    display: flex;
+//    flex-direction: column;
+//
+//    #facebook_social {
+//      margin: 5%;
+//      margin-left: 40%;
+//
+//      @include SoMe-hover;
+//    }
+//
+//    #instagram_social {
+//      margin: 5%;
+//      margin-left: 40%;
+//      @include SoMe-hover;
+//    }
+//  }
+//}
+//
+//@media screen and (max-width: 1100px) and (min-width: 500px) {
+//  .footerContainer {
+//    height: auto;
+//
+//    h1 {
+//      font-size: 3.5vw;
+//    }
+//
+//    p {
+//      font-size: 2.5vw;
+//    }
+//
+//    a {
+//      font-size: 2.5vw;
+//    }
+//
+//    .SOMEContainer {
+//      a {
+//        font-size: 2vw;
+//      }
+//    }
+//  }
+//}
+//
+//@media screen and (max-width: 500px) {
+//  .footerContainer {
+//    h1 {
+//      font-size: 1rem;
+//    }
+//
+//    p {
+//      font-size: 0.7rem;
+//    }
+//
+//    a {
+//      font-size: 0.7rem;
+//    }
+//  }
+//}

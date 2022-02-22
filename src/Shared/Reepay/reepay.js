@@ -12,24 +12,23 @@ class Reepay{
         
     }
 
-    createPendingSubscriber = async (handle, fornavn, efternavn, email) => {
-        return await fetch('https://droem-hn4sec6b7a-lz.a.run.app/reepay/pendingsub?handle='+handle+'&fornavn='+fornavn+'&efternavn='+efternavn+'&email='+email,
+    createPendingSubscriber = async (handle, navn, email, kuponkode) => {
+        return await fetch('https://droem-hn4sec6b7a-lz.a.run.app/reepay/pendingsub?handle='+handle+'&navn='+navn+'&email='+email+'&kuponkode='+kuponkode,
             {
                 method: 'GET',
                 mode: 'cors',
-                
             }).then(response => response.json())
             .catch(error => console.error(error))
-    
-        
     }
 
     async renderCheckoutWindow(handle, rp){
-        if(handle){
+            if (!handle ) return
             const session = await this.createSubscriberSession(handle)
-            rp.show(session.id) 
-        }
+
+            if (!session.id) return
+            rp.show(session.id, {showReceipt: false})
     }
+
 
     async getCustomer(handle) {
         return await fetch('https://droem-hn4sec6b7a-lz.a.run.app/reepay/customer?handle='+handle,

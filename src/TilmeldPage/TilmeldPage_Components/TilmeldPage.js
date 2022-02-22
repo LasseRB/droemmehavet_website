@@ -1,88 +1,71 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
+import {Redirect} from "react-router-dom";
 
 import BrugerTilmelding from "./BrugerTilmelding";
-import BetalingsTilmelding from "./BetalingsTilmelding";
-import { FEJLBESKED } from "./tilmeldingsfejlbeskeder";
+import AbonnementsPage from "../../AbonnementsPage/AbonnementsPage_Components/AbonnementsPage"
+import {FEJLBESKED, FORM} from "../../Shared/Constans";
+import Fiskestime from '../../images/stime.png'
+import BrugerLoadingScreen from "./BrugerLoadingScreen";
+import { FirebaseContext } from "../../Shared/Firebase";
+
 
 export default function TilmeldPage(props) {
-  const [fejlbesked, setFejlbesked] = useState("");
-  const [tilmeldStadie, setTilmeldStadie] = useState(1);
-  const [formContent, setFormContent] = useState({
-    fornavn: "",
-    efternavn: "",
-    email: "",
-    email2: "",
-    password: "",
-    password2: "",
-    acceptAfVilkaar: true,
-  });
+    const [fejlbesked, setFejlbesked] = useState("");
+    const [tilmeldStadie, setTilmeldStadie] = useState({current: 3});
 
-  // renderer fejlbeskeder på siden, på dansk
-  const handleFejlBesked = (fejlKode) => {
-    switch (fejlKode) {
-      case "fixet error":
-        setFejlbesked(" ");
-        break;
-      case "auth/weak-password":
-        setFejlbesked(FEJLBESKED.WEAK_PASSWORD);
-        break;
-      case "auth/argument-error":
-        setFejlbesked(FEJLBESKED.INVALID_EMAIL);
-        break;
-      case "auth/email-already-in-use":
-        setFejlbesked(FEJLBESKED.EMAIL_ALREADY_EXIST);
-        break;
-      case "tilmelding/kode-mismatch":
-        setFejlbesked(FEJLBESKED.PASSWORDS_NOT_IDENTICAL);
-        break;
-      case "tilmelding/email-mismatch":
-        setFejlbesked(FEJLBESKED.EMAILS_NOT_IDENTICAL);
-        break;
-      case "tilmelding/navn-mangler":
-        setFejlbesked(FEJLBESKED.MISSING_NAME);
-        break;
-      default:
-        setFejlbesked("Der skete en fejl, prøv igen!");
-    }
-  };
-  return (
-    <div className="tilmeldContainer">
-      <div className="fejlbesked">{fejlbesked}</div>
+    const [formContent, setFormContent] = useState({
+        navn: {[FORM.STATE]: "", [FORM.VAERDI]: "", [FORM.ERRORMSG]: ""},
+        email: {[FORM.STATE]: "", [FORM.VAERDI]: "", [FORM.ERRORMSG]: ""},
+        password: {[FORM.STATE]: "", [FORM.VAERDI]: "", [FORM.ERRORMSG]: ""},
+        password2: {[FORM.STATE]: "", [FORM.VAERDI]: "", [FORM.ERRORMSG]: ""},
+        kuponkode: {[FORM.STATE]: "", [FORM.VAERDI]: "", [FORM.ERRORMSG]: ""}
+    });
 
-      {tilmeldStadie == 1 && (
-        <BrugerTilmelding
-          handleFejlBesked={handleFejlBesked}
-          setFormContent={setFormContent}
-          formContent={formContent}
-          setTilmeldStadie={setTilmeldStadie}
-        />
-      )}
 
-      {tilmeldStadie == 2 && (
-        <BetalingsTilmelding
-          handleFejlBesked={handleFejlBesked}
-          currentUser={props.currentUser}
-          setFormContent={setFormContent}
-          formContent={formContent}
-          setTilmeldStadie={setTilmeldStadie}
-        />
-      )}
+    const firebase = useContext(FirebaseContext);
 
-      {tilmeldStadie == 3 && (
-        <div className="succes-sign-up">
-          <h1>Tillykke!</h1>
-          <p id="firstBox">
-            Du er nu oprettet som bruger hos drømmehavet, og kan lytte til
-            ubegrænset drømmehavets eventyr.
-          </p>
-          <p id="secondBox">Skynd dig ud og oplev drømmehavets fortællinger!</p>
-          <a href="https://app.droemmehavet.dk/">
-            <p>
-              Gå til <b>drømmehavet</b>
-            </p>
-          </a>
-        </div>
-      )}
-    </div>
-  );
+    // renderer fejlbeskeder på siden, på dansk
+
+    return (
+        <>
+            <div className="tilmeldContainer">
+                {tilmeldStadie.current == 3 ?
+                    <Redirect to="/velkommen"/>
+                    : null}
+
+                <div className={fejlbesked.length > 0 ? "error" : "error hidden"}>{fejlbesked}</div>
+                <div className="infobox">
+                   <AbonnementsPage />
+
+                </div>
+                <div className="bruger-input-container">
+                    <div id="steps">
+                        <ul>
+                            <li><input type="button" onClick={() => setTilmeldStadie({current: 1})}
+                                       disabled={tilmeldStadie.current !== 1}
+                                       value={"Profil"}/></li>
+                            <li><input type="button" onClick={() => setTilmeldStadie({current: 2})}
+                                       disabled={tilmeldStadie.current !== 2}
+                                       value={"Betalingsoplysninger"}/></li>
+                            <li><input type="button" onClick={() => setTilmeldStadie({current: 3})}
+                                       disabled={tilmeldStadie.current !== 3}
+                                       value={"Succes"}/></li>
+                        </ul>
+                    </div>
+                        <BrugerTilmelding
+                            setFormContent={setFormContent}
+                            formContent={formContent}
+                            setTilmeldStadie={setTilmeldStadie}
+                            tilmeldStadie={tilmeldStadie}
+                        />
+                    <div className="logind_container"> <p> eller </p><div className="logind"><a href="https://app.droemmehavet.dk" target="_blank">Log ind</a></div></div>
+                </div>
+
+
+                <img src={Fiskestime} className="bgImages" id="fiskestime"/>
+            </div>
+        </>
+
+    );
 }
+

@@ -7,6 +7,7 @@ import AboutPage from "./AboutPage/AboutPage_Components/AboutPage";
 import FrontPage from "./Frontpage/Frontpage_Components/Frontpage";
 import WebshopPage from "./WebShopPage/WebShopPage_Components/WebShopPage";
 import TilmeldPage from "./TilmeldPage/TilmeldPage_Components/TilmeldPage";
+import Succes from "./TilmeldPage/TilmeldPage_Components/Succes";
 import Limdrengbog from "./LimdrengbogPage/Limdrengbog";
 import Handelsbetingelser from "./HandelsBetingelserPage/HandelsBetingelser_Components/HandelsBetingelser";
 import Header from "./Shared/Header";
@@ -31,26 +32,21 @@ function App() {
         <Header currentUser={currentUser} tilmeldKnap={tilmeldKnap} />
         <Switch>
           <Route path="/" exact>
-            <FrontPage tilmeldKnap={tilmeldKnap} />
-          </Route>
-
-          <Route path="/omos">
-            <AboutPage />
-          </Route>
-
-          <Route path="/tilmeld">
             <TilmeldPage currentUser={currentUser} />
+          </Route>
+          <Route path="/velkommen">
+           <Succes />
           </Route>
           <Route path="/limdrengenbog">
             <Limdrengbog />
           </Route>
 
-          <Route path="/Privatlivspolitik">
-            <PrivatslivsPolitik />
-          </Route>
-          <Route path="/handelsbetingelser">
-            <Handelsbetingelser />
-          </Route>
+          {/*<Route path="/Privatlivspolitik">*/}
+          {/*  <PrivatslivsPolitik />*/}
+          {/*</Route>*/}
+          {/*<Route path="/handelsbetingelser">*/}
+          {/*  <Handelsbetingelser />*/}
+          {/*</Route>*/}
         </Switch>
         <Footer />
       </Router>

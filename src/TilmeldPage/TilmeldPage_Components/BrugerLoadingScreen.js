@@ -29,18 +29,12 @@ export default function BrugerLoadingScreen(props) {
         console.error(error);
         return;
       });
-    //  try {
-    //     firebase.doSignInWithEmailAndPassword(props.formContent.email, props.formContent.password)
-
-    //  } catch (error) {
-    //     console.error('signin-error:', error)
-    //  }
 
     // give auth user a name
     await firebase
       .doUpdateAuthUser({
         displayName:
-          props.formContent.fornavn + " " + props.formContent.efternavn,
+          props.formContent.navn
       })
       .catch((error) => {
         props.handleFejlBesked(error.code);
@@ -49,10 +43,8 @@ export default function BrugerLoadingScreen(props) {
       });
 
     //create user in Firestore DB - needs the right auth rules
-    firebase
-      .doCreateFirestoreUser(userID, {
-        fornavn: props.formContent.fornavn,
-        efternavn: props.formContent.efternavn,
+    firebase.doUpdateFirestoreUser(userID, {
+        navn: props.formContent.navn,
         email: props.formContent.email,
         "reepay-customer-handle": props.formContent.customer_handle || "n/a",
         "reepay-subscription-handle":
@@ -65,7 +57,7 @@ export default function BrugerLoadingScreen(props) {
         console.error(error);
         return;
       });
-    props.setTilmeldStadie(3);
+    props.setTilmeldStadie({current: 3});
   };
 
   useEffect(() => {

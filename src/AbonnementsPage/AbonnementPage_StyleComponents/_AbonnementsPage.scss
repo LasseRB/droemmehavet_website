@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   height: 80vh;
-  width: 100vw;
+  //width: 100vw;
   flex-direction: column;
   padding-bottom: 5%;
   min-height: 600px;
@@ -23,38 +23,38 @@
     margin: auto auto 30% auto;
     display: flex;
     height: max-content;
-    background-color: white;
+    //background-color: no;
     border-radius: 40px;
     width: 300px;
     padding: 20px;
     flex-direction: column;
-    -webkit-box-shadow: 15px 10px 58px 0px rgba(0, 0, 0, 0.13);
-    -moz-box-shadow: 15px 10px 58px 0px rgba(0, 0, 0, 0.13);
-    box-shadow: 15px 10px 58px 0px rgba(0, 0, 0, 0.13);
+    //-webkit-box-shadow: 15px 10px 58px 0px rgba(0, 0, 0, 0.13);
+    //-moz-box-shadow: 15px 10px 58px 0px rgba(0, 0, 0, 0.13);
+    //box-shadow: 15px 10px 58px 0px rgba(0, 0, 0, 0.13);
 
     h1 {
       margin: 10% auto 10% auto;
       font-size: 22pt;
       font-weight: 500;
-      color: $orange-main;
+      color: white;
       text-shadow: none;
     }
     h2 {
-      color: $orange-main;
+      color: white;
       text-shadow: none;
     }
     #line {
       margin: 10% auto 5% auto;
       height: 1px;
       width: 80%;
-      border-bottom: 1px solid $orange-main;
+      border-bottom: 1px solid white;
     }
     ul li {
       position: relative;
       list-style: none;
       line-height: 30pt;
       line-break: auto;
-      color: $orange-main;
+      color: white;
       &::after {
         content: "✔";
         position: absolute;
@@ -62,7 +62,7 @@
       }
     }
     .FreeTrialButton {
-      background-color: $orange-main;
+      background-color: white;
       padding: 10px;
       color: white;
       text-decoration: none;
@@ -75,3 +75,25 @@
     }
   }
 }
+@media screen and (max-width: 1100px) {
+
+  .abonnement-container{
+    height: 100px;
+    margin: 0;
+
+    min-height: 50px;
+    h2{
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    .abonnement-container-inner{
+      display: none;
+      height:min-content;
+
+
+    }
+  }
+
+}
+

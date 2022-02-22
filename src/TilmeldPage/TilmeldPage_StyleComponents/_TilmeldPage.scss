@@ -1,35 +1,238 @@
+
+.content-sub-title.config-sub-title {
+  display: none;
+}
+
+#rp-card-button {
+  color: white;
+  border-radius: 200%;
+  display: none;
+}
+
+
 .tilmeldContainer {
-  padding: $header-height;
+  position: relative;
+  padding: $header-height 5% 0 5%;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
+  height: calc(100vw - $header-height);
+
+
+  .payments-inner {
+    position: relative;
+  }
+
+  .error {
+    color: red;
+    height: 20px;
+    width: max-content;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .infobox {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+    //margin: 5%;
+    color: blue;
+    width: 30vw;
+    //min-width: 350px;
+    height: 60vh;
+  }
+
+  .divider {
+    display: flex;
+    margin: 10% auto;
+    width: 70%;
+    height: 1px;
+    border-top: 1px solid rgba(3, 104, 255, 0.65);
+
+  }
 
   .bruger-input-container {
-    padding-bottom: 5%;
-    width: 500px;
+    position: relative;
+    width: max-content;
+    min-width: 450px;
+    padding: 0 5% 5% 5%;
+    height: max-content;
+    border-radius: 10px;
+    background-color: white;
+    -webkit-box-shadow: -8px 22px 51px -23px rgba(0, 0, 0, 0.28);
+    -moz-box-shadow: -8px 22px 51px -23px rgba(0, 0, 0, 0.28);
+    box-shadow: -8px 22px 51px -23px rgba(0, 0, 0, 0.28);
 
-    .steps-box {
-      display: flex;
-      margin: auto;
-      width: 300px;
-      height: 30px;
-      .steps {
-        display: flex;
-        margin: 0 auto;
-        width: max-content;
+    input {
+      padding-left: 5%;
+      box-sizing: border-box;
+    }
+
+    #steps {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      transform: translateX(-10px);
+      padding: 8% 0 3% 0;
+
+      ul {
+
+        li {
+          list-style: none;
+          display: inline-block;
+          padding: 0 10px;
+
+          input {
+            border: none;
+            background: none;
+            color: $blue-main;
+            font-size: large;
+
+            &:disabled {
+              color: lightblue;
+            }
+          }
+        }
       }
     }
+
     form {
-      padding: 3%;
-      margin: 0 auto;
+      position: relative;
+      padding: 2%;
+      margin: 0 15%;
       width: 300px;
-      border: 1px solid $blue-main;
-      border-radius: 10px;
+      //border: 1px solid $blue-main;
+      min-height: 300px;
+
+      .inputBox {
+        display: flex;
+        position: relative;
+        flex: auto;
+        flex-direction: row;
+        width: 100%;
+
+        .inputBox_inner_left {
+          width: 90%;
+          height: min-content;
+
+          input {
+            margin: 0;
+            width: 100%;
+          }
+
+        }
+
+        .inputBox_inner_right {
+          display: flex;
+          width: 20%;
+          justify-content: center;
+
+          input[type="button"] {
+            margin: 32% 0 0 0;
+            width: 80%;
+          }
+        }
+      }
+
+      .submitLoading {
+        margin: 0 auto;
+      }
+
+      .fejlbesked {
+        position: relative;
+        z-index: 1;
+        background-color: red;
+        color: white;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 0;
+        border-radius: 10px;
+        width: 82%;
+      }
+
+      .danger {
+        transform: translateY(-1px);
+        border: 2px solid red;
+      }
+
+
+      .succes {
+        transform: translateY(-1px);
+        border: 2px solid #36EC90;
+      }
+
+      .validator_ikon {
+        position: absolute;
+        display: inline;
+        height: 25px;
+        bottom: 5px;
+
+        & img {
+          align-self: center;
+          width: 25px;
+          transform-origin: center;
+
+        }
+
+        &.loading {
+          transform: translateY(-1px);
+          transform-origin: center;
+          animation: rotate_infinite;
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+        }
+
+        @keyframes rotate_infinite {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .kuponInput {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+        }
+
+        .navne_container {
+          //display: inline-flex;
+          //height: 100px;
+          padding-bottom: 2%;
+        }
+      }
+
+      #havfrueKrabbe {
+        position: absolute;
+        left: -95%;
+        bottom: -10%;
+        width: 350px;
+      }
+
+      #lochness {
+        position: absolute;
+        left: -140%;
+        bottom: -50%;
+        width: 650px;
+      }
+
       label {
         display: flex;
         flex: auto;
+        align-self: flex-start;
+        //flex-direction: column;
         padding-bottom: 0.2%;
         color: $blue-main;
+        width: 100%;
+
         &.required {
           &::before {
             content: "*";
@@ -37,87 +240,201 @@
           }
         }
       }
-      #NextStep {
-        position: absolute;
-        width: 300px;
-        height: 30px;
-        // background-color: rgba(215, 6, 6, 0.5);
-      }
-      #submitBtn {
-        z-index: 5;
-      }
 
-      .abonnementvilkaar {
-        display: flex;
-        flex-direction: row;
-        padding-bottom: 10px;
-        label {
-          display: inline-block;
+      #submitBtn {
+        position: relative;
+        margin-top: 5%;
+        bottom: 0px;
+        width: 300px;
+        z-index: 5;
+        background-color: $orange-main;
+        border: 1px solid #e4722c;
+        font-weight: bold;
+
+        &:enabled {
+          background-color: $main-font;
+          border: 2px solid $orange-main;
+          transform: scale(1.05);
+          color: orange;
+          box-shadow: #001528;
+
+          &:hover {
+            background-color: $orange-darker;
+            color: white;
+          }
         }
-        input {
-          display: inline;
-          width: 40px;
+
+        &:disabled {
+          background-color: white;
+          border: .5px solid grey;
+          font-weight: lighter;
         }
+
       }
 
       input {
         margin-bottom: 10px;
-        width: 100%;
+        width: 80%;
         height: 30px;
         border: 1px solid $blue-main;
         border-radius: 10px;
+
+        &:hover {
+          background-color: rgb(212, 241, 255);
+        }
       }
     }
   }
 
-  #rp_container {
-    width: 500px;
-    height: 730px;
-  }
+  .betalingsform {
 
-  .fejlbesked {
-    position: absolute;
-    background-color: $error-second;
-    border: 1px solid $error-main;
-    border-radius: 20px;
-    z-index: 11;
-    top: $header-height;
-    margin: 0 40%;
-    width: max-content;
-  }
-}
+    input {
+      padding-left: 5%;
+    }
 
-.succes-sign-up {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding-bottom: 5%;
-  width: 500px;
-  h1 {
-    @include headerText($blue-main, 4vw);
-    font-weight: bolder;
-  }
-  p {
-    @include paragraph($blue-main, 2vw);
-  }
-  a {
-    text-decoration: none;
-    p {
-      @include headerText(white, 2.5vw);
+    #rp_container {
       width: 100%;
-      margin: 0;
-      padding: 3% 10% 5% 10%;
-      background-color: #ffcb44;
-      border-radius: 20px;
-      b {
-        font-family: $logo-font-family;
+      height: 500px;
+    }
+
+    .payments_container {
+      width: 100%;
+
+      #kortnummer_container {
+        position: relative;
+        width: 100%;
+
+        #cardNumber {
+          position: relative;
+          width: 93%;
+
+        }
+
+        #kort {
+          position: absolute;
+          right: 3%;
+          top: 27px;
+
+          svg {
+            width: 30px;
+            height: auto;
+          }
+        }
+      }
+
+      #udloeb_cvc_container {
+        padding-top: 10px;
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 auto;
+
+        #expiryDate {
+          width: 80%;
+          margin: 0 auto;
+          //padding-left: 15%;
+        }
+
+        #cvc {
+          width: 90%;
+          margin: 0 auto;
+        }
+
+
+      }
+    }
+
+    .bottom_container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      input {
+        padding-left: 5%;
+      }
+
+      .kuponkode_container {
+        font-size: smaller;
+        display: inline-flex;
+        justify-content: space-around;
+
+        #kuponKnap {
+          margin-top: 25%;
+
+        }
+
+        #kuponkode {
+          width: calc(max-content + 10px);
+        }
+
+
+      }
+
+    }
+
+    .abonnementvilkaar {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 10px;
+
+      label {
+        display: inline-block;
+      }
+
+      input {
+        display: inline;
+        width: 40px;
       }
     }
   }
+
+  #fiskestime {
+    position: absolute;
+    right: 5%;
+    bottom: -10%;
+    z-index: -1;
+
+  }
+
+  .logind_container {
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    color: $blue-main;
+    width: 120px;
+    justify-content: space-between;
+  }
+
 }
+
 @media screen and (max-width: 1100px) {
   .tilmeldContainer {
     margin-top: 10%;
+    flex-direction: column;
+    align-items: center;
+
+    .infobox {
+      height: min-content;
+      min-height: 50px;
+      width: 80vw;
+    }
+
+
   }
+  .tilmeldContainer {
+    .bruger-input-container {
+      form {
+        #havfrueKrabbe {
+          left: -60%;
+          //top: 80%;
+          bottom: -10%;
+          width: 220px;
+        }
+      }
+    }
+  }
+
+
 }
