@@ -7,7 +7,7 @@ import AboutPage from "./AboutPage/AboutPage_Components/AboutPage";
 import FrontPage from "./Frontpage/Frontpage_Components/Frontpage";
 import WebshopPage from "./WebShopPage/WebShopPage_Components/WebShopPage";
 import TilmeldPage from "./TilmeldPage/TilmeldPage_Components/TilmeldPage";
-import Succes from "./TilmeldPage/Succes";
+import Succes from "./TilmeldPage/TilmeldPage_Components/Succes";
 import Limdrengbog from "./LimdrengbogPage/Limdrengbog";
 import Handelsbetingelser from "./HandelsBetingelserPage/HandelsBetingelser_Components/HandelsBetingelser";
 import Header from "./Shared/Header";

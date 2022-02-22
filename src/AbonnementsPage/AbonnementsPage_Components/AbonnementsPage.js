@@ -5,7 +5,7 @@ export default function AbonnementsPage() {
     return (
  
     // <img id="superhelteBG" src={superhelteBG}></img>    
-    <div className="abonnement-container" style={{backgroundImage: `url(${superhelteBG})`}}>
+    <div className="abonnement-container" >
             <h1>Vores abonnement</h1>
             <h2>Et hav af gode lyttehistorier venter dig</h2>
             <div className="abonnement-container-inner">
@@ -14,12 +14,12 @@ export default function AbonnementsPage() {
                 <span id="line"></span>
                 <ul>
                     <li>Ubegrænset medlemskab</li>
-                    <li>resten af 2021 gratis</li>
+                    <li>Nye historier hver måned</li>
                     <li>Opsig til hver en tid</li>
 
                 </ul>
 
-                <Link to='/tilmeld' className="FreeTrialButton">Tilmeld nu!</Link>
+                {/*<Link to='/tilmeld' className="FreeTrialButton">Tilmeld nu!</Link>*/}
             </div>
            
         </div>

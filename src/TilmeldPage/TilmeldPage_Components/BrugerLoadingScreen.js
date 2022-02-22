@@ -29,12 +29,6 @@ export default function BrugerLoadingScreen(props) {
         console.error(error);
         return;
       });
-    //  try {
-    //     firebase.doSignInWithEmailAndPassword(props.formContent.email, props.formContent.password)
-
-    //  } catch (error) {
-    //     console.error('signin-error:', error)
-    //  }
 
     // give auth user a name
     await firebase

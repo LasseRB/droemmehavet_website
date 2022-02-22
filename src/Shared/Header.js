@@ -32,19 +32,21 @@ export default function Header(props) {
         <>
             <div className="header blue">
                 <div className="headerButtonsContainer">
-                    <div className="tilbage">
-                        <input type="button" id="tilbageKnap" onInput={() => window.history.back()} value="Gå tilbage"/>
-                        <div id="tilbagePil"></div>
-                    </div>
+                    {/*<div className="tilbage">*/}
+                    {/*    <input type="button" id="tilbageKnap" onInput={() => window.history.back()} value="Gå tilbage"/>*/}
+                    {/*    <div id="tilbagePil"></div>*/}
+                    {/*</div>*/}
                     <div className="logo">
                         <a href="https://droemmehavet.dk">
                             <h1>Drømmehavet</h1>
                         </a>
                     </div>
+                    <div className="logind_header">
                     <div className="logind">
-                        <a href="https://app.droemmehavet.dk">
-                            <h1>Log ind</h1>
+                        <a href="https://app.droemmehavet.dk" target="_blank" rel="noreferrer">
+                            Log ind
                         </a>
+                    </div>
                     </div>
                 </div>
             </div>

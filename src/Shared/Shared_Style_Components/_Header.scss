@@ -74,7 +74,25 @@
         //margin: -5px 5% 0 10%;
       }
     }
+  }
+}
+.logind_header{
+  position: absolute;
+  right: 10px;
+}
+.logind {
+  width: max-content;
+  border: 1px solid $blue-main;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+  height: 20px;
+  a {
+    color: $blue-main;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: #d4f1ff;
 
   }
-
 }
