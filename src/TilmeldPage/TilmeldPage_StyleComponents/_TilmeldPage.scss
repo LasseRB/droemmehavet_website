@@ -17,7 +17,7 @@
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  height: calc(100vw - $header-height);
+  height: 90vh;
 
 
   .payments-inner {
@@ -107,6 +107,15 @@
       width: 300px;
       //border: 1px solid $blue-main;
       min-height: 300px;
+      .loading_tilmeld{
+        display: flex;
+        width: 100%;
+        min-height: 300px;
+          .validator_ikon{
+            position: relative;
+            margin: auto;
+      }
+      }
 
       .inputBox {
         display: flex;
@@ -407,11 +416,14 @@
     justify-content: space-between;
   }
 
+
+
 }
+
 
 @media screen and (max-width: 1100px) {
   .tilmeldContainer {
-    margin-top: 10%;
+    //margin-top: 10%;
     flex-direction: column;
     align-items: center;
 
@@ -420,10 +432,9 @@
       min-height: 50px;
       width: 80vw;
     }
-
-
-  }
-  .tilmeldContainer {
+    .abonnement-container{
+      text-align: center;
+    }
     .bruger-input-container {
       form {
         #havfrueKrabbe {
@@ -434,7 +445,9 @@
         }
       }
     }
+
   }
+
 
 
 }

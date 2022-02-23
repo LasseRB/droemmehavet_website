@@ -18,10 +18,8 @@ export default function BrugerTilmelding(props) {
         event.preventDefault();
         setOpretter(true)
         let userID = "";
-        await opretBrugerIFirebase()
-        if(props.tilmeldStadie.current === 2){
-            await reepayFlow();
-        }
+        await opretBrugerIFirebase();
+        await reepayFlow();
 
 
         async function opretBrugerIFirebase () {
@@ -36,7 +34,7 @@ export default function BrugerTilmelding(props) {
                     handleFejlBesked(error.code);
                     props.setTilmeldStadie({current: 1});
                     setOpretter(false)
-                    // console.error(error);
+                    console.error(error);
                 });
 
             // give auth user a name
@@ -52,57 +50,60 @@ export default function BrugerTilmelding(props) {
                     handleFejlBesked(error.code);
                     props.setTilmeldStadie({current: 1});
                     setOpretter(false)
-                    // console.error(error);
+                    console.error(error);
                 });
 
         };
         async function reepayFlow() {
+            if(props.tilmeldStadie.current === 2){
 
-            const checkoutWindow = new window.Reepay.ModalSubscription();
-            const handle = reepay.createNewSubscriptionHandle(props.formContent.email.vaerdi)
+                const checkoutWindow = new window.Reepay.ModalSubscription();
+                const handle = reepay.createNewSubscriptionHandle(props.formContent.email.vaerdi)
 
-            await reepay.createPendingSubscriber(handle, props.formContent.navn.vaerdi, props.formContent.email.vaerdi, props.formContent.kuponkode.vaerdi)
+                const test = await reepay.createPendingSubscriber(handle, props.formContent.navn.vaerdi, props.formContent.email.vaerdi, props.formContent.kuponkode.vaerdi)
+                console.log(test)
+                await reepay.renderCheckoutWindow(handle, checkoutWindow)
 
-            await reepay.renderCheckoutWindow(handle, checkoutWindow)
+                checkoutWindow.addEventHandler(window.Reepay.Event.Accept, function (data) {
+                    //create user in Firestore DB - needs the right auth rules
+                    firebase.doUpdateFirestoreUser(userID, {
+                        navn: props.formContent.navn.vaerdi,
+                        email: props.formContent.email.vaerdi,
+                        "reepay-customer-handle": data.customer || "n/a",
+                        "reepay-subscription-handle": data.subscription || "n/a",
+                        photoID: randomIntFromInterval(0, 3)
+                    })
+                        .catch((error) => {
+                            handleFejlBesked(error.code);
+                            props.setTilmeldStadie({current: 1});
+                            setOpretter(false)
+                            console.error(error);
+                        });
+                    props.setTilmeldStadie({current: 3});
+                    checkoutWindow.destroy()
 
-            checkoutWindow.addEventHandler(window.Reepay.Event.Accept, function (data) {
-                //create user in Firestore DB - needs the right auth rules
-                firebase.doUpdateFirestoreUser(userID, {
-                    navn: props.formContent.navn.vaerdi,
-                    email: props.formContent.email.vaerdi,
-                    "reepay-customer-handle": data.customer || "n/a",
-                    "reepay-subscription-handle": data.subscription || "n/a",
-                    photoID: randomIntFromInterval(0,3)
-                })
-                    .catch((error) => {
-                        handleFejlBesked(error.code);
-                        props.setTilmeldStadie({current: 1});
-                        setOpretter(false)
-                        // console.error(error);
-                    });
-                props.setTilmeldStadie({current: 3});
-               checkoutWindow.destroy()
+                });
 
-            });
+                checkoutWindow.addEventHandler(window.Reepay.Event.Error, function (data) {
+                    console.log('betaling fejlede')
+                    // console.error(data)
+                    handleFejlBesked(data.code)
+                    props.setTilmeldStadie({current: 1});
+                    setOpretter(false)
+                    checkoutWindow.destroy()
+                });
 
-            checkoutWindow.addEventHandler(window.Reepay.Event.Error, function (data) {
-                console.log('betaling fejlede')
-                // console.error(data)
-                handleFejlBesked(data.code)
-                props.setTilmeldStadie({current: 1});
-                setOpretter(false)
-                checkoutWindow.destroy()
-            });
-
-            checkoutWindow.addEventHandler(window.Reepay.Event.Close, function (data) {
-                console.log('betaling lukket')
-                handleFejlBesked(data.code)
-                props.setTilmeldStadie({current: 1});
-                setOpretter(false)
-                checkoutWindow.destroy()
-                //log user out
-            });
+                checkoutWindow.addEventHandler(window.Reepay.Event.Close, function (data) {
+                    console.log('betaling lukket')
+                    handleFejlBesked(data ? data.code : null)
+                    props.setTilmeldStadie({current: 1});
+                    setOpretter(false)
+                    checkoutWindow.destroy()
+                    //log user out
+                });
+            }
         }
+
     };
 
 
@@ -382,7 +383,9 @@ export default function BrugerTilmelding(props) {
                     // disabled={false}
                 />
                 </>
-                    : <div className="inputBox kuponInput inputBox_inner_right"><Ikon validation={FORM.LOADING} /> </div>}
+                    : <div className="loading_tilmeld">
+                        <Ikon validation={FORM.LOADING} />
+                    </div>}
 
             </form>
         </>
@@ -397,7 +400,7 @@ function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-function Ikon(validation) {
+function Ikon({validation}) {
     function ikon(state) {
         if (state === FORM.SUCCES) {
             return <div className={"validator_ikon"}><img src={SuccesIkon} alt="Succes"/></div>

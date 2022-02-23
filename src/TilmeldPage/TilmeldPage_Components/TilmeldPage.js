@@ -11,7 +11,7 @@ import { FirebaseContext } from "../../Shared/Firebase";
 
 export default function TilmeldPage(props) {
     const [fejlbesked, setFejlbesked] = useState("");
-    const [tilmeldStadie, setTilmeldStadie] = useState({current: 3});
+    const [tilmeldStadie, setTilmeldStadie] = useState({current: 1});
 
     const [formContent, setFormContent] = useState({
         navn: {[FORM.STATE]: "", [FORM.VAERDI]: "", [FORM.ERRORMSG]: ""},

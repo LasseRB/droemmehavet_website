@@ -4,8 +4,9 @@
   height: 80vh;
   //width: 100vw;
   flex-direction: column;
-  padding-bottom: 5%;
+  padding: 0 20px 5% 20px ;
   min-height: 600px;
+  text-align: center;
   h1 {
     margin: 5% auto 10px auto;
     color: white;
@@ -23,6 +24,7 @@
     margin: auto auto 30% auto;
     display: flex;
     height: max-content;
+    text-align: center;
     //background-color: no;
     border-radius: 40px;
     width: 300px;
@@ -49,16 +51,25 @@
       width: 80%;
       border-bottom: 1px solid white;
     }
-    ul li {
-      position: relative;
-      list-style: none;
-      line-height: 30pt;
-      line-break: auto;
-      color: white;
-      &::after {
-        content: "✔";
-        position: absolute;
-        right: 10px;
+    ul {
+
+      text-align: center;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      li {
+        position: relative;
+        list-style: none;
+        line-height: 30pt;
+        line-break: auto;
+        color: white;
+
+
+        &::after {
+          content: "✔";
+          position: absolute;
+          right: 10px;
+        }
       }
     }
     .FreeTrialButton {
