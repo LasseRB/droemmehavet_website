@@ -45,6 +45,7 @@ export default function BrugerTilmelding(props) {
                 })
                 .then(() => {
                     props.setTilmeldStadie({current: 2});
+                    reepayFlow();
                 })
                 .catch((error) => {
                     handleFejlBesked(error.code);
@@ -55,8 +56,6 @@ export default function BrugerTilmelding(props) {
 
         };
         async function reepayFlow() {
-            if(props.tilmeldStadie.current === 2){
-
                 const checkoutWindow = new window.Reepay.ModalSubscription();
                 const handle = reepay.createNewSubscriptionHandle(props.formContent.email.vaerdi)
 
@@ -101,7 +100,7 @@ export default function BrugerTilmelding(props) {
                     checkoutWindow.destroy()
                     //log user out
                 });
-            }
+
         }
 
     };
