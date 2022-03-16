@@ -45,7 +45,7 @@ export default function BrugerTilmelding(props) {
                 })
                 .then(() => {
                     props.setTilmeldStadie({current: 2});
-                    reepayFlow();
+
                 })
                 .catch((error) => {
                     handleFejlBesked(error.code);
@@ -55,12 +55,12 @@ export default function BrugerTilmelding(props) {
                 });
 
         };
+
         async function reepayFlow() {
                 const checkoutWindow = new window.Reepay.ModalSubscription();
                 const handle = reepay.createNewSubscriptionHandle(props.formContent.email.vaerdi)
 
-                const test = await reepay.createPendingSubscriber(handle, props.formContent.navn.vaerdi, props.formContent.email.vaerdi, props.formContent.kuponkode.vaerdi)
-                console.log(test)
+                await reepay.createPendingSubscriber(handle, props.formContent.navn.vaerdi, props.formContent.email.vaerdi, props.formContent.kuponkode.vaerdi)
                 await reepay.renderCheckoutWindow(handle, checkoutWindow)
 
                 checkoutWindow.addEventHandler(window.Reepay.Event.Accept, function (data) {
@@ -102,7 +102,6 @@ export default function BrugerTilmelding(props) {
                 });
 
         }
-
     };
 
 
