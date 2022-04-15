@@ -2,17 +2,11 @@ import { useState, useEffect, useContext, useRef } from "react";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import { FirebaseContext } from "./Shared/Firebase";
 import "./App.scss";
-
-import AboutPage from "./AboutPage/AboutPage_Components/AboutPage";
-import FrontPage from "./Frontpage/Frontpage_Components/Frontpage";
-import WebshopPage from "./WebShopPage/WebShopPage_Components/WebShopPage";
 import TilmeldPage from "./TilmeldPage/TilmeldPage_Components/TilmeldPage";
 import Succes from "./TilmeldPage/TilmeldPage_Components/Succes";
 import Limdrengbog from "./LimdrengbogPage/Limdrengbog";
-import Handelsbetingelser from "./HandelsBetingelserPage/HandelsBetingelser_Components/HandelsBetingelser";
 import Header from "./Shared/Header";
 import Footer from "./Shared/Footer";
-import PrivatslivsPolitik from "./PrivatslivsPolitik/PrivatslivsPolitik_Components/PrivatslivsPolitik";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -40,13 +34,6 @@ function App() {
           <Route path="/limdrengenbog">
             <Limdrengbog />
           </Route>
-
-          {/*<Route path="/Privatlivspolitik">*/}
-          {/*  <PrivatslivsPolitik />*/}
-          {/*</Route>*/}
-          {/*<Route path="/handelsbetingelser">*/}
-          {/*  <Handelsbetingelser />*/}
-          {/*</Route>*/}
         </Switch>
         <Footer />
       </Router>

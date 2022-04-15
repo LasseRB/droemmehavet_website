@@ -10,100 +10,94 @@ import {FirebaseContext} from "../../Shared/Firebase";
 
 export default function BrugerTilmelding(props) {
     const firebase = useContext(FirebaseContext);
-
+    let userID = "";
     const [enableSubmit, setEnableSubmit] = useState(true);
     const [opretter, setOpretter] = useState(false);
 
     const handleUserCreateSubmit = async (event) => {
         event.preventDefault();
         setOpretter(true)
-        let userID = "";
-        await opretBrugerIFirebase();
-        await reepayFlow();
+        await opretBrugerIFirebase()
+    }
+
+    async function opretBrugerIFirebase() {
+        // create user in auth
+        await firebase
+            .doCreateUserWithEmailAndPassword(
+                props.formContent.email.vaerdi,
+                props.formContent.password.vaerdi
+            )
+            .then(res => (userID = res.user.uid))
+            .then(() => firebase.doUpdateAuthUser({
+                displayName:
+                props.formContent.navn.vaerdi
+            }))
+            .then(() => {
+                props.setTilmeldStadie({current: 2});
+                Promise.resolve()
+                reepayFlow()
+            })
+            .catch((error) => {
+                handleFejlBesked(error.code);
+                props.setTilmeldStadie({current: 1});
+                setOpretter(false)
+                console.error(error);
+            })
+    }
+
+    async function reepayFlow() {
+        const checkoutWindow = new window.Reepay.ModalSubscription()
+        const handle = reepay.createNewSubscriptionHandle(props.formContent.email.vaerdi)
+
+        await reepay.createPendingSubscriber(handle, props.formContent.navn.vaerdi, props.formContent.email.vaerdi, props.formContent.kuponkode.vaerdi)
+        reepay.renderCheckoutWindow(handle, checkoutWindow)
 
 
-        async function opretBrugerIFirebase () {
-            // create user in auth
-            await firebase
-                .doCreateUserWithEmailAndPassword(
-                    props.formContent.email.vaerdi,
-                    props.formContent.password.vaerdi
-                )
-                .then((res) => (userID = res.user.uid))
+        checkoutWindow.addEventHandler(window.Reepay.Event.Accept, function (data) {
+            //create user in Firestore DB - needs the right auth rules
+            firebase.doUpdateFirestoreUser(userID, {
+                navn: props.formContent.navn.vaerdi,
+                email: props.formContent.email.vaerdi,
+                "reepay-customer-handle": data.customer || "n/a",
+                "reepay-subscription-handle": data.subscription || "n/a",
+                photoID: randomIntFromInterval(0, 3)
+            })
                 .catch((error) => {
                     handleFejlBesked(error.code);
                     props.setTilmeldStadie({current: 1});
                     setOpretter(false)
                     console.error(error);
                 });
+            props.setTilmeldStadie({current: 3});
+            checkoutWindow.destroy()
 
-            // give auth user a name
-            await firebase
-                .doUpdateAuthUser({
-                    displayName:
-                    props.formContent.navn.vaerdi
-                })
-                .then(() => {
-                    props.setTilmeldStadie({current: 2});
+        });
 
-                })
-                .catch((error) => {
-                    handleFejlBesked(error.code);
-                    props.setTilmeldStadie({current: 1});
-                    setOpretter(false)
-                    console.error(error);
-                });
+        checkoutWindow.addEventHandler(window.Reepay.Event.Error, function (data) {
+            console.log('betaling fejlede')
+            firebase.removeCurrentUser()
+            handleFejlBesked(data.code)
+            props.setTilmeldStadie({current: 1});
+            setOpretter(false)
+            checkoutWindow.destroy()
+        });
 
-        };
+        checkoutWindow.addEventHandler(window.Reepay.Event.Cancel, function (data) {
+            console.log('betaling annuleret')
+            firebase.removeCurrentUser()
+            handleFejlBesked(data ? data.code : null)
+            props.setTilmeldStadie({current: 1});
+            setOpretter(false)
+            checkoutWindow.destroy()
+            //log user out
+        });
 
-        async function reepayFlow() {
-                const checkoutWindow = new window.Reepay.ModalSubscription();
-                const handle = reepay.createNewSubscriptionHandle(props.formContent.email.vaerdi)
+        checkoutWindow.addEventHandler(window.Reepay.Event.Close, function (data) {
+            console.log('betaling lukket')
+            setOpretter(false)
+        });
 
-                await reepay.createPendingSubscriber(handle, props.formContent.navn.vaerdi, props.formContent.email.vaerdi, props.formContent.kuponkode.vaerdi)
-                await reepay.renderCheckoutWindow(handle, checkoutWindow)
-
-                checkoutWindow.addEventHandler(window.Reepay.Event.Accept, function (data) {
-                    //create user in Firestore DB - needs the right auth rules
-                    firebase.doUpdateFirestoreUser(userID, {
-                        navn: props.formContent.navn.vaerdi,
-                        email: props.formContent.email.vaerdi,
-                        "reepay-customer-handle": data.customer || "n/a",
-                        "reepay-subscription-handle": data.subscription || "n/a",
-                        photoID: randomIntFromInterval(0, 3)
-                    })
-                        .catch((error) => {
-                            handleFejlBesked(error.code);
-                            props.setTilmeldStadie({current: 1});
-                            setOpretter(false)
-                            console.error(error);
-                        });
-                    props.setTilmeldStadie({current: 3});
-                    checkoutWindow.destroy()
-
-                });
-
-                checkoutWindow.addEventHandler(window.Reepay.Event.Error, function (data) {
-                    console.log('betaling fejlede')
-                    // console.error(data)
-                    handleFejlBesked(data.code)
-                    props.setTilmeldStadie({current: 1});
-                    setOpretter(false)
-                    checkoutWindow.destroy()
-                });
-
-                checkoutWindow.addEventHandler(window.Reepay.Event.Close, function (data) {
-                    console.log('betaling lukket')
-                    handleFejlBesked(data ? data.code : null)
-                    props.setTilmeldStadie({current: 1});
-                    setOpretter(false)
-                    checkoutWindow.destroy()
-                    //log user out
-                });
-
-        }
-    };
-
+    }
 
     const opdaterForm = (event) => {
         event.preventDefault();
@@ -145,7 +139,7 @@ export default function BrugerTilmelding(props) {
         if (props.formContent.email[FORM.VAERDI] !== "" && props.formContent.email[FORM.VAERDI].match(REGEX.email)) {
             props.formContent.email.state = FORM.SUCCES
             props.formContent.email[FORM.ERRORMSG] = null
-        } else{
+        } else {
             props.formContent.email.state = FORM.DANGER
             props.formContent.email[FORM.ERRORMSG] = FEJLBESKED.INVALID_EMAIL
         }
@@ -167,10 +161,9 @@ export default function BrugerTilmelding(props) {
 
     const validerPassword2 = event => {
         forceUpdate()
-        if(props.formContent.password.state == FORM.DANGER){
+        if (props.formContent.password.state == FORM.DANGER) {
             props.formContent.password2.state = FORM.DANGER
-        }
-        else if (props.formContent.password[FORM.VAERDI] === props.formContent.password2[FORM.VAERDI] && props.formContent.password2[FORM.VAERDI] !== "") {
+        } else if (props.formContent.password[FORM.VAERDI] === props.formContent.password2[FORM.VAERDI] && props.formContent.password2[FORM.VAERDI] !== "") {
             props.formContent.password2.state = FORM.SUCCES
             props.formContent.password2[FORM.ERRORMSG] = null
         } else {
@@ -203,7 +196,11 @@ export default function BrugerTilmelding(props) {
                     if (res.data.error) {
                         props.setFormContent({
                             ...props.formContent,
-                            [KUPON]: {...props.formContent[KUPON], [FORM.STATE]: FORM.DANGER, [FORM.ERRORMSG]: FEJLBESKED.MISSING_COUPON}
+                            [KUPON]: {
+                                ...props.formContent[KUPON],
+                                [FORM.STATE]: FORM.DANGER,
+                                [FORM.ERRORMSG]: FEJLBESKED.MISSING_COUPON
+                            }
                         })
                     } else if (res.data.code) {
                         props.setFormContent({
@@ -211,7 +208,10 @@ export default function BrugerTilmelding(props) {
                             [KUPON]: {...props.formContent[KUPON], [FORM.STATE]: FORM.SUCCES, [FORM.ERRORMSG]: null}
                         })
                     } else {
-                        props.setFormContent({...props.formContent, [KUPON]: {[FORM.STATE]: "", [FORM.VAERDI]: "",[FORM.ERRORMSG]: null}})
+                        props.setFormContent({
+                            ...props.formContent,
+                            [KUPON]: {[FORM.STATE]: "", [FORM.VAERDI]: "", [FORM.ERRORMSG]: null}
+                        })
                     }
                 }
             })
@@ -222,50 +222,104 @@ export default function BrugerTilmelding(props) {
                     [KUPON]: {...props.formContent[KUPON], [FORM.STATE]: FORM.DANGER}
                 })
             })
-    };
+    }
 
     const handleFejlBesked = (fejlKode, element) => {
         switch (fejlKode) {
             case "fixet":
-                props.setFormContent({...props.formContent, [element]: {[FORM.STATE]: "", [FORM.VAERDI]: props.formContent[element][FORM.VAERDI], [FORM.ERRORMSG]: null } })
+                props.setFormContent({
+                    ...props.formContent,
+                    [element]: {
+                        [FORM.STATE]: "",
+                        [FORM.VAERDI]: props.formContent[element][FORM.VAERDI],
+                        [FORM.ERRORMSG]: null
+                    }
+                })
                 break;
             case "auth/weak-password":
-                props.setFormContent({...props.formContent, password: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: "", [FORM.ERRORMSG]: FEJLBESKED.WEAK_PASSWORD } })
-                props.setFormContent({...props.formContent, password2: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: "", [FORM.ERRORMSG]: FEJLBESKED.WEAK_PASSWORD} })
+                props.setFormContent({
+                    ...props.formContent,
+                    password: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: "", [FORM.ERRORMSG]: FEJLBESKED.WEAK_PASSWORD}
+                })
+                props.setFormContent({
+                    ...props.formContent,
+                    password2: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: "", [FORM.ERRORMSG]: FEJLBESKED.WEAK_PASSWORD}
+                })
                 break;
             case "auth/argument-error":
 
-                props.setFormContent({...props.formContent, email: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: props.formContent.email[FORM.VAERDI], [FORM.ERRORMSG]: FEJLBESKED.INVALID_EMAIL} })
+                props.setFormContent({
+                    ...props.formContent,
+                    email: {
+                        [FORM.STATE]: FORM.DANGER,
+                        [FORM.VAERDI]: props.formContent.email[FORM.VAERDI],
+                        [FORM.ERRORMSG]: FEJLBESKED.INVALID_EMAIL
+                    }
+                })
 
                 break;
             case "auth/email-already-in-use":
 
-                props.setFormContent({...props.formContent, email: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: props.formContent.email[FORM.VAERDI], [FORM.ERRORMSG]: FEJLBESKED.EMAIL_ALREADY_EXIST} })
+                props.setFormContent({
+                    ...props.formContent,
+                    email: {
+                        [FORM.STATE]: FORM.DANGER,
+                        [FORM.VAERDI]: props.formContent.email[FORM.VAERDI],
+                        [FORM.ERRORMSG]: FEJLBESKED.EMAIL_ALREADY_EXIST
+                    }
+                })
 
                 break;
             case "tilmelding/kode-mismatch":
 
-                props.setFormContent({...props.formContent, password: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: "", [FORM.ERRORMSG]: FEJLBESKED.PASSWORDS_NOT_IDENTICAL} })
-                props.setFormContent({...props.formContent, password2: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: "", [FORM.ERRORMSG]: FEJLBESKED.PASSWORDS_NOT_IDENTICAL} })
+                props.setFormContent({
+                    ...props.formContent,
+                    password: {
+                        [FORM.STATE]: FORM.DANGER,
+                        [FORM.VAERDI]: "",
+                        [FORM.ERRORMSG]: FEJLBESKED.PASSWORDS_NOT_IDENTICAL
+                    }
+                })
+                props.setFormContent({
+                    ...props.formContent,
+                    password2: {
+                        [FORM.STATE]: FORM.DANGER,
+                        [FORM.VAERDI]: "",
+                        [FORM.ERRORMSG]: FEJLBESKED.PASSWORDS_NOT_IDENTICAL
+                    }
+                })
                 break;
             case "tilmelding/email-mismatch":
 
-                props.setFormContent({...props.formContent, email: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: props.formContent.email[FORM.VAERDI], [FORM.ERRORMSG]: FEJLBESKED.EMAILS_NOT_IDENTICAL} })
+                props.setFormContent({
+                    ...props.formContent,
+                    email: {
+                        [FORM.STATE]: FORM.DANGER,
+                        [FORM.VAERDI]: props.formContent.email[FORM.VAERDI],
+                        [FORM.ERRORMSG]: FEJLBESKED.EMAILS_NOT_IDENTICAL
+                    }
+                })
 
                 break;
             case "tilmelding/navn-mangler":
-                props.setFormContent({...props.formContent, navn: {[FORM.STATE]: FORM.DANGER, [FORM.VAERDI]: props.formContent.navn[FORM.VAERDI], [FORM.ERRORMSG]: FEJLBESKED.MISSING_NAME} })
+                props.setFormContent({
+                    ...props.formContent,
+                    navn: {
+                        [FORM.STATE]: FORM.DANGER,
+                        [FORM.VAERDI]: props.formContent.navn[FORM.VAERDI],
+                        [FORM.ERRORMSG]: FEJLBESKED.MISSING_NAME
+                    }
+                })
                 break;
         }
     };
-
 
     return (
         <>
             <form onSubmit={handleUserCreateSubmit} onChange={opdaterForm}>
                 <img src={Havfrue} id="havfrueKrabbe" className="bgImages"/>
                 {!opretter ? <>
-                <div className="navne_container">
+                        <div className="navne_container">
                     <span className="inputBox">
                         <div className="inputBox_inner_left">
                             <label className="required" htmlFor="navn">Hvad må vi kalde dig?</label>
@@ -285,10 +339,10 @@ export default function BrugerTilmelding(props) {
                             <Ikon validation={props.formContent.navn.state}/>
                         </div>
                      </span>
-                </div>
-                <FejlBesked besked={props.formContent.navn[FORM.ERRORMSG]} />
+                        </div>
+                        <FejlBesked besked={props.formContent.navn[FORM.ERRORMSG]}/>
 
-                <span className="inputBox">
+                        <span className="inputBox">
                     <div className="inputBox_inner_left">
                         <label className="required">Email</label>
                         <input
@@ -307,9 +361,9 @@ export default function BrugerTilmelding(props) {
                             <Ikon validation={props.formContent.email.state}/>
                     </div>
                 </span>
-                <FejlBesked besked={props.formContent.email[FORM.ERRORMSG]} />
-                <p/>
-                <span className="inputBox">
+                        <FejlBesked besked={props.formContent.email[FORM.ERRORMSG]}/>
+                        <p/>
+                        <span className="inputBox">
                      <div className="inputBox_inner_left">
                         <label className="required">Kodeord</label>
                         <input
@@ -326,8 +380,8 @@ export default function BrugerTilmelding(props) {
                         <Ikon validation={props.formContent.password.state}/>
                     </div>
                 </span>
-              <FejlBesked besked={props.formContent.password[FORM.ERRORMSG]} />
-                <span className="inputBox">
+                        <FejlBesked besked={props.formContent.password[FORM.ERRORMSG]}/>
+                        <span className="inputBox">
                     <div className="inputBox_inner_left">
                         <label className="required">Skriv din kode igen</label>
                         <input
@@ -344,9 +398,9 @@ export default function BrugerTilmelding(props) {
                         <Ikon validation={props.formContent.password2.state}/>
                     </div>
                 </span>
-              <FejlBesked besked={props.formContent.password2[FORM.ERRORMSG]} />
-                <div className="divider"></div>
-                <span className="inputBox kuponInput">
+                        <FejlBesked besked={props.formContent.password2[FORM.ERRORMSG]}/>
+                        <div className="divider"></div>
+                        <span className="inputBox kuponInput">
                     <div className="inputBox_inner_left">
                         <label htmlFor="kuponkode">Kuponkode</label>
                         <input
@@ -368,32 +422,32 @@ export default function BrugerTilmelding(props) {
                     </div>
                 </span>
 
-                <FejlBesked besked={props.formContent.kuponkode[FORM.ERRORMSG]} />
-                 <input
-                    id="submitBtn"
-                    type="submit"
-                    value="Næste skridt 👉"
-                    disabled={!( props.formContent.password.state === FORM.SUCCES
-                        && props.formContent.password2.state === FORM.SUCCES
-                        && props.formContent.email.state === FORM.SUCCES
-                        && props.formContent.navn.state === FORM.SUCCES
-                        && props.formContent.kuponkode.state !== FORM.DANGER)}
-                    // disabled={false}
-                />
-                </>
+                        <FejlBesked besked={props.formContent.kuponkode[FORM.ERRORMSG]}/>
+                        <input
+                            id="submitBtn"
+                            type="submit"
+                            value="Næste skridt 👉"
+                            disabled={!(props.formContent.password.state === FORM.SUCCES
+                                && props.formContent.password2.state === FORM.SUCCES
+                                && props.formContent.email.state === FORM.SUCCES
+                                && props.formContent.navn.state === FORM.SUCCES
+                                && props.formContent.kuponkode.state !== FORM.DANGER)}
+                            // disabled={false}
+                        />
+                    </>
                     : <div className="loading_tilmeld">
-                        <Ikon validation={FORM.LOADING} />
+                        <Ikon validation={FORM.LOADING}/>
                     </div>}
-
             </form>
         </>
-    );
+    )
 }
 
 function useForceUpdate() {
     const [value, setValue] = useState(0); // integer state
     return () => setValue(value => value + 1); // update the state to force render
 }
+
 function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min)
 }

@@ -3,9 +3,8 @@ import {Redirect} from "react-router-dom";
 
 import BrugerTilmelding from "./BrugerTilmelding";
 import AbonnementsPage from "../../AbonnementsPage/AbonnementsPage_Components/AbonnementsPage"
-import {FEJLBESKED, FORM} from "../../Shared/Constans";
+import { FORM } from "../../Shared/Constans";
 import Fiskestime from '../../images/stime.png'
-import BrugerLoadingScreen from "./BrugerLoadingScreen";
 import { FirebaseContext } from "../../Shared/Firebase";
 
 
@@ -23,9 +22,6 @@ export default function TilmeldPage(props) {
 
 
     const firebase = useContext(FirebaseContext);
-
-    // renderer fejlbeskeder på siden, på dansk
-
     return (
         <>
             <div className="tilmeldContainer">
@@ -60,8 +56,6 @@ export default function TilmeldPage(props) {
                         />
                     <div className="logind_container"> <p> eller </p><div className="logind"><a href="https://app.droemmehavet.dk" target="_blank">Log ind</a></div></div>
                 </div>
-
-
                 <img src={Fiskestime} className="bgImages" id="fiskestime"/>
             </div>
         </>

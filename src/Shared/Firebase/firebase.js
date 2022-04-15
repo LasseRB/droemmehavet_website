@@ -32,7 +32,7 @@ class Firebase {
 
     // auth API for password and email
     doCreateUserWithEmailAndPassword = (email, password) => this.auth.createUserWithEmailAndPassword(email, password);
-    doUpdateAuthUser = (user) => this.auth.currentUser.updateProfile(user)
+    doUpdateAuthUser = async (user) => await this.auth.currentUser.updateProfile(user)
         .catch((error) => {
             console.error(error)
             return error
@@ -43,6 +43,7 @@ class Firebase {
     doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
     doFetchSignForEmail = email => this.auth.fetchSignInMethodsForEmail(email);
     getCurrentUser = () => this.auth.currentUser
+    removeCurrentUser = () => this.getCurrentUser().delete()
     // firestore API
 
     doUpdateFirestoreUser = async (id,user) =>{
