@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7ec12759-d047-4be6-9bb6-56fb215578a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/TilmeldPage/Succes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/BG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/KrabbeOgFødselsdagsbarn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AboutPage/Member_Photos/Lasse_Rützou_Bruntse.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/AboutPage/Member_Photos/Lasse_Rützou_Bruntse.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Firebase/firebase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Reepay/reepay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Reepay/reepay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Shared_Style_Components/_Footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Shared_Style_Components/_Footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Shared_Style_Components/_Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Shared_Style_Components/_Header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Shared_Style_Components/_Variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Shared_Style_Components/_Variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_Components/BetalingsTilmelding.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_Components/BetalingsTilmelding.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_Components/BrugerLoadingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_Components/BrugerLoadingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_Components/BrugerTilmelding.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_Components/BrugerTilmelding.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_Components/TilmeldPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_Components/TilmeldPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_StyleComponents/_TilmeldPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/TilmeldPage/TilmeldPage_StyleComponents/_TilmeldPage.scss" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="23FY96MSQbZTiv4oLwlvdag2aRb" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7ec12759-d047-4be6-9bb6-56fb215578a7" name="Changes" comment="" />
+      <created>1641331149219</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1641331149219</updated>
+      <workItem from="1641331151506" duration="2704000" />
+      <workItem from="1641932446069" duration="9032000" />
+      <workItem from="1642007488858" duration="5011000" />
+      <workItem from="1642344228275" duration="7031000" />
+      <workItem from="1642857515979" duration="14590000" />
+      <workItem from="1642879314974" duration="4526000" />
+      <workItem from="1642942363089" duration="8599000" />
+      <workItem from="1643832042212" duration="558000" />
+      <workItem from="1643834638582" duration="820000" />
+      <workItem from="1643918852702" duration="999000" />
+      <workItem from="1643920807585" duration="2300000" />
+      <workItem from="1644159305375" duration="6990000" />
+      <workItem from="1644755538505" duration="522000" />
+      <workItem from="1644766584117" duration="593000" />
+      <workItem from="1644951135893" duration="1201000" />
+      <workItem from="1644953207479" duration="233000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

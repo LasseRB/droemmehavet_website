@@ -33,9 +33,24 @@ export default function BrugerTilmelding(props) {
                 props.formContent.navn.vaerdi
             }))
             .then(() => {
-                props.setTilmeldStadie({current: 2});
+                firebase.doUpdateFirestoreUser(userID, {
+                    navn: props.formContent.navn.vaerdi,
+                    email: props.formContent.email.vaerdi,
+                    "reepay-customer-handle": "n/a",
+                    "reepay-subscription-handle": "n/a",
+                    photoID: randomIntFromInterval(0, 3)
+                })
+                    .catch((error) => {
+                        handleFejlBesked(error.code);
+                        props.setTilmeldStadie({current: 1});
+                        setOpretter(false)
+                        console.error(error);
+                    });
+            })
+            .then(() => {
+                props.setTilmeldStadie({current: 3});
                 Promise.resolve()
-                reepayFlow()
+                // reepayFlow()
             })
             .catch((error) => {
                 handleFejlBesked(error.code);
@@ -51,7 +66,6 @@ export default function BrugerTilmelding(props) {
 
         await reepay.createPendingSubscriber(handle, props.formContent.navn.vaerdi, props.formContent.email.vaerdi, props.formContent.kuponkode.vaerdi)
         reepay.renderCheckoutWindow(handle, checkoutWindow)
-
 
         checkoutWindow.addEventHandler(window.Reepay.Event.Accept, function (data) {
             //create user in Firestore DB - needs the right auth rules

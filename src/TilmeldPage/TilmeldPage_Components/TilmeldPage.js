@@ -39,10 +39,10 @@ export default function TilmeldPage(props) {
                         <ul>
                             <li><input type="button" onClick={() => setTilmeldStadie({current: 1})}
                                        disabled={tilmeldStadie.current !== 1}
-                                       value={"Profil"}/></li>
-                            <li><input type="button" onClick={() => setTilmeldStadie({current: 2})}
-                                       disabled={tilmeldStadie.current !== 2}
-                                       value={"Betalingsoplysninger"}/></li>
+                                       value={"Profiloplysninger"}/></li>
+                            {/*<li><input type="button" onClick={() => setTilmeldStadie({current: 2})}*/}
+                            {/*           disabled={tilmeldStadie.current !== 2}*/}
+                            {/*           value={"Betalingsoplysninger"}/></li>*/}
                             <li><input type="button" onClick={() => setTilmeldStadie({current: 3})}
                                        disabled={tilmeldStadie.current !== 3}
                                        value={"Succes"}/></li>
