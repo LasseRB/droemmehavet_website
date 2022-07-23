@@ -9,15 +9,16 @@ export default function AbonnementsPage() {
             <h1>Vores abonnement</h1>
             <h2>Et hav af gode lyttehistorier venter dig</h2>
             <div className="abonnement-container-inner">
-                <h1>Early-bird</h1>
-                <h2> 49 kr.- om måneden</h2>
                 <span id="line"></span>
-                <ul>
-                    <li>Ubegrænset medlemskab</li>
-                    <li>Nye historier hver måned</li>
-                    <li>Opsig til hver en tid</li>
+                <h1>Beta-program</h1>
+                {/*<h2>Gratis</h2>*/}
+                <h2>Gratis medlemsskab indtil vi lancerer på app store</h2>
 
-                </ul>
+                {/*<ul>*/}
+                {/*    <li>Gratis medlemsskab indtil vi lancere på app store</li>*/}
+                {/*    <li>Opsig til hver en tid</li>*/}
+
+                {/*</ul>*/}
 
                 {/*<Link to='/tilmeld' className="FreeTrialButton">Tilmeld nu!</Link>*/}
             </div>

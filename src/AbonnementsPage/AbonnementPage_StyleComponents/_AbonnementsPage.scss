@@ -1,7 +1,7 @@
 .abonnement-container {
   position: relative;
   display: flex;
-  height: 80vh;
+  height: 100%;
   //width: 100vw;
   flex-direction: column;
   padding: 0 20px 5% 20px ;
@@ -13,7 +13,7 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
   }
   h2 {
-    margin: auto auto 3% auto;
+    margin: 5px auto 3% auto;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
     color: white;
     font-weight: 400;
@@ -21,7 +21,7 @@
   }
 
   .abonnement-container-inner {
-    margin: auto auto 30% auto;
+    margin: 10% auto 30% auto;
     display: flex;
     height: max-content;
     text-align: center;
@@ -41,7 +41,7 @@
       color: white;
       text-shadow: none;
     }
-    h2 {
+    h2,h3 {
       color: white;
       text-shadow: none;
     }
@@ -91,7 +91,6 @@
   .abonnement-container{
     height: 100px;
     margin: 0;
-
     min-height: 50px;
     h2{
       padding: 0;
