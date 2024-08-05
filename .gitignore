@@ -9,11 +9,23 @@ droemmehavet_homepage/.firebase/hosting.YnVpbGQ.cache
 # testing
 /coverage
 
-# production
-/build
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
 
-# misc
+# Logs
+logs
+*.log
+
+# Misc
 .DS_Store
+.fleet
+.idea
+.vscode
 .env.local
 .env.development.local
 .env.test.local
@@ -22,8 +34,11 @@ droemmehavet_homepage/.firebase/hosting.YnVpbGQ.cache
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-.env
 droemmehavet_homepage/.env
 
 **/.vscode/
+
+# Local env files
+.env
+.env.*
+!.env.example
