@@ -1,5 +1,5 @@
 <template>
-  <div class="app_features">
+  <div class="app_features mockup">
     <div v-for="feature in appFeatures.values()">
       <feature
         :overskrift="feature?.overskrift"
