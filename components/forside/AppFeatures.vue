@@ -16,7 +16,7 @@
 
 import Feature from '@/components/forside/Feature.vue'
 import { onMounted, ref } from 'vue'
-import type { appFeature, blogIndlaeg } from '@/Model/model'
+import type { appFeature, BlogPost } from '~/model/model'
 
 const appFeatures = ref(Array<appFeature>())
 

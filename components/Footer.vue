@@ -36,6 +36,7 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
   footer {
     height: 550px;
     position: relative;
+
     .icons {
       .appstore-icon {
         position: absolute;

@@ -10,18 +10,19 @@ export interface explainerVideo {
   videoRef: string
 }
 
-export interface personInfo {
+export interface PersonInfo {
   navn: string,
   titel: string,
   personBilledeRef?: string,
   beskrivelse: string
 }
 
-export interface blogIndlaeg {
+export interface BlogPost {
+  id: string,
   overskrift: string,
-  indholdsTekst: string,
-  blogVideoRef?: string,
-  blogBilledeRef?: string,
-  linkId: string,
-  dato: string
+  indhold: string,
+  featuredMedia?: string,
+  link: string,
+  dato: string,
+  forfatter: string
 }

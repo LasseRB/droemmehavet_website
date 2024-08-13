@@ -4,13 +4,10 @@
 * */
 
 import PersonInfo from '@/components/forside/PersonInfo.vue'
-
-
 import { computed } from 'vue'
-import type { personInfo } from '@/Model/model'
 
 const team = computed(() => {
-  let personer = Array<personInfo>()
+  let personer = Array<PersonInfo>()
   // teamDb.forEach((f: any) => {
   //     const person = {
   //       navn: f.data().navn,
