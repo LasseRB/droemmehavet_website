@@ -15,8 +15,10 @@ defineProps<{
         <h2>af {{ blogindlaeg?.forfatter }}</h2>
         <h3>{{ blogindlaeg?.dato }}</h3>
       </div>
-      <img :src="blogindlaeg?.featuredMedia" />
-    </div>
+      <div class="hero_image">
+        <img v-show="blogindlaeg?.featuredMedia" :src="blogindlaeg?.featuredMedia">
+      </div>
+      </div>
     <div class="broedtekst">
       <div v-html="blogindlaeg?.indhold"/>
     </div>
@@ -49,11 +51,14 @@ defineProps<{
     padding: 50px;
     box-sizing: border-box;
   }
-
-  img {
-    width: auto;
-    height: 450px;
+  .hero_image {
+    min-width: 30%;
+    img {
+      width: auto;
+      height: 450px;
+    }
   }
+
 
   &:after {
     content: '';

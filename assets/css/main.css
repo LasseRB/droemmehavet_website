@@ -29,6 +29,10 @@ ul, li {
     margin: 0 auto;
     box-sizing: border-box;
     padding: 20px;
+
+    .side-overskrift {
+        display: flex;
+    }
 }
 
 a, a:visited, a:hover, a:active {

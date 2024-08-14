@@ -7,7 +7,7 @@
 
 <template>
   <div class="blog">
-    <h1>Drømmehavet blog</h1>
+    <h1 class="side-overskrift">Nyheder</h1>
       <div class="blog-inner-grid">
           <BlogPreview  v-for="(post, index) in posts" :blogindlaeg="post" :teaser="index == 0"/>
       </div>
@@ -15,6 +15,7 @@
 </template>
 
 <style scoped>
+
 .blog-inner-grid {
   display: flex;
   flex-wrap: wrap;

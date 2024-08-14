@@ -45,6 +45,7 @@ const props = defineProps<{
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       transform: scale(1.01);
       transition: box-shadow, transform .1s;
+      border:none;
     }
 
     .hero_image, .text-container {
@@ -91,7 +92,6 @@ const props = defineProps<{
 
     .hero_image, .text-container {
       display: flex;
-      //align-items: center;
       padding: 25px;
       box-sizing: border-box;
       img {
@@ -105,6 +105,19 @@ const props = defineProps<{
       width: 100%;
       padding: 0;
       margin: 0px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .blogPreview:not(.teaser) {
+      flex-direction: column;
+      height: 100%;
+      .hero_image {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+
+      }
     }
   }
 </style>
