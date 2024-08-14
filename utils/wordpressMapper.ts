@@ -8,7 +8,8 @@ export const postToBlogindlaeg = (postJson: JSON, mediaJSON: JSON | null, userJS
         link: formaterLink(postJson?.link),
         dato: formaterDato(postJson?.date),
         featuredMedia: mediaJSON ? mediaJSON?.media_details?.sizes?.medium_large?.source_url : null,
-        forfatter: userJSON.name // todo: skal fikses slef
+        forfatter: userJSON.name,
+        uddrag: postJson?.excerpt.rendered
     }
 }
 

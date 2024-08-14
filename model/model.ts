@@ -24,5 +24,6 @@ export interface BlogPost {
   featuredMedia?: string,
   link: string,
   dato: string,
-  forfatter: string
+  forfatter: string,
+  uddrag: string
 }

@@ -6,16 +6,19 @@
 </script>
 
 <template>
-  <div class="blog mockup">
+  <div class="blog">
     <h1>Drømmehavet blog</h1>
-    <ul>
-      <li v-for="post in posts">
-
-        <a :href="`${post.link}`"><BlogPreview :blogindlaeg="post"/></a></li>
-    </ul>
+      <div class="blog-inner-grid">
+          <BlogPreview  v-for="(post, index) in posts" :blogindlaeg="post" :teaser="index == 0"/>
+      </div>
   </div>
 </template>
 
 <style scoped>
-
+.blog-inner-grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
 </style>

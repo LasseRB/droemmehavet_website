@@ -11,16 +11,6 @@ export async function useWordpress() {
     const error = ref()
 
     try {
-        // const response = await fetch(`${baseurl}/posts/?_fields=author,id,date,title,link,content,featured_media`)
-        // const blogIndlaeg = await response.json();
-        // const indlaeg: BlogIndlaeg[] = blogIndlaeg
-        //     .map( (json: JSON) => {
-        //         // todo: dette skal ske inde i servicemetoden.
-        //         return postToBlogindlaeg(json,
-        //             null,
-        //             [{name: 'Esther Rützou'}])
-        //
-        //     })
         posts.value = await fetchAllBlogindlaeg()
     } catch (e) {
         error.value = e;
