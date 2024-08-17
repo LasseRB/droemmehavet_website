@@ -19,6 +19,7 @@ header {
   position: relative;
   height: 80px;
   box-sizing: border-box;
+  background-color: transparent;
 
   .header-logo {
     position: absolute;
@@ -29,7 +30,7 @@ header {
     background-color: #008aaf;
     border-radius: 20px;
     padding: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    box-shadow: var(--soft-box-shadow);
   }
 
   .header-links {

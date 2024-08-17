@@ -1,6 +1,6 @@
 <template>
-  <div class="about mockup">
-    <div class="beskrivelse mockup">
+  <div class="about">
+    <div class="beskrivelse">
       <h2>
         Drømmehavet
       </h2>
@@ -15,16 +15,18 @@
 /*
 * Komponent til explainer om hvad produktet er.
 * */
-import AppFeatures from "~/components/forside/AppFeatures.vue";
-import Feature from "~/components/forside/Feature.vue";
+
 </script>
 <style scoped>
 .about {
   position: relative;
   height: 500px;
-
+  background-color: var(--main-bg-hvid);
+  z-index: 1;
   .beskrivelse {
     position: absolute;
+    background-color: var(--main-bg-blaa);
+    color: white;
     box-sizing: border-box;
     padding: 30px;
     width: 40%;
@@ -32,6 +34,8 @@ import Feature from "~/components/forside/Feature.vue";
     left: 50%;
     transform: translate(-50%);
     text-align: center;
+    border-radius: 10px;
+    box-shadow: var(--hard-box-shadow);
   }
 }
 </style>

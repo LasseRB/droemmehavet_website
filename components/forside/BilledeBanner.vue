@@ -1,6 +1,8 @@
 <template>
-  <div class="billedebanner mockup">
-    <img id="banner" src="">
+  <div class="billedebanner parallax">
+    <div class="billede-banner">
+      <img class="parallax" src="../../assets/monsteroen.png"/>
+    </div>
   </div>
 
 </template>
@@ -15,15 +17,15 @@
   width: 100%;
   height: 300px;
   align-items: center;
-  overflow: hidden;
   color: blueviolet;
+  --animation-speed: 1;
+  transform: scale(1.2);
+  z-index: 0;
   img {
-    max-width: inherit;
-    max-height: inherit;
-    height: inherit;
-    width: inherit;
-    object-fit: cover;
-
+    position: absolute;
+    bottom: -300px;
+    min-width: 1500px;
+    width: 100%;
   }
 }
 

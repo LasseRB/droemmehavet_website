@@ -8,13 +8,34 @@
     background-position: center center;
     background-size: 100% 100%, auto;
 }
+html {
+    overflow: hidden;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+/*    perspective: 1px;*/
+/*    -webkit-perspective: 1px;*/
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 
+}
 html, body {
     margin: 0;
     padding: 0;
     font-family: "PT Sans Narrow", sans-serif;
     font-weight: 400;
     font-style: normal;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+
+    --main-bg-blaa: #0060df;
+    --secondary-bg-blaa: #0c94bf;
+    --main-bg-hvid: #fdf8ec;
+    --soft-box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    --hard-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 ul, li {
@@ -40,8 +61,18 @@ a, a:visited, a:hover, a:active {
     text-decoration: none;
 }
 
+.parallax > * {
+    animation: parallax linear;
+    animation-timeline: scroll();
+}
+
+@keyframes parallax {
+    to {
+        transform: translateY(calc(var(--animation-speed) * 200px));
+    }
+}
 @media only screen and (max-width: 600px) {
     img {
-        max-width: 100%;
+        max-width: 600px;
     }
 }

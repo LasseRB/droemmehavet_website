@@ -5,9 +5,9 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 </script>
 
 <template>
-  <footer class="mockup">
+  <footer class="">
     <div class="detalje-container">
-       <div class="detalje mockup">
+       <div class="detalje">
         <ul>
           <li>Drømmehavet ApS</li>
           <li>Jordløsevej 3a</li>
@@ -16,7 +16,7 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
           <li>Cvr: 42068012</li>
         </ul>
       </div>
-      <div class="detalje mockup">
+      <div class="detalje">
         <a href="mailto:hejsa@droemmehavet.dk">Kontakt os</a>
     </div>
     </div>
@@ -36,6 +36,7 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
   footer {
     height: 550px;
     position: relative;
+    background-color: var(--main-bg-blaa);
 
     .icons {
       .appstore-icon {
@@ -58,6 +59,7 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
       bottom: 10px;
       left: 50%;
       transform: translate(-50%);
+      color: white;
       .detalje {
         width: 150px;
       }

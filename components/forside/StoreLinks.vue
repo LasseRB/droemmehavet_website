@@ -4,7 +4,7 @@ import AppStoreButton from "~/components/forside/AppStoreButton.vue";
 </script>
 
 <template>
-<div class="storelinks mockup">
+<div class="storelinks">
   <p>Snart tilgængelig på iOS</p>
   <div class="appstorebtn">
     <AppStoreButton />
@@ -14,9 +14,14 @@ import AppStoreButton from "~/components/forside/AppStoreButton.vue";
 
 <style scoped>
 .storelinks {
-  height: 150px;
-  margin: 0 auto;
   position: relative;
+  height: 150px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 0;
+  color: black;
+
+
   p, .appstorebtn {
     position: absolute;
     left: 50%;

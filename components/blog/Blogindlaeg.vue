@@ -15,7 +15,7 @@ defineProps<{
         <h2>af {{ blogindlaeg?.forfatter }}</h2>
         <h3>{{ blogindlaeg?.dato }}</h3>
       </div>
-      <div class="hero_image">
+      <div class="hero_image" :class="{ broken: !blogindlaeg?.featuredMedia }">
         <img v-show="blogindlaeg?.featuredMedia" :src="blogindlaeg?.featuredMedia">
       </div>
       </div>
@@ -52,10 +52,12 @@ defineProps<{
     box-sizing: border-box;
   }
   .hero_image {
-    min-width: 30%;
+    &.broken {
+      min-width: 30%;
+    }
     img {
       width: auto;
-      height: 450px;
+      max-height: 450px;
     }
   }
 
@@ -71,13 +73,16 @@ defineProps<{
   }
 }
 .broedtekst {
-  max-width: 800px;
+  max-width: 500px;
   margin: 0 auto;
 
   h1, h2 {
     font-family: "Playfair Display", serif;
   }
-
+  img {
+    max-width: 350px;
+    height: auto;
+  }
 }
 
 @media only screen and (max-width: 600px) {
