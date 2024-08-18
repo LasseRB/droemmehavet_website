@@ -21,6 +21,9 @@ import AppStoreButton from "~/components/forside/AppStoreButton.vue";
   padding: 0;
   color: black;
 
+  a:hover {
+    border: none;
+  }
 
   p, .appstorebtn {
     position: absolute;

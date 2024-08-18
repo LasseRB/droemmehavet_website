@@ -3,7 +3,7 @@
     <img id="forside_header_gradient" src="../../assets/HeaderSection_gradient.png">
     <img class="havetbg parallax" id="forside_header_baggrund" src="../../assets/HeaderSection_havet.png">
     <div class="forside-logo parallax">
-      <DroemmehavetLogo/>
+      <DroemmehavetLogo :silhouette="false"/>
       <p>Velkommen til et lydunivers for børn!</p>
     </div>
   </div>
@@ -22,7 +22,7 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
   height: 500px;
   align-items: center;
   overflow: hidden;
-
+  z-index: 2;
   img{
         max-width: inherit;
         max-height: inherit;
@@ -35,7 +35,8 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 #forside_header_gradient {
   position: absolute;
   bottom: 0;
-  height: 50%
+  height: 50%;
+  z-index: 3;
 }
 
 .forside-logo {

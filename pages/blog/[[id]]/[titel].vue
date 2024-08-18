@@ -17,6 +17,5 @@ const data: BlogPost = posts.value.find((indlaeg: BlogPost) => indlaeg.id == id)
 <style>
 .blog {
   margin-bottom: 30px;
-
 }
 </style>

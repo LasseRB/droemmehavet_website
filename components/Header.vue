@@ -6,33 +6,49 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 <template>
   <header class="">
     <NuxtLink to="/">
-      <DroemmehavetLogo class="header-logo" />
+      <div class="header-logo-container">
+        <DroemmehavetLogo class="header-logo" :silhouette="true"/>
+        <img class="droemmehavet-tekst" src="../assets/droemmehavet-type.png" alt="Drømmehavet" />
+      </div>
     </NuxtLink>
     <div class="header-links">
-      <NuxtLink to="/blog">Nyheder</NuxtLink>
+      <NuxtLink to="/blog">Blog</NuxtLink>
     </div>
   </header>
 </template>
 
 <style scoped>
 header {
-  position: relative;
+  position: fixed;
+  top: 0;
   height: 80px;
+  width: 100%;
   box-sizing: border-box;
-  background-color: transparent;
-
-  .header-logo {
+  background-color: var(--main-bg-hvid);
+  z-index: 100;
+  .header-logo-container {
     position: absolute;
-    top: 50%;
-    width: 50px;
-    height: auto;
-    left: 50px;
-    background-color: #008aaf;
-    border-radius: 20px;
-    padding: 5px;
-    box-shadow: var(--soft-box-shadow);
-  }
+    left: 0;
+    padding: 0 0 0 50px;
+    margin: 0;
+    display: flex;
+    width: 200px;
+    flex-direction: row;
+    .header-logo {
+      position: relative;
+      width: auto;
+      height: 50px;
+      padding-top: 70px;
+    }
 
+    .droemmehavet-tekst {
+      position: relative;
+      padding-top: 10px;
+      height: 50px;
+      width: auto;
+    }
+
+  }
   .header-links {
     position: absolute;
     top: 50%;

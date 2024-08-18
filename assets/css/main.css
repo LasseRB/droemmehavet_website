@@ -10,26 +10,22 @@
 }
 html {
     overflow: hidden;
+    background-color: var(--main-bg-hvid);
 }
+
 body {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-/*    perspective: 1px;*/
-/*    -webkit-perspective: 1px;*/
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-
 }
+
 html, body {
     margin: 0;
     padding: 0;
     font-family: "PT Sans Narrow", sans-serif;
     font-weight: 400;
     font-style: normal;
-        transform-style: preserve-3d;
-        -webkit-transform-style: preserve-3d;
 
     --main-bg-blaa: #0060df;
     --secondary-bg-blaa: #0c94bf;
@@ -49,16 +45,19 @@ ul, li {
     max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 20px;
-
+    padding: 100px 20px 20px 20px;
     .side-overskrift {
         display: flex;
     }
 }
 
-a, a:visited, a:hover, a:active {
+a, a:visited {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
+}
+a:active, a:hover {
+    border-bottom: 2px solid black;
 }
 
 .parallax > * {
@@ -71,6 +70,7 @@ a, a:visited, a:hover, a:active {
         transform: translateY(calc(var(--animation-speed) * 200px));
     }
 }
+
 @media only screen and (max-width: 600px) {
     img {
         max-width: 600px;

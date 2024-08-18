@@ -34,7 +34,7 @@ const props = defineProps<{
     width: 100%;
     height: 300px;
     overflow: hidden;
-    background-color: white;
+    background-color: var(--main-bg-hvid);
     flex-grow: 1;
     flex-direction: row;
     padding: 50px 0 50px 0;

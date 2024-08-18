@@ -4,11 +4,12 @@
       <h2>
         Drømmehavet
       </h2>
-      <p>er en platform med lytte-historier til børn fra 4 – 8 år.
+      <p>er en app med lytte-historier til børn fra 4 – 8 år.
         En slags podcast for børn - bare lidt sjovere, fordi det hele foregår i det samme univers.</p>
     </div>
 
-<!--    <feature overskrift="x-timers lydfortællinger"/>-->
+  <img class="fødselsdag" src="../../assets/KrabbeOgFødselsdagsbarn.png">
+  <img class="vandmand" src="../../assets/Vandmand_2.png">
   </div>
 </template>
 <script setup lang="ts">
@@ -25,17 +26,42 @@
   z-index: 1;
   .beskrivelse {
     position: absolute;
-    background-color: var(--main-bg-blaa);
-    color: white;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 0px;
     width: 40%;
     top: 30%;
     left: 50%;
     transform: translate(-50%);
     text-align: center;
     border-radius: 10px;
-    box-shadow: var(--hard-box-shadow);
+    z-index: 1;
+  }
+  .fødselsdag {
+    position: absolute;
+    left: 150px;
+    width: 350px;
+  }
+  .vandmand {
+    position: absolute;
+    right: 400px;
+    top: 300px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .about {
+    height: 350px;
+    .fødselsdag {
+      display: none;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 500px) {
+  .fødselsdag, .vandmand {
+    display: none;
   }
 }
 </style>

@@ -26,8 +26,9 @@ defineProps<{
 </template>
 
 
-<style>
+<style scoped>
 .hero {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
@@ -68,10 +69,15 @@ defineProps<{
     right: 0;
     width: 80%;
     height: 500px;
+    //background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+    //background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+    //background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
     background-color: #ffe3d6;
     z-index: -1;
   }
 }
+
 .broedtekst {
   max-width: 500px;
   margin: 0 auto;
