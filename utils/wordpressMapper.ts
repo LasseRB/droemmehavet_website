@@ -15,5 +15,5 @@ export const postToBlogindlaeg = (postJson: JSON, mediaJSON: JSON | null, userJS
 
 const formaterLink = (link: string): string => {
     if (!link) return '#'
-    return import.meta.dev ? link?.replace('https://blog.droemmehavet.dk', 'http://localhost:3000/blog') : link;
+    return link?.replace('https://blog.droemmehavet.dk/', '');
 }

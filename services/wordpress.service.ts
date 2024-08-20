@@ -1,5 +1,5 @@
-import type {BlogPost} from "~/model/model.ts";
-import {postToBlogindlaeg} from "~/utils/wordpressMapper";
+import type { BlogPost } from "~/model/model.ts";
+import { postToBlogindlaeg } from "~/utils/wordpressMapper";
 const baseurl = 'https://blog.droemmehavet.dk/wp-json/wp/v2/'
 export async function fetchAllBlogindlaeg(): Promise<BlogPost[]> {
     const response =
@@ -9,13 +9,13 @@ export async function fetchAllBlogindlaeg(): Promise<BlogPost[]> {
     const userResponse = await getAllUsers();
 
     return blogIndlaeg
-        .map( (json: JSON) => {
+        .map((json: JSON) => {
             const media = mediaResponse.find(m => m.id == json.featured_media)
             const user = userResponse.find(u => u.id == json.author)
             return postToBlogindlaeg(json,
                 media,
                 user)
-    })
+        })
 }
 
 export async function getAllMedia(): Promise<any | null> {
