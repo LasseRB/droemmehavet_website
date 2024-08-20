@@ -9,7 +9,11 @@ export default defineNuxtConfig({
     }
   },
   routeRules: {
-    '/': { ssr: false },
-    '/blog': { ssr: true }
+    '/': { ssr: true },
+    '/blog': { isr
+      : 3600 },
+          // Blog post page generated on demand once until next deployment, cached on CDN
+          '/blog/**': { isr
+      : true },
   }
 })
