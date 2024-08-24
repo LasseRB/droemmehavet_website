@@ -72,10 +72,13 @@ const props = defineProps<{
       border: 1px solid rgba(0,0,0,.3);
       border-radius: 5px;
       overflow: hidden;
+      min-width: 250px;
 
       img {
         width: 100%;
+        height: 100%;
         margin: auto;
+        object-fit: cover;
       }
     }
     .text-container {

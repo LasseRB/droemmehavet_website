@@ -5,11 +5,11 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 
 <template>
   <header class="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width" />
     <NuxtLink to="/">
       <div class="header-logo-container">
-        <DroemmehavetLogo class="header-logo" :silhouette="true"/>
-        <img class="droemmehavet-tekst" src="../assets/droemmehavet-type.png" alt="Drømmehavet" />
+          <DroemmehavetLogo class="header-logo" :silhouette="true"/>
+          <img class="droemmehavet-tekst" src="../assets/droemmehavet-type.png" alt="Drømmehavet" />
       </div>
     </NuxtLink>
     <div class="header-links">
@@ -18,7 +18,7 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
   </header>
 </template>
 
-<style scoped>
+<style>
 header {
   position: fixed;
   top: 0;
@@ -56,6 +56,25 @@ header {
     right: 50px;
     transform: translate(-50%, -50%);
     font-size: larger;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    height: 120px;
+
+    .header-logo-container {
+      position: relative;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .header-links {
+      left: 50%;
+      bottom: 10px;
+
+      top: unset;
+      right: unset;
+    }
   }
 }
 </style>

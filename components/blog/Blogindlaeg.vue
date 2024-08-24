@@ -26,12 +26,14 @@ defineProps<{
 </template>
 
 
-<style scoped>
+<style>
 .hero {
   position: relative;
   display: flex;
   flex-direction: row-reverse;
-  width: 100%;
+  width: 80%;
+  z-index: 1;
+  margin: 0 auto;
   align-items: center;
   .text-container {
     h1 {
@@ -62,37 +64,43 @@ defineProps<{
     }
   }
 
-
   &:after {
     content: '';
     position: absolute;
     right: 0;
     width: 80%;
-    height: 500px;
-    //background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
-    //background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
-    background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
-    //background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+    min-height: 500px;
+    height: fit-content;
     background-color: #ffe3d6;
     z-index: -1;
   }
 }
+    /*background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);*/
 
 .broedtekst {
-  max-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
-
+  box-sizing: border-box;
   h1, h2 {
     font-family: "Playfair Display", serif;
   }
   img {
-    max-width: 350px;
+    max-width: 100%;
     height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+
+}
+@media only screen and (max-width: 1080px) {
+  .hero {
+    width: 100%;
   }
 }
-
 @media only screen and (max-width: 600px) {
   .hero {
+    width: 100%;
     flex-direction: column-reverse;
     .text-container {
       height: 300px;

@@ -11,7 +11,7 @@
 * Komponent til udstilling af de feature vi har i appen.
 * */
 </script>
-<style>
+<style scoped>
 .billedebanner {
   position: relative;
   width: 100%;

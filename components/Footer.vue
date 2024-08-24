@@ -34,8 +34,8 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 
 <style scoped>
   footer {
-    height: 550px;
     position: relative;
+    height: 550px;
     background-color: var(--main-bg-blaa);
 
     .icons {
@@ -64,6 +64,5 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
         width: 150px;
       }
     }
-
   }
 </style>

@@ -8,25 +8,18 @@
     background-position: center center;
     background-size: 100% 100%, auto;
 }
-html {
-    overflow: hidden;
-    background-color: var(--main-bg-hvid);
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
 
 html, body {
     margin: 0;
     padding: 0;
+    background-color: var(--main-bg-blaa);
+
     font-family: "PT Sans Narrow", sans-serif;
     font-weight: 400;
     font-style: normal;
-
+    min-width:600px;
+    overflow-x: hidden;
+    overflow-y: auto;
     --main-bg-blaa: #0060df;
     --secondary-bg-blaa: #0c94bf;
     --main-bg-hvid: #fdf8ec;
@@ -42,10 +35,11 @@ ul, li {
 
 .blog {
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
     padding: 100px 20px 20px 20px;
+    background-color: var(--main-bg-hvid);
+
     .side-overskrift {
         display: flex;
     }
@@ -57,8 +51,14 @@ a, a:visited {
     cursor: pointer;
 }
 a:active, a:hover {
-    border-bottom: 2px solid black;
+    text-decoration-line: underline;
 }
+
+.wp-block-image, .aligncenter, .alignright, .alignleft .size-large {
+    padding: 0;
+    margin: 0;
+}
+
 
 .parallax > * {
     animation: parallax linear;
@@ -72,7 +72,9 @@ a:active, a:hover {
 }
 
 @media only screen and (max-width: 600px) {
+
     img {
         max-width: 600px;
+
     }
 }
