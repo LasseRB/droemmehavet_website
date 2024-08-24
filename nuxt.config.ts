@@ -22,5 +22,8 @@ export default defineNuxtConfig({
     '/blog/**': {
       isr: 3600
     },
+  },
+  experimental: {
+    asyncContext: true
   }
 })
