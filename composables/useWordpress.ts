@@ -1,20 +1,21 @@
-import {type Ref, ref} from 'vue'
-import { useAsyncData } from 'nuxt/app'
-import {fetchAllBlogindlaeg, getMedia} from "~/services/wordpress.service";
-import type {BlogPost} from "~/model/model";
-import {postToBlogindlaeg} from "~/utils/wordpressMapper";
-
-const baseurl = 'https://blog.droemmehavet.dk/wp-json/wp/v2'
+import {ref} from 'vue'
+import {fetchAllBlogindlaeg, postToBlogindlaeg} from "~/services/wordpress.service";
 
 export async function useWordpress() {
     const posts = ref()
-    const error = ref()
-
-    try {
-        posts.value = await fetchAllBlogindlaeg()
-    } catch (e) {
-        error.value = e;
+    if (posts.value && posts.value?.length > 0) {
+        return { posts }
     }
+    const { postResponse, mediaResponse, userResponse} = await fetchAllBlogindlaeg()
 
-    return { posts, error }
+    posts.value = postResponse.data?.value?.map((post: JSON) => {
+            const media = mediaResponse?.data?.value?.find(m => m.id == post.featured_media)
+            const user = userResponse?.data?.value?.find(u => u.id == post.author)
+            return postToBlogindlaeg(
+                post,
+                media,
+                user)
+        })
+
+    return { posts }
 }

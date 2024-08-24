@@ -1,37 +1,30 @@
-import type { BlogPost } from "~/model/model.ts";
-import { postToBlogindlaeg } from "~/utils/wordpressMapper";
-const baseurl = 'https://blog.droemmehavet.dk/wp-json/wp/v2/'
-export async function fetchAllBlogindlaeg(): Promise<BlogPost[]> {
-    const response =
-        await fetch(`${baseurl}posts/?_fields=author,id,date,title,link,content,featured_media,excerpt`)
-    const blogIndlaeg = await response.json();
-    const mediaResponse = await getAllMedia();
-    const userResponse = await getAllUsers();
+import type {BlogPost} from "~/model/model";
+import {formaterDato} from "~/utils/dato";
 
-    return blogIndlaeg
-        .map((json: JSON) => {
-            const media = mediaResponse.find(m => m.id == json.featured_media)
-            const user = userResponse.find(u => u.id == json.author)
-            return postToBlogindlaeg(json,
-                media,
-                user)
-        })
+export const fetchAllBlogindlaeg = async () => {
+    const baseurl = 'https://blog.droemmehavet.dk/wp-json/wp/v2/'
+
+    const postResponse = useAsyncData('indlaeg', () => $fetch(`${baseurl}posts/?_fields=author,id,date,title,link,content,featured_media,excerpt`))
+    const mediaResponse = useAsyncData('media', () => $fetch(`${baseurl}media`))
+    const userResponse = useAsyncData('users', () => $fetch(`${baseurl}users`))
+
+    return {postResponse: postResponse, mediaResponse: mediaResponse, userResponse: userResponse, user: userResponse}
 }
 
-export async function getAllMedia(): Promise<any | null> {
-    try {
-        const mediaResponse = await fetch(`${baseurl}media`)
-        return await mediaResponse.json()
-    } catch (error) {
-        return null;
+export const postToBlogindlaeg: BlogPost = (postJson: JSON, mediaJSON: JSON, userJSON: JSON) => {
+    return {
+        id: postJson?.id,
+        overskrift: postJson?.title?.rendered,
+        indhold: postJson?.content?.rendered,
+        featuredMedia: mediaJSON ? mediaJSON?.media_details?.sizes?.medium_large?.source_url : null,
+        link: formaterLink(postJson?.link),
+        dato: formaterDato(postJson?.date),
+        forfatter: userJSON.name,
+        uddrag: postJson?.excerpt.rendered
     }
 }
 
-export async function getAllUsers(): Promise<any | null> {
-    try {
-        const mediaResponse = await fetch(`${baseurl}users`)
-        return await mediaResponse.json()
-    } catch (error) {
-        return null;
-    }
+const formaterLink = (link: string): string => {
+    if (!link) return '#'
+    return link?.replace('https://blog.droemmehavet.dk/', '');
 }

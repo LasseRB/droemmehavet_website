@@ -1,8 +1,9 @@
 <script setup lang="ts">
- import {fetchAllBlogindlaeg} from "~/services/wordpress.service";
  import {useWordpress} from "~/composables/useWordpress";
-
- const {posts, error} = await useWordpress()
+ const { posts } = await useWordpress()
+ useHead({
+   title: 'Drømmehavets blog'
+ })
 </script>
 
 <template>

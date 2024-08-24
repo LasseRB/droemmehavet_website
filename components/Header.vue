@@ -5,7 +5,6 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 
 <template>
   <header class="">
-    <meta name="viewport" content="width=device-width" />
     <NuxtLink to="/">
       <div class="header-logo-container">
           <DroemmehavetLogo class="header-logo" :silhouette="true"/>
@@ -27,6 +26,7 @@ header {
   box-sizing: border-box;
   background-color: var(--main-bg-hvid);
   z-index: 100;
+
   .header-logo-container {
     position: absolute;
     left: 0;
@@ -34,7 +34,7 @@ header {
     margin: 0;
     display: flex;
     width: 200px;
-    flex-direction: row;
+    height: 50px;
     .header-logo {
       position: relative;
       width: auto;

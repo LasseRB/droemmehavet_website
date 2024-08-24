@@ -17,7 +17,7 @@ html, body {
     font-family: "PT Sans Narrow", sans-serif;
     font-weight: 400;
     font-style: normal;
-    min-width:600px;
+    min-width:300px;
     overflow-x: hidden;
     overflow-y: auto;
     --main-bg-blaa: #0060df;

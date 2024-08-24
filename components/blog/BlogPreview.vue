@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type {BlogPost} from "~/model/model";
 
-const props = defineProps<{
+defineProps<{
   blogindlaeg: BlogPost,
   teaser: boolean
 }>()
@@ -19,7 +19,6 @@ const props = defineProps<{
         <span class="dato">{{ blogindlaeg.dato }}</span>
         <h2>{{ blogindlaeg.overskrift }}</h2>
         <div v-if="!teaser" v-html="blogindlaeg.uddrag"></div>
-
       </div>
 
 

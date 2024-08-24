@@ -3,6 +3,10 @@ import ForsideHeader from '~/components/forside/ForsideBanner.vue'
 import About from "~/components/forside/About.vue";
 import BilledeBanner from "~/components/forside/BilledeBanner.vue";
 import AppShowcase from "~/components/forside/AppShowcase.vue";
+
+useHead({
+  title: 'Drømmehavet - lyduniverset for børn!'
+})
 </script>
 
 <template>
@@ -13,9 +17,6 @@ import AppShowcase from "~/components/forside/AppShowcase.vue";
        <about/>
        <billede-banner />
      </div>
-<!--      <app-features />-->
-<!--      <team />-->
-
   </div>
 </template>
 

@@ -8,15 +8,19 @@ export default defineNuxtConfig({
       gen: 2,
     }
   },
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+    }
+  },
   routeRules: {
-    '/': { ssr: true },
+    '/': { prerender: true },
     '/blog': {
-      isr
-        : 3600
+      isr: 3600
     },
     '/blog/**': {
-      isr
-        : true
+      isr: 3600
     },
   }
 })

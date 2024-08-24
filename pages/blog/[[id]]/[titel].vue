@@ -4,8 +4,14 @@ import {type BlogPost} from "~/model/model";
 import BlogIndlaeg from "~/components/blog/Blogindlaeg.vue";
 
 const { id } = useRoute().params
-const {posts, error} = await useWordpress()
+const { posts } = await useWordpress()
+
 const data: BlogPost = posts.value.find((indlaeg: BlogPost) => indlaeg.id == id)
+
+useHead({
+  title: `Drømmehavets: ${data.overskrift}`
+})
+
 </script>
 
 <template>
