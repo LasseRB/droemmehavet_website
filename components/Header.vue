@@ -5,6 +5,7 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 
 <template>
   <header class="">
+    <meta name="viewport" content="width=device-width">
     <NuxtLink to="/">
       <div class="header-logo-container">
         <DroemmehavetLogo class="header-logo" :silhouette="true"/>
