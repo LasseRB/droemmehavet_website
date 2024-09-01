@@ -3,18 +3,19 @@ import {formaterDato} from "~/utils/dato";
 
 export const fetchAllBlogindlaeg = async () => {
     const baseurl = 'https://blog.droemmehavet.dk/wp-json/wp/v2/'
+    const posts = $fetch(`${baseurl}posts/?_fields=author,id,date,title,link,content,featured_media,excerpt`)
+    const media = $fetch(`${baseurl}media`)
+    const users = $fetch(`${baseurl}users`)
 
-    const postResponse = await useAsyncData('indlaeg', () => $fetch(`${baseurl}posts/?_fields=author,id,date,title,link,content,featured_media,excerpt`))
-    const mediaResponse = await useAsyncData('media', () => $fetch(`${baseurl}media`))
-    const userResponse = await useAsyncData('users', () => $fetch(`${baseurl}users`))
+    const resp = await useAsyncData(async () => {
+        return Promise.all([posts, media, users]).then(data => {
+               console.log('test', data)
+                return {posts: data[0], media: data[1], users: data[2]}
+            }
+        )
+    })
 
-    return {
-        postResponse: postResponse,
-        mediaResponse: mediaResponse,
-        userResponse: userResponse,
-        user: userResponse
-    }
-
+    return { postResponse: resp.data.value!.posts, mediaResponse: resp.data.value!.media, userResponse: resp.data.value!.users}
 }
 
 export const postToBlogindlaeg = (postJson: JSON, mediaJSON: JSON, userJSON: JSON): BlogPost => {
