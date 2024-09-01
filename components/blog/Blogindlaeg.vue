@@ -37,8 +37,9 @@ defineProps<{
   align-items: center;
   .text-container {
     h1 {
-      font-family: "Playfair Display", serif;
+      font-family: "Belleza", sans-serif;
       font-optical-sizing: auto;
+      font-size: 2.5rem;
     }
 
     h2 {
@@ -81,9 +82,6 @@ defineProps<{
   max-width: 800px;
   margin: 0 auto;
   box-sizing: border-box;
-  h1, h2 {
-    font-family: "Playfair Display", serif;
-  }
   img {
     max-width: 100%;
     height: auto;
@@ -91,7 +89,9 @@ defineProps<{
     margin: 0;
   }
 
-
+  p {
+    font-size: 1.3rem;
+  }
 }
 @media only screen and (max-width: 1080px) {
   .hero {
