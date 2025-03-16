@@ -34,7 +34,7 @@ export default defineNuxtConfig({
   modules: ['nuxt-security'],
   security: {
     corsHandler: {
-      origin: ['https://droemmehavet.dk/','https://blog.droemmehavet.dk/wp-json/wp/v2/']
+      origin: ['https://droemmehavet.dk/','https://blog.droemmehavet.dk/wp-json/wp/v2/*']
     }
   }
 })
