@@ -34,7 +34,8 @@ export default defineNuxtConfig({
   modules: ['nuxt-security'],
   security: {
     corsHandler: {
-      origin: ['https://droemmehavet.dk/','https://blog.droemmehavet.dk/wp-json/wp/v2/media', 'https://blog.droemmehavet.dk/wp-json/wp/v2/users', 'https://blog.droemmehavet.dk/wp-json/wp/v2/posts/?_fields=author,id,date,title,link,content,featured_media,excerpt'],
+      // origin: ['https://droemmehavet.dk/','https://blog.droemmehavet.dk/wp-json/wp/v2/media', 'https://blog.droemmehavet.dk/wp-json/wp/v2/users', 'https://blog.droemmehavet.dk/wp-json/wp/v2/posts/?_fields=author,id,date,title,link,content,featured_media,excerpt'],
+      origin: '*',
       useRegExp: true,
       allowHeaders: '*'
     },
