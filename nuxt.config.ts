@@ -40,8 +40,7 @@ export default defineNuxtConfig({
     },
     headers: {
       contentSecurityPolicy: {
-        'img-src': ["'self'", 'data:', 'https://blog.droemmehavet.dk/wp-content/'],
-        'form-action': ['self', 'https://droemmehavet.dk/blog/38/kunsten-at-betateste-i-kor/']
+        'img-src': ["'self'", 'data:', 'https://blog.droemmehavet.dk/wp-content/']
       },
     }
 
