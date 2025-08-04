@@ -51,7 +51,7 @@ defineProps<{
       display: flex;
       flex-direction: column;
       margin-left: 10px;
-      border-radius: 30px;
+      object-fit: cover;
 
       img {
         width: 100%;
@@ -68,10 +68,9 @@ defineProps<{
 
     .hero_image {
       width: 30%;
-      border: 1px solid rgba(0,0,0,.3);
-      border-radius: 5px;
       overflow: hidden;
       min-width: 250px;
+      max-height: 500px;
 
       img {
         width: 100%;

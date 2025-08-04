@@ -9,7 +9,6 @@ export const fetchAllBlogindlaeg = async () => {
 
     const resp = await useAsyncData(async () => {
         return Promise.all([posts, media, users]).then(data => {
-               console.log('test', data)
                 return {posts: data[0], media: data[1], users: data[2]}
             }
         )
@@ -24,6 +23,7 @@ export const postToBlogindlaeg = (postJson: JSON, mediaJSON: JSON, userJSON: JSO
         overskrift: postJson?.title?.rendered,
         indhold: postJson?.content?.rendered,
         featuredMedia: mediaJSON ? mediaJSON?.media_details?.sizes?.medium_large?.source_url : null,
+        mediaCaption: mediaJSON ? mediaJSON.caption?.rendered : null,
         link: formaterLink(postJson?.link),
         dato: formaterDato(postJson?.date),
         forfatter: userJSON.name,

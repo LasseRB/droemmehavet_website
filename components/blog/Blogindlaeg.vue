@@ -17,6 +17,7 @@ defineProps<{
       </div>
       <div class="hero_image" :class="{ broken: !blogindlaeg?.featuredMedia }">
         <img v-show="blogindlaeg?.featuredMedia" :src="blogindlaeg?.featuredMedia">
+        <figcaption v-html="blogindlaeg.mediaCaption" />
       </div>
       </div>
     <div class="broedtekst">
