@@ -5,10 +5,10 @@ import AppStoreButton from "~/components/forside/AppStoreButton.vue";
 
 <template>
 <div class="storelinks">
-  <p>Snart tilgængelig på iOS</p>
-  <div class="appstorebtn">
-    <AppStoreButton />
-  </div>
+  <h1>Snart tilgængelig på iOS</h1>
+<!--  <div class="appstorebtn">-->
+<!--    <AppStoreButton />-->
+<!--  </div>-->
 </div>
 </template>
 

@@ -32,8 +32,7 @@ const DynamicComponent = ResolveComponent(findComponentTag(props.text))
 
 <template>
   <div>
+   <DynamicComponent />
     <div v-html="removeComponentTag(html)"></div>
-<!--   <DynamicComponent /> skjult for nu-->
-
   </div>
 </template>

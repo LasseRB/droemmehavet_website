@@ -6,8 +6,19 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 
 <template>
   <footer class="">
+
+
+    <div class="icons">
+      <SignUp class="sign-up"/>
+      <div class="appstore-icon">
+<!--        <AppStoreButton/>-->
+      </div>
+      <div class="droemmehavetlogo-icon">
+        <DroemmehavetLogo/>
+      </div>
+    </div>
     <div class="detalje-container">
-       <div class="detalje">
+      <div class="detalje">
         <ul>
           <li>Drømmehavet ApS</li>
           <li>Jordløsevej 3a</li>
@@ -18,15 +29,6 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
       </div>
       <div class="detalje">
         <a href="mailto:hejsa@droemmehavet.dk">Kontakt os</a>
-    </div>
-    </div>
-
-    <div class="icons">
-      <div class="appstore-icon">
-        <AppStoreButton/>
-      </div>
-      <div class="droemmehavetlogo-icon">
-        <DroemmehavetLogo/>
       </div>
     </div>
   </footer>
@@ -34,34 +36,50 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 
 <style scoped>
   footer {
+    padding-top: 50px;
     position: relative;
     height: 550px;
     background-color: var(--main-bg-blaa);
 
     .icons {
       .appstore-icon {
-        position: absolute;
-        left: 50%;
-        top: 10%;
+        position: relative;
+        margin: 0 auto;
+        width: 50px;
+      }
+
+      .sign-up {
+        position: relative;
+        max-width: 500px;
       }
       .droemmehavetlogo-icon {
-        position: absolute;
-        left: 50%;
-        top: 40%;
-        img {
-          width: 150px;
-          height: auto;
+        position: relative;
+        margin: 0 auto;
+        width: 50px;
+        .droemmehavetLogo {
+          transform: translateX(-50%);
+          position: relative;
+          width: 100px;
+          padding: 10px;
+          img {
+            width: 150px;
+            height: auto;
+          }
         }
+
       }
     }
     .detalje-container {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translate(-50%);
+      position: relative;
+      margin: 0 auto;
+      padding: 50px 0;
       color: white;
-      .detalje {
-        width: 150px;
+      width: 200px;
+      text-align: center;
+      transform: translateX(-20px);
+
+      a {
+        text-decoration: underline;
       }
     }
   }
