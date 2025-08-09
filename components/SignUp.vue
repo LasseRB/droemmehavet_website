@@ -92,8 +92,6 @@ form {
   display: flex;
   min-width: 800px;
   width: 100%;
-  backdrop-filter: blur(14px) saturate(200%);
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
   border-radius: 10px;
   overflow: hidden;
   margin: 0px auto 80px auto;
@@ -212,11 +210,6 @@ form {
       left: 25px;
     }
   }
-}
-.shadow {
-  box-shadow: 10px 10px 33px 0px rgba(222,39,148,0.19);
-  -webkit-box-shadow: 10px 10px 33px 0px rgba(222,39,148,0.19);
-  -moz-box-shadow: 10px 10px 33px 0px rgba(222,39,148,0.19);
 }
 
 @media only screen and (max-width: 600px) {

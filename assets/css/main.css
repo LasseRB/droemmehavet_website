@@ -22,6 +22,7 @@ html, body {
     --main-bg-blaa: #0060df;
     --secondary-bg-blaa: #0c94bf;
     --main-bg-hvid: #fdf8ec;
+    --main-bg-hvid_transparent: rgba(253, 248, 236, 0.45);
     --soft-box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     --hard-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -80,4 +81,10 @@ a:active, a:hover {
         max-width: 600px;
 
     }
+}
+
+.shadow {
+    box-shadow: 10px 10px 33px 0px rgba(222,39,148,0.19);
+    -webkit-box-shadow: 10px 10px 33px 0px rgba(222,39,148,0.19);
+    -moz-box-shadow: 10px 10px 33px 0px rgba(222,39,148,0.19);
 }
