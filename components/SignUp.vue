@@ -31,8 +31,8 @@ const submitEmail = async () => {
             <div class="email-vindue" v-show="steps == 'email-step'">
               <h1>Vi søger beta-testere</h1>
               <h3>Vil du være med?</h3>
-             <p> <a href="http://droemmehavet.dk/blog/38/kunsten-at-betateste-i-kor/">Læs mere her</a>,  <label for="email">eller giv os email, så kontakter vi dig med flere detaljer.</label></p>
-
+             <p> <a href="http://droemmehavet.dk/blog/38/kunsten-at-betateste-i-kor/">Læs mere her</a>, eller giv os din email - så kontakter vi dig med flere detaljer.</p>
+              <label for="email">Din email: </label>
               <div class="input-field">
                 <input
                     id="email"
