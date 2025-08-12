@@ -37,21 +37,9 @@ ul, li {
     margin: 0;
 }
 
-.blog {
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding: 100px 20px 20px 20px;
-    background-color: var(--main-bg-hvid);
-
-    .side-overskrift {
-        display: flex;
-    }
-}
-
 a, a:visited {
     color: inherit;
-    text-decoration: none;
+    text-decoration-line: underline;
     cursor: pointer;
 }
 a:active, a:hover {

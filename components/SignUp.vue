@@ -14,6 +14,8 @@ const submitEmail = async () => {
   data.append('email', email.value)
   data.append('navn', name.value)
   steps.value = 'success-step'
+  const res = await $fetch('https://hook.eu2.make.com/3xg02xvfq3x4cenexbrwdbn78i4xc1a8', {method: 'POST',  headers: {'x-make-apikey': 'droem-make-api-email', 'Content-Type': 'application/x-www-form-urlencoded'}, body: data})
+
   // snyder, og  fortælle brugeren at vi er færdige.
   await $fetch(googleURL, {
     method: 'POST',

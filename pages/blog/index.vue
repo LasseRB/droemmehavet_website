@@ -13,13 +13,3 @@
       </div>
   </div>
 </template>
-
-<style scoped>
-
-.blog-inner-grid {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin: 0 auto;
-}
-</style>
