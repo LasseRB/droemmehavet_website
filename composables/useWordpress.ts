@@ -10,7 +10,6 @@ export async function useWordpress() {
     }
     const {postResponse, mediaResponse, userResponse} = await fetchAllBlogindlaeg()
     app.runWithContext( () => {
-        console.log(posts)
         posts.value = postResponse.map((post: JSON) => {
             const media = mediaResponse.find(m => m.id == post!.featured_media)
             const user = userResponse.find(u => u.id == post.author)

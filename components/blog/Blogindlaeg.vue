@@ -15,10 +15,10 @@ defineProps<{
         <h2>af {{ blogindlaeg?.forfatter }}</h2>
         <h3>{{ blogindlaeg?.dato }}</h3>
       </div>
-      <div class="hero-image" :class="{ broken: !blogindlaeg?.featuredMedia }">
+      <figure class="hero-image" :class="{ broken: !blogindlaeg?.featuredMedia }">
         <img v-show="blogindlaeg?.featuredMedia" :src="blogindlaeg?.featuredMedia">
         <figcaption v-html="blogindlaeg.mediaCaption"></figcaption>
-      </div>
+      </figure>
       </div>
     <div class="broedtekst">
       <Content :text="blogindlaeg?.indhold" />

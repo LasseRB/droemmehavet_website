@@ -16,31 +16,26 @@
       </div>
       <section class="broedtekst">
         <h1>Kære betatester!</h1>
-        <p>Først og fremmest: <b>Tusind tak!</b> for at ville hjælpe os med Drømmethavets app. Jeres interesse i projektet er den bedste energidrik, vi kunne tænke os, til at færdiggøre og udgive vores lydunivers.
-          På denne side vil vi fortælle lidt om hvordan det kommer til at fungere.</p>
-        <p>Når man tester en app til Apples App Store, gør man brug af deres app Testflight. Du kan læse mere <a href="https://developer.apple.com/testflight/">her</a>.</p>
-        <p>Du modtager en seperat email fra apple, som gør opmærksom på at der er en app, du kan teste, og linker til TestFlight-appen. Her kan du vælge at downloade TestFlight, eller - hvis du allerede har gjort det - downloade vores app indefra TestFlight.</p>
-        <div class="row">
-          <div class="column">
-            <img src="~/assets/testflight-screenshot.jpeg" class="shadow" width="80%"/>
-            <figcaption>Screenshot fra TestFlight appen.</figcaption>
-          </div>
-          <div class="column">
-            <div class="column-padding">
-            <p>Herfra er det bare at teste! Åbn Drømmehavet, og tag screenshots med telefonen, hvis der er noget der ser forkert ud. Du kan give feedback direkte fra appen ved at trykke på <b>Send Feedback</b> -knappen.</p>
-            <p>Drømmehavet kan både åbnes fra TestFlight eller direkte fra din hjemmeskærm. Vær opmærksom på at man (officielt) kun kan give feedback via TestFlight.</p>
-            <p>Skulle det alligevel volde problemer, eller vil du hellere give feedback på anden vis, så skriv gerne til <a href="mailto:lasse@droemmehavet.dk">lasse@droemmehavet.dk</a>.</p>.
-            </div>
-          </div>
-        </div>
+        <p>Først og fremmest: TUSIND TAK for at ville hjælpe os med Drømmethavets app. På denne side vil vi fortælle lidt om hvordan testfasen kommer til at fungere.</p>
+        <p>Når man tester en app til Apples App Store, gør man brug af deres app <a href="https://developer.apple.com/testflight/">Testflight</a>.</p>
+        <p>Du modtager snart en seperat email fra Apple, som gør opmærksom på at der er en app, du kan teste, og linker til TestFlight-appen. Her kan du vælge at downloade TestFlight, eller - hvis du allerede har gjort det - installere Drømmehavet inde fra TestFlight.</p>
+        <figure class="blog-image">
+          <img src="~/assets/testflight-screenshot.jpeg" class="shadow"/>
+          <figcaption>Screenshot fra TestFlight appen.</figcaption>
+        </figure>
+        <p>Nu begynder det sjove! Nu kan du og/eller dit barn åbne Drømmehavet og udforske vores lydunivers!</p>
+        <h2>Sådan sendes feedback</h2>
+        <p>Vi håber selvfølgelig at jeres oplevelse med appen bliver nem, sjov og fejlfri. Men vi er også klar over at appen har sine mangler.</p>
+        <p>Skulle I finde noget, I gerne vil dele med os, kan feedback sendes ind via TestFLight. Tryk på <i>Send Feedback</i> knappen, som vil guide jer gennem en lille formular. Hvis I vil sende billeder med, kan der tages <a href="https://support.apple.com/guide/iphone/take-a-screenshot-iphc872c0115/ios">screenshots</a> som gemmes i telefonens kamerarulle, og som kan uploades vha. <i>Send Feedback</i>-formularen.</p>
+        <p>I er også velkomne til at give feedback via email. Skriv til <a href="mailto:hejsa@droemmehavet.dk">hejsa@droemmehavet.dk</a>, så skal vi nok få feedbacken med.</p>
       </section>
 
       <section class="broedtekst">
         <br />
         <hr />
-        <h2>Tusind tak for din/jeres hjælp!</h2>
-        <p>Vi glæder os så meget til at se høre hvad I synes om appen, samt se hvad I måske kan finde af sjove fejl.</p>
-        <p>God fornøjelse!</p>
+        <h2>Tusind tak for hjælpen!</h2>
+        <p>Vi glæder os så meget til at se høre hvad I synes om appen.</p>
+        <p>God testfornøjelse!</p>
         <br />
         <p>Bedste hilsener</p>
         <p>Esther, Nikolaj og Lasse </p>
@@ -61,11 +56,6 @@
   .column-padding {
     padding-left: 20px;
   }
-
-  figcaption {
-    padding: 30px 0 0 30px;
-  }
-
 }
 .row:after {
   content: "";
