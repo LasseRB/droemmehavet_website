@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Belleza&Modak&family=PT+Sans+Narrow:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-.mockup {
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' preserveAspectRatio='none' viewBox='0 0 100 100'><line x1='0' y1='0' x2='100' y2='100' stroke='black' vector-effect='non-scaling-stroke'/><line x1='0' y1='100' x2='100' y2='0' stroke='black' vector-effect='non-scaling-stroke'/></svg>");
-    background-color: rgba(232, 232, 232, 0.84);
-    border: 1px solid black;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% 100%, auto;
-}
-
 html, body {
     margin: 0;
     padding: 0;
@@ -17,14 +8,16 @@ html, body {
     font-weight: 400;
     font-style: normal;
     min-width:300px;
-    overflow-x: hidden;
-    overflow-y: auto;
     --main-bg-blaa: #0060df;
     --secondary-bg-blaa: #0c94bf;
     --main-bg-hvid: #fdf8ec;
     --main-bg-hvid_transparent: rgba(253, 248, 236, 0.45);
     --soft-box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     --hard-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 h1, h2 {

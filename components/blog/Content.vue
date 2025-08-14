@@ -31,8 +31,6 @@ const DynamicComponent = ResolveComponent(findComponentTag(props.text))
 
 
 <template>
-  <div>
    <DynamicComponent />
     <div v-html="removeComponentTag(html)"></div>
-  </div>
 </template>

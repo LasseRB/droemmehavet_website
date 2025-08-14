@@ -97,7 +97,7 @@ form {
   border-radius: 10px;
   overflow: hidden;
   margin: 0px auto 80px auto;
-  min-height: 300px;
+  height: 300px;
   a {
     text-decoration-line: underline;
     color: #2c3e50;
