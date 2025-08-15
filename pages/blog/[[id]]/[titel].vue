@@ -9,7 +9,7 @@ const { posts } = await useWordpress()
 const data: BlogPost = posts.value.find((indlaeg: BlogPost) => indlaeg.id == id)
 
 useHead({
-  title: `Drømmehavets: ${data.overskrift}`
+  title: `Drømmehavet: ${data.overskrift}`
 })
 
 </script>

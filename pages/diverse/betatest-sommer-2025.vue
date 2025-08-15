@@ -1,5 +1,7 @@
 <script setup lang="ts">
-
+useHead({
+  title: `Drømmehavet: Betatest sommer 2025`
+})
 </script>
 
 <template>
