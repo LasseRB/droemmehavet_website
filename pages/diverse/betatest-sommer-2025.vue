@@ -26,7 +26,6 @@
         <p>Nu begynder det sjove! Nu kan du og/eller dit barn åbne Drømmehavet og udforske vores lydunivers!</p>
         <h2>Sådan sendes feedback</h2>
         <p>Vi håber selvfølgelig at jeres oplevelse med appen bliver nem, sjov og fejlfri. Men vi er også klar over at appen har sine mangler.</p>
-        <h3>Til sidst</h3>
         <p>Vi har ikke sat en slutdato for betatesten. Indtil videre lader vi den køre så længe, det giver mening at modtage feedback.</p>
         <p>Skulle I finde noget, I gerne vil dele med os, kan feedback sendes ind via TestFlight. Tryk på <i>Send Feedback</i> knappen, som vil guide jer gennem en lille formular. Hvis I vil sende billeder med, kan der tages <a href="https://support.apple.com/guide/iphone/take-a-screenshot-iphc872c0115/ios">screenshots</a> som gemmes i telefonens kamerarulle, og som kan uploades vha. <i>Send Feedback</i>-formularen.</p>
         <p>Har I spørgsmål, eller vil I hellere sende feedback på anden vis, er I velkomne til at give feedback via email. Skriv til <a href="mailto:hejsa@droemmehavet.dk">hejsa@droemmehavet.dk</a>, så skal vi nok kigge på jeres feedback eller spørgsmål.</p>
