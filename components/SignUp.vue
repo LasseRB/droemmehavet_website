@@ -1,28 +1,32 @@
 <script setup>
-import { ref } from 'vue'
-const email = ref('')
-const name = ref('')
-const googleURL = 'https://script.google.com/macros/s/AKfycbyg_27lTfzhOBCo_I9vcWWC1XYmhHKoD6mk-o4sfMK6u8EfVCVIt4hu6CFVxEhvkYgeDg/exec'
-const emailValidation = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'
+import { ref } from "vue";
 
-const steps = ref('email-step')
-const neasteSkridt = () =>  email.value.match(emailValidation) !== null ? steps.value = 'navn-step' : null
-const forrigeSkridt = () => steps.value = 'email-step'
+const email = ref("");
+const name = ref("");
+const googleURL =
+	"https://script.google.com/macros/s/AKfycbyg_27lTfzhOBCo_I9vcWWC1XYmhHKoD6mk-o4sfMK6u8EfVCVIt4hu6CFVxEhvkYgeDg/exec";
+const emailValidation = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+const steps = ref("email-step");
+const neasteSkridt = () =>
+	email.value.match(emailValidation) !== null
+		? (steps.value = "navn-step")
+		: null;
+const forrigeSkridt = () => (steps.value = "email-step");
 
 const submitEmail = async () => {
-  const data = new FormData()
-  data.append('email', email.value)
-  data.append('navn', name.value)
-  steps.value = 'success-step'
-  const res = await $fetch('https://hook.eu2.make.com/3xg02xvfq3x4cenexbrwdbn78i4xc1a8', {method: 'POST',  headers: {'x-make-apikey': 'droem-make-api-email', 'Content-Type': 'application/x-www-form-urlencoded'}, body: data})
-
-  // snyder, og  fortælle brugeren at vi er færdige.
-  await $fetch(googleURL, {
-    method: 'POST',
-    body: data
-  })
-
-}
+	const data = new FormData();
+	data.append("email", email.value);
+	data.append("navn", name.value);
+	steps.value = "success-step";
+	// Sender email til Lasse om at vi har fået et signup.
+	await $fetch(`api/send?email=${email.value}&navn=${name.value}`);
+	// snyder, og  fortælle brugeren at vi er færdige.
+	await $fetch(googleURL, {
+		method: "POST",
+		body: data,
+	});
+};
 </script>
 
 <template>
