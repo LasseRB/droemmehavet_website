@@ -5,9 +5,6 @@ export default defineNuxtConfig({
 	css: ["~/assets/css/main.css", "~/assets/css/blog.css"],
 
 	nitro: {
-		firebase: {
-			gen: 2,
-		},
 		preset: "netlify-legacy",
 	},
 
