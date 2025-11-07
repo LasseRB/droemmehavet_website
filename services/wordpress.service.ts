@@ -1,8 +1,8 @@
 import type {BlogPost} from "~/model/model";
 import {formaterDato} from "~/utils/dato";
 
+const baseurl = 'https://blog.droemmehavet.dk/wp-json/wp/v2/'
 export const fetchAllBlogindlaeg = async () => {
-    const baseurl = 'https://blog.droemmehavet.dk/wp-json/wp/v2/'
     const posts = $fetch(`${baseurl}posts/?_fields=author,id,date,title,link,content,featured_media,excerpt`)
     const media = $fetch(`${baseurl}media`)
     const users = $fetch(`${baseurl}users`)
@@ -31,6 +31,10 @@ export const postToBlogindlaeg = (postJson: JSON, mediaJSON: JSON, userJSON: JSO
     }
 }
 
+export const fetchAllSider = () => {
+    return useFetch(`${baseurl}pages`);
+
+}
 const formaterLink = (link: string): string => {
     if (!link) return '#'
     return link?.replace('https://blog.droemmehavet.dk/', '');

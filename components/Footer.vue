@@ -1,6 +1,5 @@
 <script setup lang="ts">
 
-import AppStoreButton from "~/components/forside/AppStoreButton.vue";
 import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 </script>
 
@@ -30,6 +29,10 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
       <div class="detalje">
         <a href="mailto:hejsa@droemmehavet.dk">Kontakt os</a>
       </div>
+      <div class="detalje-container">
+        <div class="detalje"><NuxtLink to="/sider/privatlivspolitik">Privatlivspolitik</NuxtLink> / <NuxtLink to="/sider/privacy-policy">Privacy Policy</NuxtLink></div>
+
+      </div>
     </div>
   </footer>
 </template>
@@ -53,18 +56,12 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
         max-width: 500px;
       }
       .droemmehavetlogo-icon {
-        position: relative;
         margin: 0 auto;
-        width: 50px;
+        padding: 0;
+        width: 100px;
         .droemmehavetLogo {
-          transform: translateX(-50%);
-          position: relative;
-          width: 100px;
-          padding: 10px;
-          img {
-            width: 150px;
-            height: auto;
-          }
+          max-width: 100px;
+          transform: unset;
         }
 
       }
@@ -76,7 +73,6 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
       color: white;
       width: 200px;
       text-align: center;
-      transform: translateX(-20px);
 
       a {
         text-decoration: underline;

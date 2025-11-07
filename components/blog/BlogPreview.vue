@@ -8,7 +8,6 @@ defineProps<{
 </script>
 
 <template>
-
     <NuxtLink :to="`/blog/${blogindlaeg.link}`" class="blogPreview" :class="{teaser}">
       <div class="text-container" v-if="teaser" v-html="blogindlaeg.uddrag"></div>
       <div class="hero_image" v-if="blogindlaeg.featuredMedia != null">
