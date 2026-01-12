@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 	css: ["~/assets/css/main.css", "~/assets/css/blog.css"],
 
 	nitro: {
-		preset: "netlify-legacy",
+		preset: "netlify",
 	},
 
 	app: {
