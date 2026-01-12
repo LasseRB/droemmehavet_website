@@ -1,4 +1,3 @@
-droemmehavet_homepage/.firebase/hosting.YnVpbGQ.cache
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -16,6 +15,7 @@ droemmehavet_homepage/.firebase/hosting.YnVpbGQ.cache
 .nitro
 .cache
 dist
+.netlify
 
 # Logs
 logs
@@ -42,3 +42,4 @@ droemmehavet_homepage/.env
 .env
 .env.*
 !.env.example
+*.DS_Store

@@ -6,6 +6,9 @@ export default defineNuxtConfig({
 
 	nitro: {
 		preset: "netlify",
+		prerender: {
+			crawlLinks: true,
+		},
 	},
 
 	app: {

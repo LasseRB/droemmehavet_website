@@ -4,77 +4,83 @@ import { ref } from "vue";
 const email = ref("");
 const name = ref("");
 const googleURL =
-	"https://script.google.com/macros/s/AKfycbyg_27lTfzhOBCo_I9vcWWC1XYmhHKoD6mk-o4sfMK6u8EfVCVIt4hu6CFVxEhvkYgeDg/exec";
+  "https://script.google.com/macros/s/AKfycbyg_27lTfzhOBCo_I9vcWWC1XYmhHKoD6mk-o4sfMK6u8EfVCVIt4hu6CFVxEhvkYgeDg/exec";
 const emailValidation = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 
 const steps = ref("email-step");
 const neasteSkridt = () =>
-	email.value.match(emailValidation) !== null
-		? (steps.value = "navn-step")
-		: null;
+  email.value.match(emailValidation) !== null
+    ? (steps.value = "navn-step")
+    : null;
 const forrigeSkridt = () => (steps.value = "email-step");
 
 const submitEmail = async () => {
-	const data = new FormData();
-	data.append("email", email.value);
-	data.append("navn", name.value);
-	steps.value = "success-step";
-	// Sender email til Lasse om at vi har fået et signup.
-	await $fetch(`api/send?email=${email.value}&navn=${name.value}`);
-	// snyder, og  fortælle brugeren at vi er færdige.
-	await $fetch(googleURL, {
-		method: "POST",
-		body: data,
-	});
+  const data = new FormData();
+  data.append("email", email.value);
+  data.append("navn", name.value);
+  steps.value = "success-step";
+  // Sender email til Lasse om at vi har fået et signup.
+  await $fetch(`api/send?email=${email.value}&navn=${name.value}`);
+  // snyder, og  fortælle brugeren at vi er færdige.
+  await $fetch(googleURL, {
+    method: "POST",
+    body: data,
+  });
 };
 </script>
 
 <template>
   <form @submit.prevent="submitEmail" class="shadow">
-      <div class="left">
-        <Transition mode="out-in" name="slide-fade">
-          <div :key="steps">
-            <div class="email-vindue" v-show="steps == 'email-step'">
-              <h1>Vi søger beta-testere</h1>
-              <h3>Vil du være med?</h3>
-             <p> <a href="http://droemmehavet.dk/blog/38/kunsten-at-betateste-i-kor/">Læs mere her</a>, eller giv os din email - så kontakter vi dig med flere detaljer.</p>
-              <label for="email">Din email: </label>
-              <div class="input-field">
-                <input
-                    id="email"
-                    v-model="email"
-                    type="email"
-                    required
-                    class="shadow"
-                />
-                <button class="btn step1" @click="neasteSkridt">Næste</button>
-              </div>
-            </div>
-            <div class="navn-vindue" v-show="steps == 'navn-step'">
-              <h1>Fantastisk!</h1>
-              <label for="name">Hvad må vi kalde dig?</label>
-              <div class="input-field">
-                <input
-                    id="name"
-                    v-model="name"
-                    type="text"
-                    required
-                />
-                <button type="submit" class="step2 btn">Send</button>
-              </div>
-            <button type="button" @click="forrigeSkridt" v-if="steps === 'navn-step'"><div class="tilbageBtn"></div></button>
-            </div>
-            <div v-if="steps === 'success-step'">
-              <h1>Juhuu! Tusind tak. 🎉</h1>
-              <p>Du modtager en email snarest med mere information.</p>
+    <div class="left">
+      <Transition mode="out-in" name="slide-fade">
+        <div :key="steps">
+          <div class="email-vindue" v-show="steps == 'email-step'">
+            <h1>Vi søger beta-testere</h1>
+            <h3>Vil du være med?</h3>
+            <p>
+              <a
+                href="http://droemmehavet.dk/blog/38/kunsten-at-betateste-i-kor/"
+                >Læs mere her</a
+              >, eller giv os din email - så kontakter vi dig med flere
+              detaljer.
+            </p>
+            <label for="email">Din email: </label>
+            <div class="input-field">
+              <input
+                id="email"
+                v-model="email"
+                type="email"
+                required
+                class="shadow"
+              />
+              <button class="btn step1" @click="neasteSkridt">Næste</button>
             </div>
           </div>
-        </Transition>
+          <div class="navn-vindue" v-show="steps == 'navn-step'">
+            <h1>Fantastisk!</h1>
+            <label for="name">Hvad må vi kalde dig?</label>
+            <div class="input-field">
+              <input id="name" v-model="name" type="text" required />
+              <button type="submit" class="step2 btn">Send</button>
+            </div>
+            <button
+              type="button"
+              @click="forrigeSkridt"
+              v-if="steps === 'navn-step'"
+            >
+              <div class="tilbageBtn"></div>
+            </button>
+          </div>
+          <div v-if="steps === 'success-step'">
+            <h1>Juhuu! Tusind tak. 🎉</h1>
+            <p>Du modtager en email snarest med mere information.</p>
+          </div>
         </div>
-      <div class="right" :class="steps">
-        <img src="~/assets/signup-dino.png" />
-      </div>
-
+      </Transition>
+    </div>
+    <div class="right" :class="steps">
+      <img src="~/assets/signup-dino.png" />
+    </div>
   </form>
 </template>
 
@@ -96,7 +102,6 @@ const submitEmail = async () => {
 form {
   position: relative;
   display: flex;
-  min-width: 800px;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
@@ -116,14 +121,13 @@ form {
     justify-content: center;
     background-color: #fdf8ec;
     padding: 20px;
-    transition: width .5s ease;
+    transition: width 0.5s ease;
     flex: 1.1;
 
     .email-vindue {
       h1 {
-        line-height: .2;
+        line-height: 0.2;
       }
-
     }
   }
   .right {
@@ -131,7 +135,7 @@ form {
     position: relative;
     background-color: #33d0e8;
     background-size: cover;
-    width:100%;
+    width: 100%;
     overflow: hidden;
     flex: 1;
     transition: flex 0.2s ease-in-out;
@@ -144,9 +148,8 @@ form {
       flex: 1.2;
     }
     &.succes-step {
-      flex: .5;
+      flex: 0.5;
     }
-
   }
 
   .input-field {
@@ -154,7 +157,8 @@ form {
     font-size: larger;
     padding-top: 15px;
   }
-  input, textarea {
+  input,
+  textarea {
     width: 70%;
     margin-bottom: 10px;
     padding: 14px;
@@ -164,7 +168,8 @@ form {
     height: 50px;
     font-size: 15pt;
   }
-  button, .btn {
+  button,
+  .btn {
     border: none;
     cursor: pointer;
     background-color: transparent;
@@ -197,7 +202,7 @@ form {
     }
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       left: 1px;
       top: -5px;
@@ -210,7 +215,7 @@ form {
     }
 
     &:after {
-      content: 'tilbage';
+      content: "tilbage";
       position: absolute;
       top: -8px;
       left: 25px;
@@ -219,7 +224,6 @@ form {
 }
 
 @media only screen and (max-width: 600px) {
-
   form {
     min-width: 100%;
     margin: 10px;

@@ -1,19 +1,15 @@
 <script setup lang="ts">
-
 import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 </script>
 
 <template>
   <footer class="">
-
-
     <div class="icons">
-      <SignUp class="sign-up"/>
       <div class="appstore-icon">
-<!--        <AppStoreButton/>-->
+        <!--        <AppStoreButton/>-->
       </div>
       <div class="droemmehavetlogo-icon">
-        <DroemmehavetLogo/>
+        <DroemmehavetLogo />
       </div>
     </div>
     <div class="detalje-container">
@@ -30,53 +26,54 @@ import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
         <a href="mailto:hejsa@droemmehavet.dk">Kontakt os</a>
       </div>
       <div class="detalje-container">
-        <div class="detalje"><NuxtLink to="/sider/privatlivspolitik">Privatlivspolitik</NuxtLink> / <NuxtLink to="/sider/privacy-policy">Privacy Policy</NuxtLink></div>
-
+        <div class="detalje">
+          <NuxtLink to="/sider/privatlivspolitik">Privatlivspolitik</NuxtLink> /
+          <NuxtLink to="/sider/privacy-policy">Privacy Policy</NuxtLink>
+        </div>
       </div>
     </div>
   </footer>
 </template>
 
 <style scoped>
-  footer {
-    padding-top: 50px;
-    position: relative;
-    height: 550px;
-    background-color: var(--main-bg-blaa);
+footer {
+  padding-top: 50px;
+  position: relative;
+  height: 550px;
+  background-color: var(--main-bg-blaa);
 
-    .icons {
-      .appstore-icon {
-        position: relative;
-        margin: 0 auto;
-        width: 50px;
-      }
-
-      .sign-up {
-        position: relative;
-        max-width: 500px;
-      }
-      .droemmehavetlogo-icon {
-        margin: 0 auto;
-        padding: 0;
-        width: 100px;
-        .droemmehavetLogo {
-          max-width: 100px;
-          transform: unset;
-        }
-
-      }
-    }
-    .detalje-container {
+  .icons {
+    .appstore-icon {
       position: relative;
       margin: 0 auto;
-      padding: 50px 0;
-      color: white;
-      width: 200px;
-      text-align: center;
+      width: 50px;
+    }
 
-      a {
-        text-decoration: underline;
+    .sign-up {
+      position: relative;
+      max-width: 500px;
+    }
+    .droemmehavetlogo-icon {
+      margin: 0 auto;
+      padding: 0;
+      width: 100px;
+      .droemmehavetLogo {
+        max-width: 100px;
+        transform: unset;
       }
     }
   }
+  .detalje-container {
+    position: relative;
+    margin: 0 auto;
+    padding: 50px 0;
+    color: white;
+    width: 200px;
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
 </style>

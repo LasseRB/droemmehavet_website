@@ -4,7 +4,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default defineEventHandler(async (event) => {
 	const query = getQuery(event);
-	console.log(query);
+
 	const email: string = query?.email?.toString() ?? "lassebrunt@gmail.com";
 	const navn: string = query?.navn?.toString() ?? "lasse";
 	try {
