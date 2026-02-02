@@ -1,17 +1,12 @@
 <template>
-  <a href="#" class="appstore">
-    <img src="~/assets/appstore.png" alt="Download i Apple app-store"/>
+  <a href="https://apple.co/4kb2cCl" class="appstore">
+    <img src="~/assets/appstoreDK.svg" alt="Download i Apple app-store" />
   </a>
 </template>
-<script>
-
-</script>
+<script></script>
 
 <style scoped>
 .appstore {
-  position: absolute;
-  transform: translate(-50%, -50%);
-
   img {
     border-radius: 10px;
     width: 150px;

@@ -1,15 +1,22 @@
 <script setup lang="ts">
+import AppStoreButton from "~/components/forside/AppStoreButton.vue";
+
 useHead({
-  title: 'Dengang jeg opdagede drømmehavet'
-})
+  title: "Dengang jeg opdagede drømmehavet",
+});
 </script>
 
 <template>
   <div class="limdrengbog">
     <div class="inner-box">
-    <h1>Dengang jeg opdagede drømmehavet</h1>
+      <AppStoreButton />
+      <h1>Dengang jeg opdagede drømmehavet</h1>
       <p>Lyt til historien her!</p>
-      <audio class="audio-player shadow" controls src="https://firebasestorage.googleapis.com/v0/b/droemmehavet-1aa53.appspot.com/o/droemmehavet_webpage%2Faudiofiles%2FDengang%20jeg%20opdagede%20Dr%C3%B8mmehavet.mp3?alt=media"></audio>
+      <audio
+        class="audio-player shadow"
+        controls
+        src="https://firebasestorage.googleapis.com/v0/b/droemmehavet-1aa53.appspot.com/o/droemmehavet_webpage%2Faudiofiles%2FDengang%20jeg%20opdagede%20Dr%C3%B8mmehavet.mp3?alt=media"
+      ></audio>
     </div>
   </div>
 </template>
@@ -32,7 +39,7 @@ useHead({
     height: max-content;
     border-radius: 20px;
     padding: 20px;
-    background-color: var(--main-bg-hvid_transparent  );
+    background-color: var(--main-bg-hvid_transparent);
     text-align: center;
     backdrop-filter: blur(14px) saturate(200%);
     -webkit-backdrop-filter: blur(14px) saturate(200%);
@@ -54,7 +61,7 @@ useHead({
       background-color: #f4f4f4;
       border-radius: 10px;
       padding: 15px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -72,7 +79,7 @@ useHead({
 
     /* Custom Play/Pause Button */
     .audio-player audio::-webkit-media-controls-play-button {
-      background-color: #4CAF50;
+      background-color: #4caf50;
       border-radius: 50%;
       width: 40px;
       height: 40px;
@@ -85,11 +92,27 @@ useHead({
 
     /* Progress Bar */
     .audio-player audio::-webkit-media-controls-current-time-display {
-      color: #4CAF50;
+      color: #4caf50;
       font-weight: bold;
     }
-
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .limdrengbog {
+    .inner-box {
+      width: 100%;
+      height: 100%;
+      place-content: center;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .audio-player {
+        width: 80%;
+      }
+    }
+  }
+}
 </style>
