@@ -8,6 +8,7 @@ export default defineNuxtConfig({
 		preset: "netlify",
 		prerender: {
 			crawlLinks: true,
+			ignore: ["/blog"],
 		},
 	},
 
