@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {type BlogPost} from "~/model/model";
-import Content from "~/components/blog/Content.vue" 
-defineProps<{
-  blogindlaeg: BlogPost
-}>()
+import Content from "~/components/blog/Content.vue";
+import type { BlogPost } from "~/model/model";
 
+defineProps<{
+	blogindlaeg: BlogPost;
+}>();
 </script>
 
 <template>
@@ -22,7 +22,6 @@ defineProps<{
       </div>
     <div class="broedtekst">
       <Content :text="blogindlaeg?.indhold" />
-
     </div>
   </article>
 </template>

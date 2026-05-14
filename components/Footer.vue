@@ -1,15 +1,14 @@
 <script setup lang="ts">
+import AppStoreButton from "~/components/forside/AppStoreButton.vue";
 import DroemmehavetLogo from "~/components/forside/DroemmehavetLogo.vue";
 </script>
 
 <template>
   <footer class="">
     <div class="icons">
-      <div class="appstore-icon">
-        <!--        <AppStoreButton/>-->
-      </div>
       <div class="droemmehavetlogo-icon">
         <DroemmehavetLogo />
+        <AppStoreButton :should-glow="true"/>
       </div>
     </div>
     <div class="detalje-container">
@@ -43,26 +42,30 @@ footer {
   background-color: var(--main-bg-blaa);
 
   .icons {
-    .appstore-icon {
-      position: relative;
-      margin: 0 auto;
-      width: 50px;
-    }
-
+    
     .sign-up {
       position: relative;
       max-width: 500px;
     }
     .droemmehavetlogo-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin: 0 auto;
-      padding: 0;
-      width: 100px;
+      padding: 16px 24px;
+      width: fit-content;
+      border-radius: 20px;
+
       .droemmehavetLogo {
+        position: relative;
         max-width: 100px;
         transform: unset;
+        padding-bottom: 25px;
       }
     }
+
   }
+
   .detalje-container {
     position: relative;
     margin: 0 auto;
@@ -76,4 +79,5 @@ footer {
     }
   }
 }
+
 </style>
